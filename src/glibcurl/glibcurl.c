@@ -1,4 +1,4 @@
-/* $Id: glibcurl.c,v 1.7 2004-07-19 15:22:49 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.c,v 1.8 2004-07-19 18:50:27 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -202,7 +202,7 @@ static gpointer selectThread(gpointer data) {
     g_cond_wait(curlSrc->cond, curlSrc->mutex);
     D((stderr, "selectThread: post-wait\n"));
 
-  } /* endwhile (TRUE) */
+  }
 
   curlSrc->selectThread = NULL;
   D((stderr, "selectThread: exit\n"));
