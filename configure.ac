@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.8 2004-08-03 16:29:08 atterer Exp $
+dnl $Id: configure.ac,v 1.9 2004-08-14 18:36:45 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -102,8 +102,9 @@ AC_CACHE_CHECK(whether the C++ compiler is recent enough,
         template<typename T = double> struct X {
           template<class U> void function(T* t, U* u);
         };
+        template<> struct X<void> { void function(void* t, int* u); };
       }
-      template<> void B::X<void>::function(void* t, int* u);
+      void B::X<void>::function(void*, int*) { }
     },, jigdo_cv_prog_cxx_recent="yes", jigdo_cv_prog_cxx_recent="no")
 )
 if test "$jigdo_cv_prog_cxx_recent" = "no"; then
