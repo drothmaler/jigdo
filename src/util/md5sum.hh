@@ -1,6 +1,6 @@
-/* $Id: md5sum.hh,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: md5sum.hh,v 1.3 2004-06-20 20:35:15 atterer Exp $ -*- C++ -*-
   __   _
-  |_) /|  Copyright (C) 2000-2002  |  richard@
+  |_) /|  Copyright (C) 2000-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
   ¯ '` ¯
   "Ported" to C++ by RA. Actual MD5 code taken from glibc
@@ -58,7 +58,7 @@ public:
   /** Clear contents to zero */
   inline MD5& clear();
   /** Convert to string */
-  INLINE string toString() const;
+  string toString() const;
 
   template<class Iterator>
   inline Iterator serialize(Iterator i) const;

@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.14 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.15 2004-06-20 20:35:15 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -22,7 +22,7 @@
 #include <makeimagedl.hh>
 #include <md5sum.hh>
 #include <mimestream.hh>
-#include <url-part.hh>
+//#include <url-part.hh>
 //______________________________________________________________________
 
 DEBUG_UNIT("jigdo-io")
