@@ -1,4 +1,4 @@
-/* $Id: url-mapping.hh,v 1.4 2004-08-14 18:38:33 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.hh,v 1.5 2004-08-14 20:27:58 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -87,7 +87,7 @@ public:
       too hard. In practice, we achieve randomisation by initializing the
       weight with a small random value, in the range
       [-RANDOM_INIT_RANGE,RANDOM_INIT_RANGE) */
-  static const double RANDOM_INIT_RANGE = 0.03125;
+  static const double RANDOM_INIT_RANGE;
 
 private:
   string urlVal; // Part of URL

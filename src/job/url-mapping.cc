@@ -1,4 +1,4 @@
-/* $Id: url-mapping.cc,v 1.4 2004-08-14 18:38:32 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.cc,v 1.5 2004-08-14 20:27:58 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -34,6 +34,8 @@ namespace {
   } r;
 
 }
+
+const double UrlMapping::RANDOM_INIT_RANGE = 0.03125;
 
 namespace { bool randomInit = true; }
 void UrlMapping::setNoRandomInitialWeight() { randomInit = false; }
