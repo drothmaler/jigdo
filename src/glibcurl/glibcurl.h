@@ -1,4 +1,4 @@
-/* $Id: glibcurl.h,v 1.2 2004-07-17 11:46:06 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.h,v 1.3 2004-07-19 16:50:19 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -68,7 +68,7 @@ void glibcurl_set_callback(GlibcurlCallback function, void* data);
     curl_multi_cleanup() and curl_global_cleanup(). */
 void glibcurl_cleanup();
 
-  //#warning "TODO: glibcurl proxy functions do nothing ATM"
+/* #warning "TODO: glibcurl proxy functions do nothing ATM" */
 void glibcurl_add_proxy(const char* protocol, const char* proxy);
 void glibcurl_add_noproxy(const char* host);
 
