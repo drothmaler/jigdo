@@ -1,4 +1,4 @@
-/* $Id: bstream.hh,v 1.15 2004-06-18 23:22:47 atterer Exp $ -*- C++ -*-
+/* $Id: bstream.hh,v 1.16 2004-08-03 16:30:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -162,7 +162,7 @@ bifstream::bifstream(const char* name, ios::openmode m) : bistream() {
   open(name, m);
 }
 
-void bifstream::open(const char* name, ios::openmode m) {
+void bifstream::open(const char* name, ios::openmode DEBUG_ONLY_PARAM(m)) {
   Paranoid((m & ios::binary) != 0 && f == 0);
   f = fopen(name, "rb");
 }

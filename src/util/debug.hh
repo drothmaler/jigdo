@@ -1,4 +1,4 @@
-/* $Id: debug.hh,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: debug.hh,v 1.7 2004-08-03 16:30:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -41,6 +41,25 @@
 // };
 
 // inline bool optDebug() { return OptDebug::optDebug(); }
+//______________________________________________________________________
+
+/* For C (not C++), GCC 2.95 gives an error if a function param name is not
+   given. GCC 3.4 gives a warning if it is given, but unused. Define param
+   name to nothing for 3.4 */
+#if defined __GNUC__ && __GNUC__ < 3
+#  define UNUSED_PARAM(_p) _p
+#else
+#  define UNUSED_PARAM(_p)
+#endif
+
+
+/** To avoid warnings if a function argument is only used by Paranoid(), i.e.
+    only if DEBUG is defined */
+#if DEBUG
+#  define DEBUG_ONLY_PARAM(_p) _p
+#else
+#  define DEBUG_ONLY_PARAM(_p)
+#endif
 //______________________________________________________________________
 
 namespace Debug {
