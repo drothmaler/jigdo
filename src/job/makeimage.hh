@@ -1,4 +1,4 @@
-/* $Id: makeimage.hh,v 1.5 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: makeimage.hh,v 1.6 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -119,20 +119,19 @@ public:
       @param destDir destination directory that the final image should be
       written to. Initially, MakeImage will create a temporary dir (name
       based on jigdoFile leafname) to store administrative data in. */
-  inline MakeImage(const string& jigdoFile, //const string& destDir,
-                   JigdoConfig::ProgressReporter* jigdoErrors);
+  inline explicit MakeImage(const string& jigdoFile);
   inline ~MakeImage();
 
   /** Set where to report JigdoConfig errors, overwriting any value passed as
       jigdoErrors to the ctor. */
-  inline void setReporter(JigdoConfig::ProgressReporter* jigdoErrors);
+//   inline void setReporter(JigdoConfig::ProgressReporter* jigdoErrors);
 
   /** Public data member: Contents of .jigdo file. The component using this
       MakeImage should retrieve the .jigdo data and add it here with
       configFile().push_back(line) for each line of the file. Call
       config.rescan() when done. */
-  JigdoConfig config;
-  ConfigFile& configFile() { return config.configFile(); }
+//   JigdoConfig config;
+//   ConfigFile& configFile() { return config.configFile(); }
 
 private:
   // Don't copy
@@ -140,14 +139,13 @@ private:
 };
 //______________________________________________________________________
 
-MakeImage::MakeImage(const string& jigdoFile, //const string& destDir,
-                     JigdoConfig::ProgressReporter* jigdoErrors)
-  : config(jigdoFile, new ConfigFile(), *jigdoErrors) { }
+MakeImage::MakeImage(const string& jigdoFile) //const string& destDir,
+  /*: config(jigdoFile, new ConfigFile(), *jigdoErrors)*/ { }
 
 MakeImage::~MakeImage() { }
 
-void MakeImage::setReporter(JigdoConfig::ProgressReporter* jigdoErrors) {
-  config.setReporter(*jigdoErrors);
-}
+// void MakeImage::setReporter(JigdoConfig::ProgressReporter* jigdoErrors) {
+//   config.setReporter(*jigdoErrors);
+// }
 
 #endif

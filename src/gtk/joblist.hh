@@ -1,4 +1,4 @@
-/* $Id: joblist.hh,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.hh,v 1.6 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -166,8 +166,8 @@ private:
   int needTicks;
   int timeoutId; // as returned by gtk_timeout_add()
 
-  int selectRowIdleId; // Callback avoids mult. calls to entries' selectRow()
-  //JobLine* selectRowTarget; // Which object to call selectRow() for
+  // Callback avoids mult. calls to entries' selectRow()
+  unsigned selectRowIdleId;
 };
 //______________________________________________________________________
 

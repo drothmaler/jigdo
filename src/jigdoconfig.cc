@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig.cc,v 1.4 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig.cc,v 1.5 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -142,7 +142,7 @@ void JigdoConfig::rescan_makeSubst(list<ServerLine>& entries,
     Map::iterator mapl, const ServerLine& l, bool& printError) {
   // Split the value, "Foo:some/path", into whitespace-separated words
   vector<string> words;
-  ConfigFile::split(words, l.line, l.valueStart);
+  ConfigFile::split(words, *l.line, l.valueStart);
 # if 0
   if (words.size() > 1 && printError) {
     /* In the future, there might be support for --switches, so don't

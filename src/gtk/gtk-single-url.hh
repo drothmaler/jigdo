@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.10 2003-08-30 17:43:42 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.11 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -45,8 +45,8 @@ public:
   /** Only in child mode, delay (millisec) between the MakeImageDl telling us
       that it has deleted its child and the moment we delete the
       corresponding line from the JobList. The delay allows the user to read
-      a "finished" or error message. */
-  static const int CHILD_FINISHED_DELAY = 5000;
+      the "finished" message. */
+  static const int CHILD_FINISHED_DELAY = 10000;
 
   /** Create a new GtkSingleUrl, and also create an internal Job::SingleUrl
       to do the actual download. Delete the internal SingleURl from
@@ -176,7 +176,8 @@ void GtkSingleUrl::on_stopButton_clicked() {
 //________________________________________
 
 void GtkSingleUrl::childIsFinished() {
-  callRegularlyLater(CHILD_FINISHED_DELAY, &GtkSingleUrl::deleteThis);
+  if (state == SUCCEEDED)
+    callRegularlyLater(CHILD_FINISHED_DELAY, &GtkSingleUrl::deleteThis);
 }
 
 #endif

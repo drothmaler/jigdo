@@ -1,4 +1,4 @@
-/* $Id: messagebox.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: messagebox.cc,v 1.6 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -82,6 +82,7 @@ void MessageBox::init(const char* type, int buttons,
   }
   msg = gtk_label_new(label.c_str());
   gtk_label_set_use_markup(GTK_LABEL(msg), TRUE);
+  gtk_label_set_selectable(GTK_LABEL(msg), TRUE);
   gtk_widget_show(msg);
   gtk_box_pack_end(GTK_BOX(hbox), msg, FALSE, FALSE, 0);
   gtk_label_set_line_wrap(GTK_LABEL(msg), TRUE);

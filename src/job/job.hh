@@ -1,4 +1,4 @@
-/* $Id: job.hh,v 1.2 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: job.hh,v 1.3 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -129,7 +129,7 @@ public:
 
     </pre>*/
 template<class SomeIO>
-class IOPtr { // NB: No specialization for void* possible
+class IOPtr {
 public:
   IOPtr(SomeIO* io) : ptr(io) { }
   ~IOPtr() { if (ptr != 0) ptr->job_deleted(); }

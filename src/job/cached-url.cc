@@ -1,4 +1,4 @@
-/* $Id: cached-url.cc,v 1.1 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: cached-url.cc,v 1.2 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -108,6 +108,8 @@ gboolean CachedUrl::spoolDataCallback(gpointer) {
     spoolDataCallbackId = 0;
     return FALSE; // "Don't call me again"
   }
+
+  // FIXME: Code below only lightly tested, probably buggy
 
   debug("Callback working");
   GTimeVal start;

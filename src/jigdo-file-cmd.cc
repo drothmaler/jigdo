@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.4 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.5 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -464,7 +464,7 @@ int JigdoFileCmd::printMissing(Command command) {
         // f.label()   points to "label=..." line, or end() if f.finished()
         // off is offset of part after "label=", or 0
         words.clear();
-        ConfigFile::split(words, f.label(), off);
+        ConfigFile::split(words, *f.label(), off);
         // Ignore everything but the first word
         if (printMissing_lookup(jc, words[0], false)) { found = true; break;}
       }
@@ -493,7 +493,7 @@ int JigdoFileCmd::printMissing(Command command) {
         // f.label()   points to "label=..." line, or end() if f.finished()
         // off is offset of part after "label=", or 0
         words.clear();
-        ConfigFile::split(words, f.label(), off);
+        ConfigFile::split(words, *f.label(), off);
         // Ignore everything but the first word
         printMissing_lookup(jc, words[0], true);
       }

@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.9 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.10 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -102,7 +102,7 @@ void JobList::postGtkInit() {
   gtk_tree_view_append_column(view(), objectColumn);
 
   gtk_tree_view_set_expander_column(view(), objectColumn);
-  gtk_tree_view_set_reorderable(view(), TRUE);
+  gtk_tree_view_set_reorderable(view(), FALSE);
 
   /* In order to make the GUI easier to understand for first-time users,
      don't display list headers until their info is really appropriate. */
