@@ -1,4 +1,4 @@
-/* $Id: uri.cc,v 1.4 2004-08-09 15:14:32 atterer Exp $ -*- C++ -*-
+/* $Id: uri.cc,v 1.5 2004-08-14 18:38:33 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -27,7 +27,7 @@
 /** Create a new URI from an absolute base URI and a relative URI. (rel can
     also be absolute, in this case, the result in dest equals rel.) */
 void uriJoin(string* dest, const string& base, const string& rel) {
-  if (isRealUrl(rel)) {
+  if (isRealUrl(rel) || base.empty()) {
     *dest = rel;
     return;
   }

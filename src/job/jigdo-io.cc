@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.19 2004-08-09 08:35:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.20 2004-08-14 18:38:32 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -696,8 +696,8 @@ void JigdoIO::entry(string* label, string* data, unsigned valueOff) {
   } else if (section == "Servers") {
 
     if (value.empty()) return generateError(_("Missing argument"));
-    if (master()->urlMap.addServer(urlVal, *label, value).failed())
-      return generateError(_("Recursive label definition"));
+    const char* x = master()->urlMap.addServer(urlVal, *label, value);
+    if (x != 0) return generateError(x);
 
   } // endif (section == "Something")
 
