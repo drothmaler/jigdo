@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.hh,v 1.23 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.hh,v 1.24 2004-11-24 10:38:44 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -379,7 +379,7 @@ public:
 };
 //____________________
 
-/** Each Child object stands for one DataSource (i.e. SingleUrl/CachedUrl)
+/** Each Child object stands for one DataSource (i.e.\ SingleUrl/CachedUrl)
     which the MakeImageDl starts as a "child download" of itself. The Child
     maintains a private pointer to a DataSource. It also listens to what
     happens to the DataSource and informs the parent MakeImageDl e.g. of

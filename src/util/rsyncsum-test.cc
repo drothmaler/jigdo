@@ -1,4 +1,4 @@
-/* $Id: rsyncsum-test.cc,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: rsyncsum-test.cc,v 1.3 2004-11-24 10:38:44 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -76,7 +76,9 @@ void printBlockSums(size_t blockSize, const char* fileName) {
       cur += file.gcount();
     }
     RsyncSum64 sum(buf, cur - buf);
-    cout << ' ' << sum << endl;
+    cout << ' ' << sum
+         << " (lo=0x" << hex << sum.getLo()
+         << ", hi=0x" << hex << sum.getHi() << ')' << endl;
   }
   exit(0);
 }
