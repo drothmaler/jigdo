@@ -1,4 +1,4 @@
-/* $Id: debug.hh,v 1.1 2003-07-04 22:30:16 atterer Exp $ -*- C++ -*-
+/* $Id: debug.hh,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2002 Richard Atterer
   | \/¯|  <atterer@informatik.tu-muenchen.de>
@@ -31,16 +31,16 @@
 #include <string>
 //______________________________________________________________________
 
-class OptDebug {
-public:
-  static bool optDebug() { return d; }
-  static void setOptDebug(bool dd) { d = dd; }
-private:
-  OptDebug(); // Do not instantiate
-  static bool d;
-};
+// class OptDebug {
+// public:
+//   static bool optDebug() { return d; }
+//   static void setOptDebug(bool dd) { d = dd; }
+// private:
+//   OptDebug(); // Do not instantiate
+//   static bool d;
+// };
 
-inline bool optDebug() { return OptDebug::optDebug(); }
+// inline bool optDebug() { return OptDebug::optDebug(); }
 //______________________________________________________________________
 
 // This prints an "Assertion failed" message

@@ -1,4 +1,4 @@
-/* $Id: jobline.cc,v 1.1 2003-07-04 22:29:48 atterer Exp $ -*- C++ -*-
+/* $Id: jobline.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -152,7 +152,5 @@ JobLine::~JobLine() {
 
 void JobLine::waitTick() {
   if (--waitCountdown == 0) callRegularly(waitDestination);
-# if DEBUG_JOBLIST
-    cerr << "waitCountdown=" << waitCountdown << endl;
-# endif
+  JobList::debug("waitCountdown=%1", waitCountdown);
 }

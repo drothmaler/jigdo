@@ -1,4 +1,4 @@
-/* $Id: partialmatch.ih,v 1.1 2003-07-04 22:29:15 atterer Exp $ -*- C++ -*-
+/* $Id: partialmatch.ih,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -185,8 +185,7 @@ MkTemplate::PartialMatch* MkTemplate::PartialMatchQueue::findDropCandidate(
 
     // All of the matches are sector-aligned - increase sector size & retry
     *sectorLength *= 2;
-    if (optDebug())
-      cerr << "Increased sector length to " << *sectorLength << endl;
+    MkTemplate::debug("Increased sector length to %1", *sectorLength);
   }
 }
 

@@ -1,4 +1,4 @@
-/* $Id: debug.cc,v 1.1 2003-07-04 22:30:16 atterer Exp $ -*- C++ -*-
+/* $Id: debug.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2002 Richard Atterer
   | \/¯|  <atterer@informatik.tu-muenchen.de>
@@ -18,7 +18,7 @@
 #include <debug.hh>
 //______________________________________________________________________
 
-bool OptDebug::d = false;
+//bool OptDebug::d = false;
 //______________________________________________________________________
 
 int Debug::assertFail(const char* assertion, const char* file,

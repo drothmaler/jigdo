@@ -1,4 +1,4 @@
-/* $Id: string-utftest.cc,v 1.1 2003-07-04 22:30:17 atterer Exp $ -*- C++ -*-
+/* $Id: string-utftest.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -20,25 +20,6 @@
 
 #include <string-utf.hh>
 //______________________________________________________________________
-
-#if 0
-gchar *
-g_locale_to_utf8 (const gchar  *opsysstring,
-                  gssize        len,
-                  gsize        *bytes_read,
-                  gsize        *bytes_written,
-                  GError      **error)
-{
-  const char *charset;
-
-  if (g_get_charset (&charset))
-    return strdup_len (opsysstring, len, bytes_read, bytes_written, error);
-  else
-    return g_convert (opsysstring, len,
-                      "UTF-8", charset, bytes_read, bytes_written, error);
-}
-#endif
-//____________________
 
 namespace {
 
@@ -91,8 +72,8 @@ int main() {
        subst("5 Wah %F1 <Woo!", "Wäääh"));
 
   // But we can have subst() convert the string for us
-  test("6 Wah WÃ¤Ã¤Ã¤h Woo!",
-       subst("6 Wah %L1 %2", "Wäääh", "Woo!"));
+  test("6 Wah WÃ¤Ã¤Ã¤h 0xdeadbeef 1.234500",
+       subst("6 Wah %L1 %2 %3", "Wäääh", (void*)(0xDeadBeef), 1.2345));
 
   // convert from ISO-8859-1 and escape <>&
   test("7 Wah <b>WÃ¤&lt;Ã¤&gt;Ã¤h&amp;</b> &lt; Woo!",

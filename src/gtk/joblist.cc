@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.3 2003-08-05 15:04:59 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.4 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -29,6 +29,8 @@
 //______________________________________________________________________
 
 JobList GUI::jobList;
+
+DebugLogger JobList::debug("joblist");
 
 const char* const JobList::PROGRESS_IMAGE_FILE = "progress-green.png";
 

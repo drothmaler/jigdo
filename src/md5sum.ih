@@ -1,4 +1,4 @@
-/* $Id: md5sum.ih,v 1.1 2003-07-04 22:29:11 atterer Exp $ -*- C++ -*-
+/* $Id: md5sum.ih,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -17,11 +17,28 @@
 #include <mimestream.hh>
 //______________________________________________________________________
 
+string MD5::toString() const {
+  Base64String m;
+  m.write(sum, 16).flush();
+  return m.result();
+}
+
 ostream& operator<<(ostream& s, const MD5& r) {
   Base64String m;
   m.write(r.sum, 16).flush();
   s << m.result();
   return s;
+}
+
+string MD5Sum::toString() const {
+  const byte* d = digest();
+  if (d == 0) {
+    return "[MD5_creation_not_finished]";
+  } else {
+    Base64String m;
+    m.write(d, 16).flush();
+    return m.result();
+  }
 }
 
 ostream& operator<<(ostream& s, const MD5Sum& r) {

@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.hh,v 1.1 2003-07-04 22:29:34 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.hh,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -84,6 +84,7 @@ class JigdoFileCmd {
   static bool optAddImage; // true => Add [Image] section to output .jigdo
   static bool optAddServers; // true => Add [Servers] to output .jigdo
   static bool optHex; // true => Use hex not base64 output for md5/ls cmds
+  static string optDebug; // list of debug msg to turn on, or all/help
   // Reporter is defined in config.h and is the base of all other *Reporter's
   static AnyReporter* optReporter;
   static string optMatchExec;
