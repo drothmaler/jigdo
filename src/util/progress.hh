@@ -1,4 +1,4 @@
-/* $Id: progress.hh,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: progress.hh,v 1.8 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -19,6 +19,8 @@
 #include <iosfwd>
 #include <string>
 #include <glib.h>
+
+#include <progress.fh>
 //______________________________________________________________________
 
 class Progress {

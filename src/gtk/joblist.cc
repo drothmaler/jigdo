@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.8 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -269,9 +269,9 @@ gint JobList::timeoutCallback(gpointer jobList) {
                                               &row);
   while (ok) {
     JobLine* j = self->get(&row);
+    ok = gtk_tree_model_iter_next_depth(GTK_TREE_MODEL(self->store()), &row);
     // Yargh! This syntax took me 30 minutes to get right:
     if (j != 0 && j->needTicks()) (j->*(j->tick))();
-    ok = gtk_tree_model_iter_next_depth(GTK_TREE_MODEL(self->store()), &row);
   }
   return TRUE;
 }

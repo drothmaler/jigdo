@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.8 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -17,6 +17,8 @@
 #include <gtk-single-url.hh>
 #include <string-utf.hh>
 //______________________________________________________________________
+
+DEBUG_UNIT("gtk-makeimage")
 
 GtkMakeImage::GtkMakeImage(const string& uriStr, const string& destination)
   : progress(), status(), treeViewStatus(),
@@ -142,7 +144,7 @@ void GtkMakeImage::job_message(string* message) {
 }
 
 Job::DataSource::IO* GtkMakeImage::makeImageDl_new(
-    Job::SingleUrl* childDownload, const string& destDesc) {
+    Job::DataSource* childDownload, const string& destDesc) {
 # if DEBUG
   msg("GtkMakeImage::makeImageDl_new", 0);
 # endif
@@ -156,11 +158,12 @@ Job::DataSource::IO* GtkMakeImage::makeImageDl_new(
   return child;
 }
 
-void GtkMakeImage::makeImageDl_finished(Job::SingleUrl* childDownload) {
-  GtkSingleUrl* child =
-    dynamic_cast<GtkSingleUrl*>(childDownload->io().get());
+void GtkMakeImage::makeImageDl_finished(Job::DataSource* /*childDownload*/,
+                                        Job::DataSource::IO* yourIo) {
+  GtkSingleUrl* child = dynamic_cast<GtkSingleUrl*>(yourIo);
   Assert(child != 0);
-  delete child;
+  debug("Child finished");
+  child->childIsFinished();
 }
 //______________________________________________________________________
 

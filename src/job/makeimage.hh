@@ -1,4 +1,4 @@
-/* $Id: makeimage.hh,v 1.3 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: makeimage.hh,v 1.4 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -17,6 +17,7 @@
 #include <config.h>
 
 #include <debug.hh>
+#include <jigdo-io.hh>
 #include <jigdoconfig.hh>
 #include <nocopy.hh>
 //______________________________________________________________________

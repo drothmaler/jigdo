@@ -1,4 +1,4 @@
-/* $Id: debug.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: debug.cc,v 1.6 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2002 Richard Atterer
   | \/¯|  <atterer@informatik.tu-muenchen.de>
@@ -13,6 +13,7 @@
 #if defined DEBUG && defined HAVE_UNISTD_H
 #  include <unistd.h> /* for sleep() */
 #endif
+#include <stdlib.h>
 
 #include <config.h>
 #include <debug.hh>
@@ -26,7 +27,11 @@ namespace { Logger debug("assert", true); }
 int Debug::assertFail(const char* assertion, const char* file,
                       unsigned int line) {
   debug("%1:%2: `%3' failed", file, line, assertion);
+# if DEBUG
+  abort();
+# else
   return 0;
+# endif
 }
 //______________________________________________________________________
 
