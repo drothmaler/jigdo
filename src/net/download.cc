@@ -1,4 +1,4 @@
-/* $Id: download.cc,v 1.20 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
+/* $Id: download.cc,v 1.21 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -247,7 +247,9 @@ void Download::glibcurlCallback(void*) {
         download->state = SUCCEEDED;
         download->outputVal->download_succeeded();
       } else {
-        download->generateError(ERROR, msg->data.result);
+        State newState =
+          (msg->data.result == CURLE_PARTIAL_FILE ? INTERRUPTED : ERROR);
+        download->generateError(newState, msg->data.result);
       }
       //glibcurl_remove(download->handle);
     }

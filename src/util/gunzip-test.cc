@@ -1,4 +1,4 @@
-/* $Id: gunzip-test.cc,v 1.4 2004-08-15 13:09:50 atterer Exp $ -*- C++ -*-
+/* $Id: gunzip-test.cc,v 1.5 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -38,8 +38,9 @@ namespace {
     byte buf[BUFSIZE];
     virtual ~ToStdout() { }
     virtual void gunzip_deleted() { }
-    virtual void gunzip_data(Gunzip*, byte* decompressed,
+    virtual void gunzip_data(Gunzip* self, byte* decompressed,
                              unsigned size) {
+      Assert(self != 0); // NOP, doxygen insists on the param name
       cout.write(reinterpret_cast<char*>(decompressed), size);
     }
     virtual void gunzip_needOut(Gunzip* self) {
@@ -92,8 +93,9 @@ namespace {
     }
     virtual ~ToString() { delete[] buf; }
     virtual void gunzip_deleted() { }
-    virtual void gunzip_data(Gunzip*, byte* decompressed,
+    virtual void gunzip_data(Gunzip* self, byte* decompressed,
                              unsigned size) {
+      Assert(self != 0); // NOP, doxygen insists on the param name
       if (buf[bufsize] != 0x7fU) o += "[BUFFER OVERFLOW]";
       o.append(reinterpret_cast<const char*>(decompressed), size);
     }

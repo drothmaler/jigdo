@@ -1,4 +1,4 @@
-/* $Id: single-url.hh,v 1.13 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.hh,v 1.14 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -205,6 +205,8 @@ BfstreamCounted* Job::SingleUrl::destStream() const {
   return destStreamVal.get(); }
 
 bool Job::SingleUrl::resumePossible() const {
+//   msg("Job::SingleUrl::resumePossible tries=%1 interr=%2 curSiz=%3",
+//       tries, download.interrupted(), progressVal.currentSize());
   if (tries >= MAX_TRIES || !download.interrupted()) return false;
   if (progressVal.currentSize() == 0
       || progressVal.dataSize() == 0) return true;

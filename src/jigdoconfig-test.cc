@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig-test.cc,v 1.4 2004-09-09 23:50:20 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig-test.cc,v 1.5 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -30,7 +30,8 @@ namespace {
       if (lineNr > 0) cerr << lineNr << ": ";
       cerr << message << endl;
     }
-  } myPR;
+  };
+  PR myPR;
 
 }
 

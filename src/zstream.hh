@@ -1,4 +1,4 @@
-/* $Id: zstream.hh,v 1.1 2003-07-04 22:29:41 atterer Exp $ -*- C++ -*-
+/* $Id: zstream.hh,v 1.2 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -62,7 +62,12 @@ public:
                    int memLevel = 8, size_t todoBufSz = 256U,
                    MD5Sum* md = 0);
   bool is_open() const { return stream != 0; }
-  /** @param todoBufSz Size of mini buffer, which holds data sent to
+  /** @param s Output stream
+      @param chunkLimit Size limit for output data, will buffer this much
+      @param level 0 to 9
+      @param windowBits zlib param
+      @param memLevel zlib param
+      @param todoBufSz Size of mini buffer, which holds data sent to
       the stream with single put() calls or << statements */
   void open(bostream& s, size_t chunkLimit, int level =Z_DEFAULT_COMPRESSION,
             int windowBits = 15, int memLevel = 8, size_t todoBufSz = 256U);

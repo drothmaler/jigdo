@@ -1,4 +1,4 @@
-/* $Id: dirent.hh,v 1.1 2003-07-04 22:29:32 atterer Exp $ -*- C++ -*-
+/* $Id: dirent.hh,v 1.2 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -7,7 +7,9 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  Compatibility header for glib+mingw.
+*//** @file
+
+  Compatibility header for glib+mingw. Probably no longer an issue.y
 
 */
 

@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.13 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.14 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -51,8 +51,7 @@ public:
       register itself with download's IOPtr) and passes it on to childIo.
       @param c Object which owns us (it is the MakeImageDl's child, but our
       master)
-      @param download Gives the data of the .jigdo file to us
-      @param childIo Provided by the frontend, e.g. a GtkSingleUrl object */
+      @param url URL of the .jigdo file */
   JigdoIO(MakeImageDl::Child* c, const string& url/* IOPtr,
           DataSource::IO* frontendIo*/);
   ~JigdoIO();

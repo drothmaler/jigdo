@@ -1,4 +1,4 @@
-/* $Id: url-mapping.cc,v 1.6 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.cc,v 1.7 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -31,7 +31,8 @@ namespace {
     GRand* r;
     RandSingleton() : r(g_rand_new()) { }
     ~RandSingleton() { g_rand_free(r); }
-  } r;
+  };
+  RandSingleton r;
 
 }
 

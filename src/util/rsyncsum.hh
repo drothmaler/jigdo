@@ -1,4 +1,4 @@
-/* $Id: rsyncsum.hh,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: rsyncsum.hh,v 1.3 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -65,6 +65,7 @@ public:
       same signature, but only removes one byte.) */
   inline RsyncSum& addBackNtimes(byte x, size_t n);
   /** Remove memory area from start of area covered by the checksum
+      @param mem Data to remove
       @param len Number of bytes to remove from area, so it will cover
       area-len bytes after call
       @param areaSize Size covered by area before call (necessary for

@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.14 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.15 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -61,9 +61,11 @@ public:
       (more accurately, the methods that this GtkSingleUrl inherits from
       Job::DataSource::IO). See also GtkMakeImage::makeImageDl_new().
 
+      @param uriStr URL
       @param destDesc A descriptive string like "/foo/bar/image, offset
       3453", NOT a filename! Supplied for information only, to be displayed
-      to the user. */
+      to the user.
+      @param download The download we are attached to */
   GtkSingleUrl(const string& uriStr, const string& destDesc,
                Job::DataSource* download);
   virtual ~GtkSingleUrl();

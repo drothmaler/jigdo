@@ -1,4 +1,4 @@
-/* $Id: makeimage.hh,v 1.8 2004-08-03 16:31:52 atterer Exp $ -*- C++ -*-
+/* $Id: makeimage.hh,v 1.9 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -117,7 +117,7 @@ public:
 
   /** jigdoFile argument is only used for displaying error messages when
       scanning the .jigdo file contents.
-      @param destDir destination directory that the final image should be
+      TODO param destDir destination directory that the final image should be
       written to. Initially, MakeImage will create a temporary dir (name
       based on jigdoFile leafname) to store administrative data in. */
   inline explicit MakeImage();

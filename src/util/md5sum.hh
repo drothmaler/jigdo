@@ -1,4 +1,4 @@
-/* $Id: md5sum.hh,v 1.3 2004-06-20 20:35:15 atterer Exp $ -*- C++ -*-
+/* $Id: md5sum.hh,v 1.4 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -134,7 +134,8 @@ public:
   /** Read data from file and update() this checksum with it.
       @param s The stream to read from
       @param size Total number of bytes to read
-      @param r Reporter object
+      @param bufSize Size of temporary read buffer
+      @param pr Reporter object
       @return Number of bytes read (==size if no error) */
   uint64 updateFromStream(bistream& s, uint64 size,
       size_t bufSize = 128*1024, ProgressReporter& pr = noReport);
