@@ -3,7 +3,7 @@
 **
 **	(c) COPYRIGHT MIT 1995.
 **	Please first read the full copyright statement in the file COPYRIGH.
-**	@(#) $Id: libwww-HTFTP.c,v 1.1 2003-07-04 22:30:00 atterer Exp $
+**	@(#) $Id: libwww-HTFTP.c,v 1.2 2003-08-13 14:07:21 atterer Exp $
 **
 **	A cache of control connections is kept.
 **
@@ -1637,12 +1637,7 @@ PRIVATE int FTPEvent (SOCKET soc, void * pVoid, HTEventType type)
 		ctrl->state = FTP_SUCCESS;
 	    else if (status == HT_OK)
 		ctrl->state = FTP_NEED_DCON;
-	    else if (HTRequest_method(request) == METHOD_PUT)
-		ctrl->state = FTP_ERROR;
-	    else if (!FTP_DIR(data) && !data->stream_error) {
-		FTPListType(data, ctrl->server);
-		ctrl->state = FTP_NEED_SERVER;         /* Try a dir instead? */
-	    } else
+	    else
 		ctrl->state = FTP_ERROR;
 	    break;
 
