@@ -1,4 +1,4 @@
-/* $Id: glibcurl.c,v 1.3 2004-07-17 16:03:55 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.c,v 1.4 2004-07-17 23:55:43 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -157,6 +157,14 @@ void glibcurl_cleanup() {
 }
 /*______________________________________________________________________*/
 
+#ifdef G_OS_WIN32
+static void registerUnregisterFds() {
+#warning mingw32-runtime
+  return;
+}
+
+#else
+
 static void registerUnregisterFds() {
   int fd, fdMax;
 
@@ -208,6 +216,7 @@ static void registerUnregisterFds() {
 
   curlSrc->lastPollFdMax = curlSrc->fdMax;
 }
+#endif
 
 /* Called before all the file descriptors are polled by the glib main loop.
    We must have a look at all fds that libcurl wants polled. If any of them
@@ -245,9 +254,12 @@ gboolean check(GSource* source) {
     if (revents == 0) continue;
     somethingHappened = 1;
 /*     D((stderr, "[fd%d] ", fd)); */
-    if (revents & (G_IO_IN | G_IO_PRI))  FD_SET(fd, &curlSrc->fdRead);
-    if (revents & G_IO_OUT)              FD_SET(fd, &curlSrc->fdWrite);
-    if (revents & (G_IO_ERR | G_IO_HUP)) FD_SET(fd, &curlSrc->fdExc);
+    if (revents & (G_IO_IN | G_IO_PRI))
+      FD_SET((unsigned)fd, &curlSrc->fdRead);
+    if (revents & G_IO_OUT)
+      FD_SET((unsigned)fd, &curlSrc->fdWrite);
+    if (revents & (G_IO_ERR | G_IO_HUP))
+      FD_SET((unsigned)fd, &curlSrc->fdExc);
   }
 /*   D((stderr, "check: fdMax %d\n", curlSrc->fdMax)); */
 

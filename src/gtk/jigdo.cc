@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.10 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.11 2004-07-17 23:55:43 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -28,6 +28,10 @@
 #if DEBUG
 #  include <string.h>
 #  include <unistd.h>
+#endif
+
+#if WINDOWS
+#  include <windows.h>
 #endif
 //______________________________________________________________________
 
