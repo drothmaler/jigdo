@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.1 2003-07-04 22:29:50 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -42,13 +42,18 @@ JobList::~JobList() {
      window is deleted. */
 
   /* Delete Jobs. When deleted, the job will erase itself from the list, so
-     just keep getting the first list element. */
+     just keep getting the first list element.
+     Careful: This might be called during static finalization, even in the
+     case that GTK+ was not initialized (e.g. because DISPLAY was not set).
+     So only make calls to GTK+ if non-empty. */
   GtkTreeIter row;
-  while (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store()), &row)) {
-    if (DEBUG) cerr << "~JobList: Deleting " << &row << endl;
-    delete get(&row);
+  if (!empty()) {
+    while (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store()), &row)) {
+      if (DEBUG) cerr << "~JobList: Deleting " << &row << endl;
+      delete get(&row);
+    }
   }
-  g_object_unref(store());
+  if (store()) g_object_unref(store());
 }
 //______________________________________________________________________
 

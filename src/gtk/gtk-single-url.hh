@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.1 2003-07-04 22:29:44 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -81,8 +81,8 @@ private:
   virtual void job_succeeded();
   virtual void job_failed(string* message);
   virtual void job_message(string* message);
-  virtual void singleURL_dataSize(uint64 n);
-  virtual void singleURL_data(const byte* data, unsigned size,
+  virtual void singleUrl_dataSize(uint64 n);
+  virtual void singleUrl_data(const byte* data, unsigned size,
                               uint64 currentSize);
 
   /* Return true if the object was created using the second ctor, i.e. with a

@@ -1,4 +1,4 @@
-/* $Id: progress.hh,v 1.1 2003-07-04 22:30:15 atterer Exp $ -*- C++ -*-
+/* $Id: progress.hh,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -75,7 +75,9 @@ public:
       currentSize or dataSize. Use this e.g. when continuing a download after
       it has been paused. Also records the current time to signify the start
       of the download, so don't wait too long between calling this and
-      actually (re)starting the download. */
+      actually (re)starting the download.
+      Important: Use setCurrentSize(0);reset(); and not the other way round,
+      or the speed calculation will go belly up. */
   void reset();
 
   static const int SPEED_TICK_INTERVAL = 3000;

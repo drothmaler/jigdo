@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.hh,v 1.1 2003-07-04 22:29:54 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.hh,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -90,13 +90,16 @@ public:
   inline State state() const;
 
   /** Return name of temporary directory. This is a subdir of "destination"
-      (ctor arg), contains a hash of the jigdoUri. */
+      (ctor arg), contains a hash of the jigdoUri. Never ends in '/'. */
   inline const string& tmpDir() const;
 
 private:
   /** Methods from JigdoConfig::ProgressReporter */
   virtual void error(const string& message);
   virtual void info(const string& message);
+
+  // Write a ReadMe.txt to the download dir; fails silently
+  void writeReadMe();
 
   // Wraps around a SingleUrl, for downloading the .jigdo file
   class JigdoDownload;

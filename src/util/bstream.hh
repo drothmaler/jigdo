@@ -1,4 +1,4 @@
-/* $Id: bstream.hh,v 1.1 2003-07-04 22:30:22 atterer Exp $ -*- C++ -*-
+/* $Id: bstream.hh,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -40,8 +40,18 @@ inline istream& readBytes(istream& s, byte* buf, streamsize count) {
   return s.read(reinterpret_cast<char*>(buf), count);
 }
 
+inline iostream& readBytes(iostream& s, byte* buf, streamsize count) {
+  s.read(reinterpret_cast<char*>(buf), count);
+  return s;
+}
+
 inline ostream& writeBytes(ostream& s, const byte* buf, streamsize count) {
   return s.write(reinterpret_cast<const char*>(buf), count);
+}
+
+inline iostream& writeBytes(iostream& s, const byte* buf, streamsize count) {
+  s.write(reinterpret_cast<const char*>(buf), count);
+  return s;
 }
 
 // template<class somestream>

@@ -1,4 +1,4 @@
-/* $Id: libwww.hh,v 1.1 2003-07-04 22:30:00 atterer Exp $ -*- C++ -*-
+/* $Id: libwww.hh,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -26,6 +26,9 @@ extern "C" {
 #include <WWWStream.h>
 #include <WWWTrans.h>
 //#include "WWWUtil.h"
+
+// HTReqMan.h incorrectly defines the name as HTRequest_deleteRangeAll
+extern BOOL HTRequest_deleteRange (HTRequest * request);
 }
 
 #include <config.h>
