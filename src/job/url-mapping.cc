@@ -1,4 +1,4 @@
-/* $Id: url-mapping.cc,v 1.2 2004-08-09 08:35:05 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.cc,v 1.3 2004-08-09 14:57:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -71,8 +71,11 @@ ServerUrlMapping* UrlMap::findOrCreateServerUrlMapping(
 void UrlMap::addPart(const string& baseUrl, const MD5& md,
                           vector<string>& value) {
   string url;
-  uriJoin(&url, baseUrl, value.front());
-  debug("addPart %1 -> %2", md.toString(), url);
+  if (findLabelColon(value.front()) != 0)
+    url = value.front();
+  else
+    uriJoin(&url, baseUrl, value.front());
+  //debug("addPart %1 -> %2", md.toString(), url);
 
   PartUrlMapping* p = new PartUrlMapping();
   unsigned colon = findLabelColon(url);
@@ -100,7 +103,10 @@ void UrlMap::addPart(const string& baseUrl, const MD5& md,
 Status UrlMap::addServer(const string& baseUrl, const string& label,
                               vector<string>& value) {
   string url;
-  uriJoin(&url, baseUrl, value.front());
+  if (findLabelColon(value.front()) != 0)
+    url = value.front();
+  else
+    uriJoin(&url, baseUrl, value.front());
   debug("addServer %1 -> %2", label, url);
 
   /* Create entry for "Foobar". We usually create a new ServerUrlMapping,

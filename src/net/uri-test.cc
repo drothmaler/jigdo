@@ -1,4 +1,4 @@
-/* $Id: uri-test.cc,v 1.1 2004-08-09 08:35:05 atterer Exp $ -*- C++ -*-
+/* $Id: uri-test.cc,v 1.2 2004-08-09 14:57:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -31,15 +31,28 @@ namespace {
 int main(int argc, char* argv[]) {
   if (argc == 2) Logger::scanOptions(argv[1], argv[0]);
 
-  testUriJoin("foo", "bar", "foobar");
+  testUriJoin("foo", "bar", "foo/bar");
   testUriJoin("http://base/", "rel", "http://base/rel");
   testUriJoin("http://base/boo.html", "rel", "http://base/rel");
   testUriJoin("http://base/", "http://wah/", "http://wah/");
-  testUriJoin("http://base/", "telnet:", "telnet:");
+  testUriJoin("http://base/", "telnet://", "telnet://");
 
   /* Should ideally eliminate ../ if possible. */
-  testUriJoin("http://base/", "../../x", "http://base/../../x");
-  testUriJoin("http://base/a/b/", "../x/y", "http://base/a/b/../x/y");
+  testUriJoin("http://base/", "../../x", "http://base/x");
+  testUriJoin("http://base/a/b/", "../x/./y", "http://base/a/x/y");
+
+  testUriJoin("http://cdimage.debian.org/pub/cdimage-testing/cd/jigdo-area/"
+              "i386/sarge-i386-1.jigdo", "/debian-cd/debian-servers.jigdo",
+              "http://cdimage.debian.org/debian-cd/debian-servers.jigdo");
+  testUriJoin("http://cdimage.debian.org",
+              "/debian-cd/debian-servers.jigdo",
+              "http://cdimage.debian.org/debian-cd/debian-servers.jigdo");
+
+  testUriJoin("http://host/leaf", "foo", "http://host/foo");
+  testUriJoin("http://host/leaf", "../../foo", "http://host/foo");
+  testUriJoin("http://host/leaf", "../../foo/", "http://host/foo/");
+  testUriJoin("http://host/a/b/c", "/bar", "http://host/bar");
+  testUriJoin("http://host/a/b/c", "/", "http://host/");
 
   msg("Exit");
   return 0;
