@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.8 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.9 2004-06-16 15:21:49 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -446,7 +446,12 @@ namespace {
        when it is compressed again by jigdo, it will get slightly
        larger. */
     Zibstream data(*templ, readAmount + 8*1024);
+#   if HAVE_WORKING_FSTREAM
     if (img == 0) img = &cout; // EEEEEK!
+#   else
+    static bifstream stdinStream(stdin);
+    if (img == 0) img = &stdinStream;
+#   endif
 
     JigdoDesc::ImageInfo& imageInfo =
         dynamic_cast<JigdoDesc::ImageInfo&>(*files.back());

@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.7 2003-12-21 19:22:37 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.8 2004-06-16 15:21:49 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -137,12 +137,21 @@ namespace {
 
   // Write lower 48 bits of x to s in little-endian order
   void write48(bostream& s, uint64 x) {
+#   if 0
     s << static_cast<byte>(x & 0xff)
       << static_cast<byte>((x >> 8) & 0xff)
       << static_cast<byte>((x >> 16) & 0xff)
       << static_cast<byte>((x >> 24) & 0xff)
       << static_cast<byte>((x >> 32) & 0xff)
       << static_cast<byte>((x >> 40) & 0xff);
+#   else
+    s.put(static_cast<byte>( x        & 0xff));
+    s.put(static_cast<byte>((x >> 8)  & 0xff));
+    s.put(static_cast<byte>((x >> 16) & 0xff));
+    s.put(static_cast<byte>((x >> 24) & 0xff));
+    s.put(static_cast<byte>((x >> 32) & 0xff));
+    s.put(static_cast<byte>((x >> 40) & 0xff));
+#   endif
   }
 
 } // namespace

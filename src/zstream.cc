@@ -1,4 +1,4 @@
-/* $Id: zstream.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: zstream.cc,v 1.6 2004-06-16 15:21:49 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -285,7 +285,7 @@ Zibstream& Zibstream::read(byte* dest, size_t n) {
       const char* cur = hdr;
       byte x;
       while (*cur != '\0' && *stream) {
-        *stream >> x; // Any errors handled below, after end of while()
+        x = stream->get(); // Any errors handled below, after end of while()
         if (*cur != x) { // Reached end of file or non-DATA part
           stream->seekg(hdr - cur, ios::cur);
           delete[] buf;
