@@ -1,4 +1,4 @@
-/* $Id: single-url.hh,v 1.12 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.hh,v 1.13 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -64,7 +64,7 @@ public:
 
   /** Create object, but don't start the download yet - use run() to do that.
       @param uri URI to download */
-  SingleUrl(DataSource::IO* ioPtr, const string& uri);
+  SingleUrl(/*IOPtr DataSource::IO* ioPtr, */const string& uri);
   virtual ~SingleUrl();
 
   /** Set offset to resume from - download must not yet have been started,

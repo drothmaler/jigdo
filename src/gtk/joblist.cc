@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.12 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.13 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -67,6 +67,11 @@ void JobList::finalize() {
     g_object_unref(store());
     storeVal = 0;
   }
+
+  for (vector<GdkPixbuf*>::iterator i = progressGfx.begin(),
+         e = progressGfx.end(); i != e; ++i)
+    g_object_unref(*i);
+  progressGfx.clear();
 }
 
 JobList::~JobList() {
@@ -141,17 +146,21 @@ void JobList::pixbufForJobLine_init() {
   memset(&progressValue, 0, sizeof(progressValue));
   g_value_init(&progressValue, G_TYPE_FROM_INSTANCE(progressImage));
 
-  int width = gdk_pixbuf_get_width(progressImage);
-  int height = gdk_pixbuf_get_height(progressImage);
+  unsigned width = gdk_pixbuf_get_width(progressImage);
+  unsigned height = gdk_pixbuf_get_height(progressImage);
   // height must be evenly divisible by PROGRESS_SUBDIV
   Assert(height % PROGRESS_SUBDIV == 0);
-  int subHeight = height / PROGRESS_SUBDIV;
+  unsigned subHeight = height / PROGRESS_SUBDIV;
 
-  for (int y = 0; y < height; y += subHeight) {
+  for (unsigned y = 0; y < height; y += subHeight) {
     GdkPixbuf* sub = gdk_pixbuf_new_subpixbuf(progressImage, 0, y,
                                               width, subHeight);
     progressGfx.push_back(sub);
   }
+  Paranoid(progressGfx.size() == PROGRESS_SUBDIV);
+  /* progressImage shares pixels with the subpixbufs, so will not be deleted
+     immediately: */
+  g_object_unref(progressImage);
 }
 //________________________________________
 

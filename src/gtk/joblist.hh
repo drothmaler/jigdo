@@ -1,4 +1,4 @@
-/* $Id: joblist.hh,v 1.8 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.hh,v 1.9 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -152,7 +152,7 @@ private:
 
   /* Used by initAfterGtk(): Nr of pixbufs to subdivide the progress XPM
      into, filename to load from. */
-  static const int PROGRESS_SUBDIV = 61;
+  static const unsigned PROGRESS_SUBDIV = 61;
   static const char* const PROGRESS_IMAGE_FILE;
   static GdkPixbuf* progressImage; // Pixel data
   static vector<GdkPixbuf*> progressGfx; // sub-GdkPixbufs of progressImage

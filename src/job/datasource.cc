@@ -1,4 +1,4 @@
-/* $Id: datasource.cc,v 1.1 2003-08-17 15:51:19 atterer Exp $ -*- C++ -*-
+/* $Id: datasource.cc,v 1.2 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -15,6 +15,4 @@
 
 using namespace Job;
 
-DataSource::~DataSource() {
-  if (io) io->job_deleted();
-}
+//DataSource::~DataSource() { }

@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.13 2004-08-15 16:29:19 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.14 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -100,8 +100,8 @@ private:
   // From Job::DataSource:IO
   virtual void job_deleted();
   virtual void job_succeeded();
-  virtual void job_failed(string* message);
-  virtual void job_message(string* message);
+  virtual void job_failed(const string& message);
+  virtual void job_message(const string& message);
   virtual void dataSource_dataSize(uint64 n);
   virtual void dataSource_data(const byte* data, unsigned size,
                               uint64 currentSize);

@@ -1,4 +1,4 @@
-/* $Id: download.hh,v 1.13 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
+/* $Id: download.hh,v 1.14 2004-08-29 01:01:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -25,6 +25,7 @@
 // #include <curl.h>
 typedef void CURL;
 typedef void CURLSH;
+struct curl_slist;
 
 #ifdef ERROR
 #  undef ERROR /* Windows... */
@@ -43,10 +44,9 @@ public:
   /// Class for outputting progress reports and data
   class Output;
 
-  // Initialize libwww - call this before starting any downloads
+  /** Initialize libwww - call this before starting any downloads */
   static void init();
-
-  // Clean up libwww - call this after all requests are finished
+  /** Clean up - call this after all requests are finished */
   static void cleanup();
 
   Download(const string& uri, Output* o /*= 0*/);
@@ -149,6 +149,7 @@ private:
   unsigned stopLaterId; // glib idle function id, or 0 if none
 
   static string userAgent;
+  static struct curl_slist* extraHeaders;
   bool insideNewData;
 };
 //______________________________________________________________________

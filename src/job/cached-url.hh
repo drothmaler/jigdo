@@ -1,4 +1,4 @@
-/* $Id: cached-url.hh,v 1.1 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: cached-url.hh,v 1.2 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -40,7 +40,7 @@ public:
       @param filename File to spool from
       @param prio "Priority" - if >1 CachedUrls are running, the ones with
       lower prio get spooled first. */
-  CachedUrl(DataSource::IO* ioPtr, const string& filename, uint64 prio);
+  CachedUrl(const string& filename, uint64 prio);
   virtual ~CachedUrl();
 
   virtual void run();
