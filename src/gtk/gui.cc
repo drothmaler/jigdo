@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.6 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.7 2003-11-11 14:17:03 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -80,6 +80,16 @@ void GUI::create() {
   GdkColor white;
   gdk_color_parse("white", &white);
   gtk_widget_modify_bg(window.aboutBgnd, GTK_STATE_NORMAL, &white);
+
+//   GtkRcStyle* aboutStyle = gtk_widget_get_modifier_style(window.aboutBgnd);
+//   gdk_color_parse("white", &aboutStyle->bg[0]);
+//   ... modify style - how?
+//   gtk_widget_modify_style(window.aboutBgnd, aboutStyle);
+
+//   gtk_widget_set_name(window.aboutBgnd, "aboutBgnd");
+//   gtk_rc_parse_string("style \"whitebg\" { bg[NORMAL] = \"white\" }");
+//   gtk_rc_parse_string("widget \"aboutBgnd\" style \"whitebg\"");
+
   // Set string "Jigsaw Download x.y.z" on welcome screen
   GtkLabel* aboutJigdoLabel = GTK_LABEL(GUI::window.aboutJigdoLabel);
   string banner = subst(_(
