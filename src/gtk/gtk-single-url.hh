@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.12 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.13 2004-08-15 16:29:19 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -34,9 +34,9 @@
     whenever the job has something to say.
 
     2) GtkDataSource-which-just-isnt-called-like-that, aka "child mode": The
-    frontend for a Job::DataSource object. This object is _not_ owned by the
-    GtkSingleUrl object. This is used if a MakeImageDl starts new child
-    downloads.
+    frontend for a Job::DataSource object. This DataSource object is _not_
+    owned by the GtkSingleUrl object. This is used if a MakeImageDl starts
+    new child downloads.
 
     The two modes share so much code that IMHO doing two classes would not be
     better. */

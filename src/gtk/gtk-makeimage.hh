@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.hh,v 1.7 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.hh,v 1.8 2004-08-15 16:27:01 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -8,6 +8,11 @@
   the file COPYING for details.
 
   Download and processing of .jigdo files - GTK+ frontend
+
+  Beware of the interesting ownership relations here: As the front-end,
+  GtkMakeImage creates and owns a MakeImageDl. That MakeImageDl creates child
+  downloads of its own which are owned by *it*. However, GtkSingleUrls are
+  attached to those child downloads.
 
 */
 
