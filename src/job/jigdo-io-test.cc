@@ -1,4 +1,4 @@
-/* $Id: jigdo-io-test.cc,v 1.8 2004-08-15 16:29:34 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io-test.cc,v 1.9 2004-08-15 16:36:07 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -227,7 +227,7 @@ const char* Job::MakeImageDl::destDescTemplateVal =
     _("Cache entry %1  --  %2");
 
 void MakeImageDl::childFailed(Child* childDl, DataSource::IO*,
-                              DataSource::IO*, bool) {
+                              DataSource::IO*) {
   msg("childFailed: %1",
       childDl->source() ? childDl->source()->location() :"[deleted source]");
   // No: delete childDl;
