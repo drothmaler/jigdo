@@ -1,4 +1,4 @@
-/* $Id: url-mapping-test.cc,v 1.3 2004-08-14 20:27:58 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping-test.cc,v 1.4 2004-08-15 13:09:50 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -9,7 +9,8 @@
 
   Test for addServer(), addPart()
 
-  #test-deps job/url-mapping.o util/configfile.o util/md5sum.o util/glibc-md5.o net/uri.o
+  #test-deps job/url-mapping.o util/configfile.o util/md5sum.o util/glibc-md5.o
+  #test-deps net/uri.o
 
 */
 

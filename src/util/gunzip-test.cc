@@ -1,4 +1,4 @@
-/* $Id: gunzip-test.cc,v 1.3 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: gunzip-test.cc,v 1.4 2004-08-15 13:09:50 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -10,6 +10,7 @@
   In-memory, push-oriented decompression of .gz files
 
   #test-deps util/gunzip.o
+  #test-ldflags $(LIBS)
 
 */
 
