@@ -1,4 +1,4 @@
-/* $Id: glibcurl.c,v 1.8 2004-07-19 18:50:27 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.c,v 1.9 2004-07-29 15:34:20 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -411,14 +411,6 @@ void glibcurl_cleanup() {
 }
 /*______________________________________________________________________*/
 
-#ifdef G_OS_WIN32
-static void registerUnregisterFds() {
-#warning mingw32-runtime
-  return;
-}
-
-#else
-
 static void registerUnregisterFds() {
   int fd, fdMax;
 
@@ -470,7 +462,6 @@ static void registerUnregisterFds() {
 
   curlSrc->lastPollFdMax = curlSrc->fdMax;
 }
-#endif
 
 /* Called before all the file descriptors are polled by the glib main loop.
    We must have a look at all fds that libcurl wants polled. If any of them
