@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.9 2004-06-16 15:21:49 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.10 2004-06-16 15:27:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -449,8 +449,8 @@ namespace {
 #   if HAVE_WORKING_FSTREAM
     if (img == 0) img = &cout; // EEEEEK!
 #   else
-    static bifstream stdinStream(stdin);
-    if (img == 0) img = &stdinStream;
+    static bofstream stdoutStream(stdout);
+    if (img == 0) img = &stdoutStream;
 #   endif
 
     JigdoDesc::ImageInfo& imageInfo =
