@@ -1,4 +1,4 @@
-/* $Id: glibcurl-example.c,v 1.4 2004-12-04 13:38:09 atterer Exp $ -*- C -*-
+/* $Id: glibcurl-example.c,v 1.5 2004-12-04 13:57:06 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
 
   /* Clean up */
   for (i = 0; i < HANDLES; ++i) {
-    curl_multi_remove_handle(glibcurl_handle(), h[i]);
+    glibcurl_remove(h[i]);
     curl_easy_cleanup(h[i]);
   }
   glibcurl_cleanup();

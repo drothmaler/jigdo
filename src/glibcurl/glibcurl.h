@@ -1,4 +1,4 @@
-/* $Id: glibcurl.h,v 1.6 2004-09-11 23:26:29 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.h,v 1.7 2004-12-04 13:58:29 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -68,9 +68,9 @@ typedef void (*GlibcurlCallback)(void*);
     argument. */
 void glibcurl_set_callback(GlibcurlCallback function, void* data);
 
-/** You must call curl_multi_remove_handle() and curl_easy_cleanup() for all
-    requests before calling this. This function makes calls to
-    curl_multi_cleanup() and curl_global_cleanup(). */
+/** You must call glibcurl_remove() and curl_easy_cleanup() for all requests
+    before calling this. This function makes calls to curl_multi_cleanup()
+    and curl_global_cleanup(). */
 void glibcurl_cleanup();
 
 #ifdef __cplusplus
