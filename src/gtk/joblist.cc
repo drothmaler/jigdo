@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.10 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.11 2004-05-29 22:55:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -46,7 +46,7 @@ JobList::~JobList() {
      window is deleted. */
 
   // Delete active callback, if any
-  if (selectRowIdleId != 0) gtk_idle_remove(selectRowIdleId);
+  if (selectRowIdleId != 0) g_source_remove(selectRowIdleId);
 
   /* Delete Jobs. When deleted, the job will erase itself from the list, so
      just keep getting the first list element.
@@ -294,7 +294,7 @@ gboolean JobList::selectRowCallback(GtkTreeSelection* /*selection*/,
   JobList* self = static_cast<JobList*>(data);
   if (self->selectRowIdleId != 0)
     return TRUE; // Callback already pending - do nothing
-  self->selectRowIdleId = gtk_idle_add(&selectRowIdle, self);
+  self->selectRowIdleId = g_idle_add(&selectRowIdle, self);
 
   debug("selectRowCallback");
   GtkTreeIter row;

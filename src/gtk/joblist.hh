@@ -1,4 +1,4 @@
-/* $Id: joblist.hh,v 1.6 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.hh,v 1.7 2004-05-29 22:55:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -223,7 +223,7 @@ void JobList::insert(size_type n, JobLine* j) {
 
 void JobList::registerTicks() {
   if (++needTicks == 1) {
-    timeoutId = gtk_timeout_add(TICK_INTERVAL, timeoutCallback, this);
+    timeoutId = g_timeout_add(TICK_INTERVAL, timeoutCallback, this);
   }
   debug("registerTicks: %1", needTicks);
 }
@@ -231,7 +231,7 @@ void JobList::registerTicks() {
    next time it is called, by returning FALSE. */
 void JobList::unregisterTicks() {
   if (--needTicks == 0)
-    gtk_timeout_remove(timeoutId);
+    g_source_remove(timeoutId);
   debug("unregisterTicks: %1", needTicks);
 }
 
