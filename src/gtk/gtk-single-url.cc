@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.cc,v 1.13 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.cc,v 1.14 2004-08-14 18:37:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -299,7 +299,8 @@ void GtkSingleUrl::updateWindow() {
   }
   gtk_widget_set_sensitive(GUI::window.download_startButton, canStart);
   gtk_widget_set_sensitive(GUI::window.download_pauseButton,
-    (job != 0 && state == RUNNING ? TRUE : FALSE));
+                           FALSE);
+  // once libcurl allows pausing: (job != 0 && state == RUNNING ? TRUE : FALSE));
   gtk_widget_set_sensitive(GUI::window.download_stopButton,
     (job != 0 && !childMode && (state == RUNNING || state == PAUSED)
      ? TRUE : FALSE));
