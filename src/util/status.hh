@@ -1,4 +1,4 @@
-/* $Id: status.hh,v 1.1 2003-10-31 09:58:10 atterer Exp $ -*- C++ -*-
+/* $Id: status.hh,v 1.2 2004-01-09 10:51:58 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -61,7 +61,7 @@ public:
   //bool other() const { return code != 0 && code != -1; }
   bool returned(int x) const { return code == x; }
   /* Default dtor */
-  /* Intentionally no operator bool() - should write ok() or failed()
+  /* Intentionally no operator bool() - should write xok/xfailed/returned()
      explicitly in if() conditions! */
   int code;
 };

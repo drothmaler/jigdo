@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.9 2003-12-21 22:43:57 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.10 2004-01-09 10:51:58 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -74,8 +74,8 @@ JigdoIO::~JigdoIO() {
     master()->childFailed(childDl, this, frontend);
   }
 
-  /* Bug: Don't delete children; master will do this! If we deleted them
-     here, MakeImageDl::Child::childIoVal would be left dangling. */
+  /* Don't delete children; master will do this! If we deleted them here,
+     MakeImageDl::Child::childIoVal would be left dangling. */
 //   // Delete all our children
 //   JigdoIO* x = firstChild;
 //   while (x != 0) {
