@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.5 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.6 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -390,7 +390,7 @@ bool MkTemplate::matchExecCommands(PartialMatch* x) {
 
   string matchPath, leaf;
   const string& leafName = x->file()->leafName();
-  string::size_type lastSlash = leafName.find_last_of(DIRSEP);
+  string::size_type lastSlash = leafName.rfind(DIRSEP);
   if (lastSlash == string::npos) {
     leaf = leafName;
   } else {

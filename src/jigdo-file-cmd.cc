@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.5 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.6 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -217,10 +217,10 @@ int JigdoFileCmd::makeTemplate() {
     op(new MkTemplate(&cache, image, &jc, templ, *optReporter,
                      optZipQuality, readAmount, optAddImage, optAddServers));
   op->setMatchExec(optMatchExec);
-  size_t lastDirSep = imageFile.find_last_of(DIRSEP);
+  size_t lastDirSep = imageFile.rfind(DIRSEP);
   if (lastDirSep == string::npos) lastDirSep = 0; else ++lastDirSep;
   string imageFileLeaf(imageFile, lastDirSep);
-  lastDirSep = templFile.find_last_of(DIRSEP);
+  lastDirSep = templFile.rfind(DIRSEP);
   if (lastDirSep == string::npos) lastDirSep = 0; else ++lastDirSep;
   string templFileLeaf(templFile, lastDirSep);
   if (op->run(imageFileLeaf, templFileLeaf)) return 3;

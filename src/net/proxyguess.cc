@@ -1,4 +1,4 @@
-/* $Id: proxyguess.cc,v 1.7 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess.cc,v 1.8 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net

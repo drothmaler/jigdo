@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.cc,v 1.14 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.15 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -356,8 +356,8 @@ void MakeImageDl::childSucceeded(
     return;
   }
 
-  // No: Must not delete any part of JigdoIO tree before any other
-  //delete childDl;
+  // Must not delete any part of JigdoIO tree while any other is still live
+  if (dynamic_cast<JigdoIO*>(childDl->childIo()) == 0) delete childDl;
 }
 
 void MakeImageDl::childFailed(
@@ -384,6 +384,26 @@ void MakeImageDl::childFailed(
 //     debug("NO rm -f %1", name);
 //   }
 
-  // No: Must not delete any part of JigdoIO tree before any other
-  //delete childDl;
+  // Must not delete any part of JigdoIO tree while any other is still live
+  if (dynamic_cast<JigdoIO*>(childDl->childIo()) == 0) delete childDl;
+}
+
+void MakeImageDl::jigdoFinished() {
+  debug("jigdoFinished");
+  typedef ChildList::iterator Iter;
+  Iter i = childrenVal.begin();
+  while (i != childrenVal.end()) {
+    Child* x = &*i;
+    ++i;
+    if (dynamic_cast<JigdoIO*>(x->childIo()) != 0) {
+#     if DEBUG
+      if (!x->childSuccFail)
+        debug("childFailed()/Succeeded() not called for %1",
+              x->source() ? x->source()->location() : "[deleted source]");
+      x->childSuccFail = true; // Avoid failed assert
+#     endif
+      debug("jigdoFinished: delete %1", x);
+      delete x;
+    }
+  }
 }

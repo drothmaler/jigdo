@@ -1,4 +1,4 @@
-/* $Id: makeimagedl-info-test.cc,v 1.1 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl-info-test.cc,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -32,6 +32,12 @@ MakeImageDl::MakeImageDl(IO* ioPtr, const string& jigdoUri,
       imageNameVal(), imageInfoVal(), imageShortInfoVal(), templateUrlVal(),
       templateMd5Val(0) { }
 Job::MakeImageDl::~MakeImageDl() { }
+
+//======================================================================
+
+void Download::uriJoin(string* dest, const string&, const string& rel) {
+  *dest = rel;
+}
 
 //======================================================================
 

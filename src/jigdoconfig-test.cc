@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig-test.cc,v 1.2 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig-test.cc,v 1.3 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

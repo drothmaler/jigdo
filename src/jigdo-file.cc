@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.7 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -442,9 +442,9 @@ size_t scanTimespan(const char* str) {
    Only deduceName() should call deduceName2(). */
 void deduceName2(string& dest, const char* ext, const string& src) {
   Paranoid(dest.empty());
-  string::size_type lastDot = src.find_last_of(EXTSEP);
+  string::size_type lastDot = src.rfind(EXTSEP);
   if (lastDot != string::npos) {
-    if (src.find_first_of(DIRSEP, lastDot + 1) != string::npos)
+    if (src.rfind(DIRSEP, lastDot + 1) != string::npos)
       lastDot = string::npos;
   }
   dest.assign(src, 0U, lastDot);

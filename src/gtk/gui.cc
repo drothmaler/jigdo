@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.5 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.6 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

@@ -1,4 +1,4 @@
-/* $Id: jobline.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: jobline.cc,v 1.6 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -75,7 +75,7 @@ void JobLine::create(const char* uri, const char* dest) {
   }
 
   // Also create parent object
-  unsigned lastDirSep = destination.find_last_of(DIRSEP);
+  unsigned lastDirSep = destination.rfind(DIRSEP);
   if (lastDirSep == 0) lastDirSep = 1; // Parent of "/tmp" is "/" not ""
   string destParent(destination, 0, lastDirSep); // can be ==destination
   int statDestParent = stat(destParent.c_str(), &fileInfo);
@@ -96,7 +96,7 @@ void JobLine::create(const char* uri, const char* dest) {
       || !compareEnd(uriStr, ".jigdo")) { // URI end not ".jigdo"
     if (statDest == 0 && destIsDir) {
       // Append filename from source to directory name
-      unsigned lastDirSep = uriStr.find_last_of('/');
+      unsigned lastDirSep = uriStr.rfind('/');
       destination += DIRSEP;
       /* If URL ends with /, use index.html as filename. DON'T try to use any
          name supplied by the server during a HTTP redirect - a malicious

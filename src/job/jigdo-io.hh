@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.6 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.7 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -31,6 +31,7 @@
 #include <makeimagedl.hh>
 #include <md5sum.fh>
 #include <nocopy.hh>
+#include <status.hh>
 //______________________________________________________________________
 
 namespace Job {
@@ -85,8 +86,10 @@ private:
   inline void setImgSectCandidate(JigdoIO* c);
   // The methods below are called in various places to find 1st image section
   inline void imgSect_newChild(JigdoIO* child); // Child created after [Incl.
-  inline bool imgSect_parsed(); // [Image] occurred in current .jigdo data
-  inline bool imgSect_eof(); // End of current file without any [Image]
+  inline void imgSect_parsed(); // [Image] occurred in current .jigdo data
+  /* End of current file without any [Image]. Returns 1 if OK and all
+     JigdoIOs finished */
+  inline XStatus imgSect_eof();
 
   // Create error message with URL and line number
   void generateError(const string& msg);
@@ -101,7 +104,7 @@ private:
   void entry(string* label, string* data, unsigned valueOff);
   /* Called at the end of a [Section] (=start of another section or EOF)
      Returns FAILURE if there is an error. */
-  bool sectionEnd();
+  Status sectionEnd();
 
   // Virtual methods from DataSource::IO
   virtual void job_deleted();

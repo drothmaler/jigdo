@@ -1,4 +1,4 @@
-/* $Id: job.hh,v 1.4 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: job.hh,v 1.5 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -10,9 +10,6 @@
   A job is a certain task - just the application logic, *no* user interface.
   All interaction with the rest of the system (input/output, user
   interaction) happens via an IO object.
-
-  ATM there's no need for a common base class for all jobs, so they're only
-  grouped together in the Job namespace.
 
 */
 

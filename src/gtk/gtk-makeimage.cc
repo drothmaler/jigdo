@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.12 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.13 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -56,12 +56,14 @@ GtkMakeImage::~GtkMakeImage() {
 bool GtkMakeImage::run() {
 
   // Show URL as object name
-  //progress.erase();
-  //status = _("Waiting...");
+  unsigned lastSlash = mid.jigdoUri().rfind('/');
+  const char* object = "";
+  if (lastSlash != string::npos)
+    object = mid.jigdoUri().c_str() + lastSlash + 1;
   treeViewStatus = _("Waiting");
   gtk_tree_store_set(jobList()->store(), row(),
                      JobList::COLUMN_STATUS, treeViewStatus.c_str(),
-                     JobList::COLUMN_OBJECT, "",
+                     JobList::COLUMN_OBJECT, object,
                      -1);
   mid.run();
 
