@@ -1,4 +1,4 @@
-/* $Id: log.cc,v 1.5 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: log.cc,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -54,11 +54,14 @@ bool Logger::setEnabled(const char* unitName, bool enable) {
   return false; // Not found
 }
 
-void Logger::put(const char* format, int args, const Subst arg[]) const {
-  cerr << unitNameVal << ':';
+void Logger::defaultPut(const string& unitName, unsigned char unitNameLen,
+                        const char* format, int args, const Subst arg[]) {
+  cerr << unitName << ':';
   if (unitNameLen < 15) cerr << "               " + unitNameLen;
   cerr << Subst::subst(format, args, arg) << endl;
 }
+
+Logger::OutputFunction* Logger::output = &defaultPut;
 //______________________________________________________________________
 
 /* The value of the --debug cmd line option is either missing (empty) or a

@@ -1,4 +1,4 @@
-/* $Id: makeimage.hh,v 1.6 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: makeimage.hh,v 1.7 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -119,7 +119,7 @@ public:
       @param destDir destination directory that the final image should be
       written to. Initially, MakeImage will create a temporary dir (name
       based on jigdoFile leafname) to store administrative data in. */
-  inline explicit MakeImage(const string& jigdoFile);
+  inline explicit MakeImage();
   inline ~MakeImage();
 
   /** Set where to report JigdoConfig errors, overwriting any value passed as
@@ -132,20 +132,11 @@ public:
       config.rescan() when done. */
 //   JigdoConfig config;
 //   ConfigFile& configFile() { return config.configFile(); }
-
-private:
-  // Don't copy
-  inline MakeImage& operator=(const MakeImage&);
 };
 //______________________________________________________________________
 
-MakeImage::MakeImage(const string& jigdoFile) //const string& destDir,
-  /*: config(jigdoFile, new ConfigFile(), *jigdoErrors)*/ { }
+MakeImage::MakeImage() { }
 
 MakeImage::~MakeImage() { }
-
-// void MakeImage::setReporter(JigdoConfig::ProgressReporter* jigdoErrors) {
-//   config.setReporter(*jigdoErrors);
-// }
 
 #endif

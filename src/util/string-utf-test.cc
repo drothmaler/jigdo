@@ -1,4 +1,4 @@
-/* $Id: string-utftest.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: string-utf-test.cc,v 1.1 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -9,6 +9,8 @@
 
   Helper functions for dealing with UTF-8 strings
 
+  #test-deps
+
 */
 
 #include <config.h>
@@ -18,6 +20,7 @@
 #include <iostream>
 #include <string>
 
+#include <log.hh>
 #include <string-utf.hh>
 //______________________________________________________________________
 
@@ -27,19 +30,20 @@ int returnCode = 0;
 
 void test(const char* correct, const string& generated) {
   if (generated == correct) {
-    cout << "OK: \"" << generated << "\"\n";
+    msg("OK: \"%1\"", generated);
     return;
   }
-  cout << "FAILED:\n"
-       << "  expected \"" << correct << "\"\n"
-       << "  but got  \"" << generated << "\"\n";
+  msg("FAILED:");
+  msg("  expected \"%1\"", correct);
+  msg("  but got  \"%1\"", generated);
   returnCode = 1;
 }
 
 }
 //____________________
 
-int main() {
+int main(int argc, char* argv[]) {
+  if (argc == 2) Logger::scanOptions(argv[1], argv[0]);
   /*
   const char* charset;
   g_get_charset(&charset);

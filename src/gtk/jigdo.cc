@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.5 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -158,6 +158,8 @@ int main (int argc, char *argv[]) {
 # endif
 # if DEBUG
   Logger::setEnabled("general");
+# else
+  Debug::abortAfterFailedAssertion = false;
 # endif
 
   try {

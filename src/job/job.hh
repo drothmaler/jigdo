@@ -1,4 +1,4 @@
-/* $Id: job.hh,v 1.3 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: job.hh,v 1.4 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -61,6 +61,7 @@ public:
         virtual Job::IO* job_removeIo(Job::IO* rmIo) {
           if (rmIo == this) {
             IO* c = child;
+            child = 0;
             delete this; // May of course omit this if not desired
             return c;
           } else if (child != 0) {

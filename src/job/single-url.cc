@@ -1,4 +1,4 @@
-/* $Id: single-url.cc,v 1.11 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.cc,v 1.12 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -165,8 +165,8 @@ void SingleUrl::download_data(const byte* data, unsigned size,
   unsigned limit = (size < 65 ? size : 65);
   for (unsigned i = 0; i < limit; ++i)
     if (data[i] >= 32 && data[i] < 127) s += data[i]; else s += '.';
-  debug("Got %1 currentSize=%2, realoffset=%3: %4",
-        size, progressVal.currentSize(), currentSize - size, s);
+  debug("%5 Got %1 currentSize=%2, realoffset=%3: %4",
+        size, progressVal.currentSize(), currentSize - size, s, this);
 # endif
 
   if (!progressVal.autoTick() // <-- extra check for efficiency only

@@ -1,4 +1,4 @@
-/* $Id: download.cc,v 1.11 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: download.cc,v 1.12 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -178,7 +178,9 @@ Download::Download(const string& uri, Output* o)
 //________________________________________
 
 Download::~Download() {
+  debug("~Download");
   Assert(insideNewData == false);
+  stop();
 
   if (request != 0) HTRequest_delete(request);
   if (stopLaterId != 0) g_source_remove(stopLaterId);
@@ -235,13 +237,16 @@ void Download::run() {
    calls to the Output object.
    Return codes: HT_WOULD_BLOCK, HT_ERROR, HT_OK, >0 to pass back. */
 
+int Download::free(HTStream* me) {
+  Download* self = getDownload(me);
+  debug("free %1", self);
+  HTRequest_setContext(self->request, 0);
+  Assert(!self->insideNewData);
+  return HT_OK;
+}
 #if DEBUG
 int Download::flush(HTStream* me) {
   debug("flush %1", getDownload(me));
-  return HT_OK;
-}
-int Download::free(HTStream* me) {
-  debug("free %1", getDownload(me));
   return HT_OK;
 }
 int Download::abort(HTStream* me, HTList*) {
@@ -250,7 +255,6 @@ int Download::abort(HTStream* me, HTList*) {
 }
 #else
 int Download::flush(HTStream*) { return HT_OK; }
-int Download::free(HTStream*) { return HT_OK; }
 int Download::abort(HTStream*, HTList*) { return HT_OK; }
 #endif
 //________________________________________
@@ -551,8 +555,10 @@ void Download::cont() {
 
 void Download::stop() {
   if (request == 0) return;
+  if (state == ERROR || state == INTERRUPTED || state == SUCCEEDED) return;
   state = INTERRUPTED;//ERROR;//SUCCEEDED;
   if (insideNewData) {
+    debug("stop later");
     // Cannot call HTNet_killPipe() (sometimes segfaults), so do it later
     if (stopLaterId != 0) return;
     stopLaterId = g_idle_add_full(G_PRIORITY_HIGH_IDLE, &stopLater_callback,
@@ -579,7 +585,7 @@ gboolean Download::stopLater_callback(gpointer data) {
   int status = HTNet_killPipe(HTRequest_net(self->request));
   debug("stopLater_callback: HTNet_killPipe() returned %1", status);
 # else
-  HTNet_killPipe(HTRequest_net(request));
+  HTNet_killPipe(HTRequest_net(self->request));
 # endif
   self->stopLaterId = 0;
   return FALSE; // "Don't call me again"

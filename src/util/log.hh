@@ -1,4 +1,4 @@
-/* $Id: log.hh,v 1.5 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: log.hh,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -104,6 +104,17 @@
 
 class Logger : NoCopy {
 public:
+
+  /** Logged strings are output via a OutputFunction* pointer. */
+  typedef void (Logger::OutputFunction)(const string& unitName,
+      unsigned char unitNameLen, const char* format, int args,
+      const Subst arg[]);
+  /** Default output function prints to stderr */
+  static void defaultPut(const string& unitName, unsigned char unitNameLen,
+                         const char* format, int args, const Subst arg[]);
+  /** Replace the output function */
+  static void setOutputFunction(OutputFunction* newOut) { output = newOut; }
+
   /** Register a compilation unit. All Loggers MUST *MUST* be static objects!
       unitName must remain valid during the lifetime of all Loggers, best
       make it a string constant. */
@@ -189,7 +200,10 @@ public:
   static void scanOptions(const string& s, const char* binName);
 
 private:
-  void put(const char* format, int args, const Subst arg[]) const;
+  static OutputFunction* output;
+  void put(const char* format, int args, const Subst arg[]) const {
+    output(unitNameVal, unitNameLen, format, args, arg);
+  }
 
   static Logger* list; // Linked list of registered units
   static string buf; // Temporary buffer for output string, printed at endl
