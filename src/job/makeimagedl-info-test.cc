@@ -1,4 +1,4 @@
-/* $Id: makeimagedl-info-test.cc,v 1.4 2004-08-03 16:31:53 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl-info-test.cc,v 1.5 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -7,7 +7,7 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  #test-deps job/makeimagedl-info.o
+  #test-deps job/makeimagedl-info.o net/uri.o
 
 */
 
@@ -46,12 +46,6 @@ void MakeImageDl::setImageSection(string* imageName, string* imageInfo,
 
   if (io) io->makeImageDl_haveImageSection();
 }
-//======================================================================
-
-void Download::uriJoin(string* dest, const string&, const string& rel) {
-  *dest = rel;
-}
-
 //======================================================================
 
 namespace {

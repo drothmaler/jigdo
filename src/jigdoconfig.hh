@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig.hh,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig.hh,v 1.3 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -41,11 +41,13 @@ public:
   };
   //________________________________________
 
+#if 0 /* Use same function from net/uri.hh */
   /** Helper function: Given a string, return 0 if the string has no "Label:"
       prefix, otherwise return the offset of the ':'. The "Label" portion of
       the string can contain *any* character except '/' and
       whitespace/control characters */
   static inline unsigned findLabelColon(const string& s);
+#endif
   //________________________________________
 
   /** Open file for input and create a ConfigFile object */
@@ -128,17 +130,6 @@ private:
   Map serverMap;
   ForwardReporter freporter;
 };
-//______________________________________________________________________
-
-unsigned JigdoConfig::findLabelColon(const string& s) {
-  string::const_iterator i = s.begin(), e = s.end();
-  while (i != e) {
-    if (*i == '/' || static_cast<unsigned char>(*i) <= ' ') return 0;
-    if (*i == ':') return i - s.begin();
-    ++i;
-  }
-  return 0;
-}
 //______________________________________________________________________
 
 JigdoConfig::ForwardReporter::ForwardReporter(

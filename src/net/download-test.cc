@@ -1,4 +1,4 @@
-/* $Id: download-test.cc,v 1.1 2004-08-03 16:31:53 atterer Exp $ -*- C++ -*-
+/* $Id: download-test.cc,v 1.2 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -7,21 +7,21 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  #test-deps net/download.o glibcurl/glibcurl.o
+  #test-deps net/download.o glibcurl/glibcurl.o net/uri.o
 
 */
 
 #define DEBUG 1
 #include <config.h>
 
-#include <download.hh>
 #include <log.hh>
+#include <uri.hh>
 
 namespace {
 
   void testUriJoin(const char* base, const char* rel, const char* expected) {
     string s = "anything", b = base, r = rel;
-    Download::uriJoin(&s, b, r);
+    uriJoin(&s, b, r);
     msg("base=%1, rel=%2, result=%3, expected=%4", b, r, s, expected);
     Assert(s == expected);
   }

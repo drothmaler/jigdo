@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.9 2004-06-24 10:13:34 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.10 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -123,7 +123,7 @@ private:
   virtual void gunzip_failed(string* message);
 
   MakeImageDl::Child* childDl;
-  string urlVal;
+  string urlVal; // Absolute URL of this .jigdo file
   DataSource::IO* frontend; // Object provided by frontend for this download
 
   /* Representation of the tree of [Include] directives. Most of the time,

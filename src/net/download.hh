@@ -1,4 +1,4 @@
-/* $Id: download.hh,v 1.12 2004-07-17 16:03:55 atterer Exp $ -*- C++ -*-
+/* $Id: download.hh,v 1.13 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -48,10 +48,6 @@ public:
 
   // Clean up libwww - call this after all requests are finished
   static void cleanup();
-
-  /** Create a new URI from an absolute base URI and a relative URI. (rel can
-      also be absolute, in this case, the result in dest equals rel.) */
-  static void uriJoin(string* dest, const string& base, const string& rel);
 
   Download(const string& uri, Output* o /*= 0*/);
   ~Download();
