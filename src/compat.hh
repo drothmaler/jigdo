@@ -1,4 +1,4 @@
-/* $Id: compat.hh,v 1.2 2003-12-21 22:43:57 atterer Exp $ -*- C++ -*-
+/* $Id: compat.hh,v 1.3 2004-02-05 14:26:49 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -138,6 +138,25 @@ inline int compat_compare(const string& s1, string::size_type pos1,
 int compat_compare(const string& s1, string::size_type pos1,
                    string::size_type n1, const char* s2,
                    string::size_type n2 = string::npos);
+#endif
+//______________________________________________________________________
+
+#if HAVE_LIBDB
+#  include <db.h>
+// v3, v4.0:
+//         int  (*open) __P((DB *,
+//                 const char *, const char *, DBTYPE, u_int32_t, int));
+// v4.1 onwards:
+//         int  (*open) __P((DB *, DB_TXN *,
+//                 const char *, const char *, DBTYPE, u_int32_t, int));
+inline int dbOpen(DB* db, const char* file, const char* database,
+                  DBTYPE type, u_int32_t flags, int mode) {
+  return db->open(db,
+#                 if (DB_VERSION_MAJOR >= 4 && DB_VERSION_MINOR > 0)
+                  NULL,
+#                 endif
+                  file, database, type, flags, mode);
+}
 #endif
 //______________________________________________________________________
 
