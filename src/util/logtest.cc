@@ -1,4 +1,4 @@
-/* $Id: logtest.cc,v 1.1 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: logtest.cc,v 1.2 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -18,7 +18,7 @@
 //______________________________________________________________________
 
 Logger info("Log-test");
-DebugLogger debug("Flame-fest");
+Logger debug("Flame-fest");
 
 int main() {
   Logger::setEnabled("Log-test");

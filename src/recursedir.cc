@@ -1,4 +1,4 @@
-/* $Id: recursedir.cc,v 1.4 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

@@ -1,4 +1,4 @@
-/* $Id: jobline.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: jobline.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -22,6 +22,8 @@
 #include <messagebox.hh>
 #include <string-utf.hh>
 //______________________________________________________________________
+
+DEBUG_TO(JobList::debug)
 
 namespace {
 
@@ -152,5 +154,5 @@ JobLine::~JobLine() {
 
 void JobLine::waitTick() {
   if (--waitCountdown == 0) callRegularly(waitDestination);
-  JobList::debug("waitCountdown=%1", waitCountdown);
+  debug("waitCountdown=%1", waitCountdown);
 }

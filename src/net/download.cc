@@ -1,4 +1,4 @@
-/* $Id: download.cc,v 1.4 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: download.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -30,16 +30,15 @@
 #include <libwww.hh>
 #include <log.hh>
 #include <string-utf.hh>
-
-namespace {
-  Logger debug("download");
-  Logger libwwwDebug("libwww");
-}
 //______________________________________________________________________
 
 string Download::userAgent;
 
+DEBUG_UNIT("download")
+
 namespace {
+
+  Logger libwwwDebug("libwww");
 
   extern "C"
   int tracer(const char* fmt, va_list args) {
@@ -223,18 +222,24 @@ void Download::run(uint64 resumeOffset, bool pragmaNoCache) {
    calls to the Output object.
    Return codes: HT_WOULD_BLOCK, HT_ERROR, HT_OK, >0 to pass back. */
 
+#if DEBUG
 int Download::flush(HTStream* me) {
-  if (debug) debug("flush %1", getDownload(me));
+  debug("flush %1", getDownload(me));
   return HT_OK;
 }
 int Download::free(HTStream* me) {
-  if (debug) debug("free %1", getDownload(me));
+  debug("free %1", getDownload(me));
   return HT_OK;
 }
 int Download::abort(HTStream* me, HTList*) {
-  if (debug) debug("abort %1", getDownload(me));
+  debug("abort %1", getDownload(me));
   return HT_OK;
 }
+#else
+int Download::flush(HTStream*) { return HT_OK; }
+int Download::free(HTStream*) { return HT_OK; }
+int Download::abort(HTStream*, HTList*) { return HT_OK; }
+#endif
 //________________________________________
 
 #if DEBUG
@@ -336,7 +341,7 @@ BOOL Download::alertCallback(HTRequest* request, HTAlertOpcode op,
   char* host = "host";
   if (input != 0) host = static_cast<char*>(input);
 
-  if (debug && op != HT_PROG_READ)
+  if (op != HT_PROG_READ)
     debug("Alert %1 for %2 obj %3", op, self->uri(), self);
 
   string info;

@@ -1,4 +1,4 @@
-/* $Id: partialmatch.hh,v 1.1 2003-07-04 22:29:14 atterer Exp $ -*- C++ -*-
+/* $Id: partialmatch.hh,v 1.2 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -23,7 +23,9 @@
 #  endif
 #endif
 
-// One object for each offset in image where any file /might/ match
+/** One object for each offset in image where any file /might/ match. Class
+    interface is tailored towards mktemplate's needs, hence the unusual
+    methods... */
 class MkTemplate::PartialMatch {
   friend class MkTemplate::PartialMatchQueue;
 public:

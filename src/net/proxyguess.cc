@@ -1,4 +1,4 @@
-/* $Id: proxyguess.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -30,7 +30,7 @@
 #include <proxyguess.hh>
 //______________________________________________________________________
 
-namespace { DebugLogger debug("proxyguess"); }
+DEBUG_UNIT("proxyguess")
 
 #if WINDOWS
 

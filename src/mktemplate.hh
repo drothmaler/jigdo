@@ -1,4 +1,4 @@
-/* $Id: mktemplate.hh,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.hh,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -114,6 +114,8 @@ private:
   static const unsigned INITIAL_SECTOR_LENGTH = 512;
   static const unsigned MAX_SECTOR_LENGTH = 65536;
 
+  /* debug(...) may be defined as a CPP macro. Luckily, that won't affect
+     this occurance of the word. */
   static Logger debug;
 
   // Disallow assignment; op is never defined

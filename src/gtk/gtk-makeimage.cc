@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.4 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -12,8 +12,6 @@
 */
 
 #include <config.h>
-
-#include <iostream>
 
 #include <gtk-makeimage.hh>
 #include <gtk-single-url.hh>
@@ -65,7 +63,7 @@ void GtkMakeImage::selectRow() {
       GtkWidget* entry = gtk_notebook_get_nth_page(notebook, page);
       if (GTK_WIDGET_VISIBLE(entry)) break;
     }
-    //cerr<<"selrowcallback "<<page<<" of "<<npages<<endl;
+    //msg("selrowcallback %1 of %2", page, npages);
     gtk_notebook_set_current_page(notebook, page);
   } else {
     // Don't cycle through tabs, just switch to jigdo info in main window
@@ -146,7 +144,7 @@ void GtkMakeImage::job_message(string* message) {
 Job::SingleUrl::IO* GtkMakeImage::makeImageDl_new(
     Job::SingleUrl* childDownload) {
 # if DEBUG
-  cerr << "GtkMakeImage::makeImageDl_new" << endl;
+  msg("GtkMakeImage::makeImageDl_new", 0);
 # endif
   GtkSingleUrl* child = new GtkSingleUrl(mid.jigdoUri(), childDownload);
   GUI::jobList.prepend(child, this); // New child of "this" is "child"

@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.4 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -28,9 +28,11 @@
 #include <treeiter.hh>
 //______________________________________________________________________
 
-JobList GUI::jobList;
+#if DEBUG
+Logger JobList::debug("joblist");
+#endif
 
-DebugLogger JobList::debug("joblist");
+JobList GUI::jobList;
 
 const char* const JobList::PROGRESS_IMAGE_FILE = "progress-green.png";
 

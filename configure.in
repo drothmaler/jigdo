@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.in,v 1.1 2003-07-04 22:27:33 atterer Exp $
+dnl $Id: configure.in,v 1.2 2003-08-13 14:08:29 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -71,6 +71,29 @@ if test "$jigdo_cv_prog_cxx_recent" = "no"; then
     AC_MSG_RESULT([   * compiler, e.g. GCC 2.95 or later.])
 fi
 AC_CACHE_SAVE
+dnl ________________________________________
+
+dnl C99-style vararg macros are not supported by GCC 2.95
+AC_CACHE_CHECK([whether the C++ preprocessor supports variable-arg macros],
+               jigdo_cv_prog_cxx_varmacro,
+    AC_TRY_COMPILE(
+    #if defined(__GNUC__) && __GNUC__ < 3
+    #  define debug(_args...) do { } while (false)
+    #else
+    #  define debug(...) do { } while (false)
+    #endif
+    int foo() {
+      int debug = 0; // No substitution!
+      debug("!");
+      debug("%1", debug);
+      return debug;
+    },, jigdo_cv_prog_cxx_varmacro="yes", jigdo_cv_prog_cxx_varmacro="no")
+)
+if test "$jigdo_cv_prog_cxx_varmacro" = "yes"; then
+    AC_DEFINE(HAVE_VARMACRO, 1)
+else
+    AC_DEFINE(HAVE_VARMACRO, 0)
+fi
 dnl ________________________________________
 
 AC_CHECK_PROG(have_wget, wget, yes, no)

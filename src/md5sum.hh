@@ -1,4 +1,4 @@
-/* $Id: md5sum.hh,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: md5sum.hh,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -70,8 +70,9 @@ MkTemplate::MkTemplate(JigdoCache* jcache, bistream* imageStream,
     matchExec() { }
 //______________________________________________________________________
 
-/* Because make-template should be debuggable even in non-debug builds, use a
-   Logger (not DebugLogger) here. */
+/* Because make-template should be debuggable even in non-debug builds,
+   always compile in debug messages. */
+#undef debug
 Logger MkTemplate::debug("make-template");
 //______________________________________________________________________
 
@@ -355,9 +356,8 @@ bool MkTemplate::checkMD5Match_mismatch(const size_t stillBuffered,
      area from x->startOffset() to the first byte which is "claimed" by
      something else - either another match or the start of the still buffered
      data. */
-  debugRangeInfo(xStartOffset, rereadEnd,
-                 "UNMATCHED after some blocks, re-reading from", x);
   FilePart* xfile = x->file();
+  Assert(matches->front() == x);
   matches->eraseFront(); // return x to free pool
   if (!matches->empty()) {
     // set rereadEnd to new lowest startOffset in matches
@@ -365,6 +365,8 @@ bool MkTemplate::checkMD5Match_mismatch(const size_t stillBuffered,
     if (rereadEnd > newOldestMatch->startOffset())
       rereadEnd = newOldestMatch->startOffset();
   }
+  debugRangeInfo(xStartOffset, rereadEnd,
+                 "UNMATCHED after some blocks, re-reading from", x);
 
   desc.unmatchedData(rereadEnd - xStartOffset);
   unmatchedStart = rereadEnd;

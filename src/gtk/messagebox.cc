@@ -1,4 +1,4 @@
-/* $Id: messagebox.cc,v 1.2 2003-08-06 14:38:24 atterer Exp $ -*- C++ -*-
+/* $Id: messagebox.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -19,9 +19,9 @@
 #include <messagebox.hh>
 #include <string-utf.hh>
 #include <support.hh>
-
-namespace { DebugLogger debug("messagebox"); }
 //______________________________________________________________________
+
+DEBUG_UNIT("messagebox")
 
 const char* const MessageBox::MESSAGE = "gtk-dialog-info";
 const char* const MessageBox::INFO = "gtk-dialog-info";
