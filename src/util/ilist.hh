@@ -1,4 +1,4 @@
-/* $Id: ilist.hh,v 1.3 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: ilist.hh,v 1.4 2004-08-15 13:11:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -28,11 +28,16 @@ struct IListBase {
   }
   ~IListBase() {
     //msg("~IListBase %1", this);
+    iListBase_remove();
+  }
+  /** May use this to unlink this object from its list, if any */
+  void iListBase_remove() {
     if (iListBase_prev == 0) return;
     iListBase_prev->iListBase_next = iListBase_next;
     iListBase_next->iListBase_prev = iListBase_prev;
     iListBase_prev = iListBase_next = 0;
   }
+/*private:*/
   IListBase* iListBase_prev;
   IListBase* iListBase_next;
 };
