@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.9 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.10 2004-06-26 11:28:46 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/�|  Richard Atterer          |  atterer.net
@@ -196,7 +196,7 @@ namespace {
     gtk_text_buffer_insert_with_tags(textBuf, &iter,
       _("\nJigsaw Download License\n"), -1, large, center, NULL);
     string copy = subst(_("\n"
-    "\tCopyright © 2001-2003 Richard Atterer <richard%1atterer.net>\n"
+    "\tCopyright © 2001-2004 Richard Atterer <richard%1atterer.net>\n"
     "\tJigsaw Download homepage: http://atterer.net/jigdo\n"
     "\n"), '@');
     gtk_text_buffer_insert_with_tags(textBuf, &iter, copy.c_str(), -1,

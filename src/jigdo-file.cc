@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.8 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.9 2004-06-26 11:28:46 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -282,7 +282,7 @@ inline void printUsage(bool detailed, size_t blockLength,
   if (detailed) {
     cout << _(
     "\n"
-    "Copyright (C) 2001-2003 Richard Atterer <http://atterer.net>\n"
+    "Copyright (C) 2001-2004 Richard Atterer <http://atterer.net>\n"
     "This program is free software; you can redistribute it and/or modify\n"
     "it under the terms of the GNU General Public License, version 2. See\n"
     "the file COPYING or <http://www.gnu.org/copyleft/gpl.html> for details.\n"
