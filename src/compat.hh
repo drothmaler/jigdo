@@ -1,4 +1,4 @@
-/* $Id: compat.hh,v 1.3 2004-02-05 14:26:49 atterer Exp $ -*- C++ -*-
+/* $Id: compat.hh,v 1.4 2004-02-05 14:43:50 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -149,10 +149,11 @@ int compat_compare(const string& s1, string::size_type pos1,
 // v4.1 onwards:
 //         int  (*open) __P((DB *, DB_TXN *,
 //                 const char *, const char *, DBTYPE, u_int32_t, int));
-inline int dbOpen(DB* db, const char* file, const char* database,
-                  DBTYPE type, u_int32_t flags, int mode) {
+inline int compat_dbOpen(DB* db, const char* file, const char* database,
+                         DBTYPE type, u_int32_t flags, int mode) {
   return db->open(db,
-#                 if (DB_VERSION_MAJOR >= 4 && DB_VERSION_MINOR > 0)
+#                 if (DB_VERSION_MAJOR > 4 || \
+                    (DB_VERSION_MAJOR == 4 && DB_VERSION_MINOR > 0))
                   NULL,
 #                 endif
                   file, database, type, flags, mode);
