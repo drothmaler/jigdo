@@ -1,4 +1,4 @@
-/* $Id: scan.cc,v 1.1 2003-07-04 22:29:08 atterer Exp $ -*- C++ -*-
+/* $Id: scan.cc,v 1.2 2003-07-31 18:53:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -505,6 +505,10 @@ void JigdoCache::addFile(const string& name) {
   ConfigFile::quote(fileUri);
   //cerr << "addFile: " << fileUri << ' ' << path << '|' << nameRest << endl;
   //____________________
+
+  //cerr<<"SPLIT into `"<<path<<"' and `"<<nameRest<<"'"<<endl;
+  //for (LocationPathSet::iterator i = locationPaths.begin(); i != locationPaths.end(); ++i)
+  //  cerr <<"  PATHS: "<<i->getPath()<<" = "<<i->getLabel()<<endl;
 
   // If necessary, create a label for the path before "//"
   static string emptylabel;

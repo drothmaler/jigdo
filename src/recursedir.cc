@@ -1,4 +1,4 @@
-/* $Id: recursedir.cc,v 1.1 2003-07-04 22:29:24 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.cc,v 1.2 2003-07-31 18:53:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -76,7 +76,6 @@ namespace {
 
       } else if (listStream != 0) {
         // Read line from open file or stdin
-        Paranoid(listStream == &cin || fileList.is_open());
         if (listStream->eof()) {
           if (listStream != &cin) fileList.close();
           objectsFrom.pop();
@@ -98,6 +97,7 @@ namespace {
           listStream = 0;
           throw RecurseError(err);
         }
+        Paranoid(listStream == &cin || fileList.is_open());
         getline(*listStream, result);
         /* An empty line terminates the list of files - this allows both
            the list and the image data to be fed to stdin with jigdo */
