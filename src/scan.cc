@@ -1,4 +1,4 @@
-/* $Id: scan.cc,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: scan.cc,v 1.8 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -163,7 +163,7 @@ JigdoCache::JigdoCache(const string& cacheFileName, size_t expiryInSeconds,
     if (!cacheFileName.empty())
       cacheFile = new CacheFile(cacheFileName.c_str());
   } catch (DbError e) {
-    string err = subst(_("Could not open cache file: %1"), e.message);
+    string err = subst(_("Could not open cache file: %L1"), e.message);
     reporter.error(err);
   }
 }
@@ -280,7 +280,7 @@ const MD5* FilePart::getSumsRead(JigdoCache* c, size_t blockNr) {
       err = _("Error opening file `-' "
               "(using standard input not allowed here)");
     } else {
-      err = subst(_("Error opening `%1' for input - excluded"), name);
+      err = subst(_("Could not open `%L1' for input - excluded"), name);
       if (errno != 0) {
         err += " (";
         err += strerror(errno);

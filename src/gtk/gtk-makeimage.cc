@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.9 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.10 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -24,7 +24,18 @@ GtkMakeImage::GtkMakeImage(const string& uriStr, const string& destination)
   : progress(), status(), treeViewStatus(),
     mid(this, uriStr, destination) { }
 
-GtkMakeImage::~GtkMakeImage() { }
+GtkMakeImage::~GtkMakeImage() {
+  // Delete all children
+  GtkTreeIter x;
+  GtkTreeModel* model = GTK_TREE_MODEL(jobList()->store());
+  if (gtk_tree_model_iter_children(model, &x, row()) == TRUE) {
+    do {
+      JobLine* child = jobList()->get(&x);
+      debug("~GtkMakeImage: Deleting child %1", child);
+      delete child;
+    } while (gtk_tree_model_iter_next(model, &x) == TRUE);
+  }
+}
 //______________________________________________________________________
 
 bool GtkMakeImage::run() {

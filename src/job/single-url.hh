@@ -1,4 +1,4 @@
-/* $Id: single-url.hh,v 1.9 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.hh,v 1.10 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -19,7 +19,6 @@
 #include <bstream-counted.hh>
 #include <datasource.hh>
 #include <download.hh>
-#include <job.hh>
 #include <nocopy.hh>
 #include <progress.hh>
 //______________________________________________________________________

@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.3 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.4 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -43,7 +43,7 @@ istream* openForInput(istream*& dest, const string& name) throw(Cleanup) {
   } else {
     dest = new ifstream(name.c_str(), ios::binary);
     if (!*dest) {
-      cerr << subst(_("%1: Error opening `%2' for input (%3)"),
+      cerr << subst(_("%1: Could not open `%2' for input: %3"),
                     binName(), name, strerror(errno)) << endl;
       throw Cleanup(3);
     }
@@ -74,7 +74,7 @@ ostream* openForOutput(ostream*& dest, const string& name) throw(Cleanup) {
   } else {
     dest = new ofstream(name.c_str(), ios::binary);
     if (!*dest) {
-      cerr << subst(_("%1: Error opening `%2' for output (%3)"),
+      cerr << subst(_("%1: Could not open `%2' for output: %3"),
                     binName(), name, strerror(errno)) << endl;
       throw Cleanup(3);
     }

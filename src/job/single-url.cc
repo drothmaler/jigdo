@@ -1,4 +1,4 @@
-/* $Id: single-url.cc,v 1.9 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.cc,v 1.10 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -49,9 +49,9 @@ SingleUrl::~SingleUrl() {
   }
 }
 
-const Progress* Job::SingleUrl::progress() const { return &progressVal; }
+const Progress* SingleUrl::progress() const { return &progressVal; }
 
-const string& Job::SingleUrl::location() const { return download.uri(); }
+const string& SingleUrl::location() const { return download.uri(); }
 //______________________________________________________________________
 
 void SingleUrl::setResumeOffset(uint64 resumeOffset) {

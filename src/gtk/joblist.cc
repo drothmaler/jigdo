@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.8 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.9 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -248,10 +248,10 @@ void JobList::assertValid() const {
     }
     ok = gtk_tree_model_iter_next_depth(GTK_TREE_MODEL(store()), &row);
   }
-  Assert(realEntryCount == entryCount());
-  Assert(realSize == size());
   if (realSize != size())
     debug("realSize=%1 size()=%2", realSize, size());
+  Assert(realEntryCount == entryCount());
+  Assert(realSize == size());
   Assert(entryCount() <= size());
   Assert(realNeedTicks == needTicks);
 }

@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.6 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.7 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -898,7 +898,7 @@ int JigdoDesc::makeImage(JigdoCache* cache, const string& imageFile,
     img = 0; // Cannot do "img = &cout", so img==0 is special case: stdout
   }
   if (img != 0 && !*img) {
-    string err = subst(_("Error opening `%1' for output (%2)"),
+    string err = subst(_("Could not open `%1' for output: %2"),
                        name, strerror(errno));
     reporter.error(err);
     return 3; // Permanent failure

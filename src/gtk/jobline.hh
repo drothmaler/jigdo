@@ -1,4 +1,4 @@
-/* $Id: jobline.hh,v 1.2 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: jobline.hh,v 1.3 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -72,8 +72,8 @@ protected:
   inline JobList* jobList() const;
   /** Iterator for our row in the list. Do not modify the returned value,
       copy it instead! (It is non-const because various gtk functions which
-      read it are incorrectly declared non-const.) NB: The returned iter is
-      UNINITIALIZED until the JobLine is added to a JobList! */
+      read it are incorrectly(?) declared non-const.) NB: The returned iter
+      is UNINITIALIZED until the JobLine is added to a JobList! */
   inline GtkTreeIter* row();
 
   /** Register a tick handler. The handler will be called every
