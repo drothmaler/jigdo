@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.6 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.7 2003-12-21 19:22:37 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -611,11 +611,20 @@ void MkTemplate::scanImage_mainLoop_fastForward(uint64 nextEvent,
   Assert(off >= blockLength);
 
   unsigned sectorMask = sectorLength - 1;
+  uint64 notSectorMask = ~implicit_cast<uint64>(sectorMask);
   while (off < nextEvent) {
     /* Calculate next value of off where a match would end up having an even
-       (i.e. sectorSize-aligned) start offset. */
+       (i.e. sectorSize-aligned) start offset.
+
+                             |----sectorLength----|----sectorLength----|
+                    |========+========+===========+===+===========+====+=====>EOF
+       File offset: 0                             |  off          |
+                                      |--blockLength--|           |
+                                                  |--blockLength--|
+                                                                  |
+                                                            nextAlignedOff */
     uint64 nextAlignedOff = off - blockLength;
-    nextAlignedOff = (nextAlignedOff + sectorLength) & ~sectorMask;
+    nextAlignedOff = (nextAlignedOff + sectorLength) & notSectorMask;
     nextAlignedOff += blockLength;
     Assert(nextAlignedOff > off);
 
@@ -661,6 +670,7 @@ void MkTemplate::scanImage_mainLoop_fastForward(uint64 nextEvent,
       Paranoid(matches->empty()
                || matches->front()->startOffset() >= unmatchedStart);
       sectorMask = sectorLength - 1;
+      notSectorMask = ~implicit_cast<uint64>(sectorMask);
     }
   } // endwhile (off < nextEvent)
 # endif

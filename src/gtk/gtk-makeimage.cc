@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.13 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.14 2003-12-21 19:22:37 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -202,7 +202,7 @@ void GtkMakeImage::makeImageDl_haveImageSection() {
   gtk_tree_store_set(jobList()->store(), row(),
                      JobList::COLUMN_OBJECT, mid.imageName().c_str(),
                      -1);
-  imageInfo.clear();
+  imageInfo.erase();
   const char* gtk[] = {
     "<b>", "</b>", // <b>, </b>
     "<i>", "</i>", // <i>, </i>
