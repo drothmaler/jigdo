@@ -1,4 +1,4 @@
-/* $Id: download.cc,v 1.13 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: download.cc,v 1.14 2004-07-17 11:46:06 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -154,7 +154,7 @@ void Download::run() {
   debug("run resumeOffset=%1", resumeOffset());
   Assert(outputVal != 0); // Must have set up output
 
-  if (handle == 0) {    
+  if (handle == 0) {
     handle = curl_easy_init();
     Assert(handle != 0);
 
@@ -176,7 +176,7 @@ void Download::run() {
     curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, curlWriter);
     curl_easy_setopt(handle, CURLOPT_WRITEDATA, this);
     curl_easy_setopt(handle, CURLOPT_PRIVATE, this);
-    
+
     //curl_easy_setopt(handle, CURLOPT_SHARE, shHandle);
 
     glibcurl_add(handle);

@@ -1,4 +1,4 @@
-/* $Id: glibcurl.h,v 1.1 2004-07-17 11:34:44 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.h,v 1.2 2004-07-17 11:46:06 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -52,7 +52,7 @@ CURLMcode glibcurl_remove(CURL* easy_handle);
     curl_multi_add_handle(). This is necessary to start new requests. It does
     so by triggering a call to curl_multi_perform() even in the case where no
     open fds cause that function to be called anyway. The call happens
-    "later", i.e. during the next iteration of the glib main loop. 
+    "later", i.e. during the next iteration of the glib main loop.
     glibcurl_start() only sets a flag to make it happen. */
 void glibcurl_start();
 
