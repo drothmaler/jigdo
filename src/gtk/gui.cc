@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.4 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.5 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -27,6 +27,8 @@
 #include <messagebox.hh>
 #include <string-utf.hh>
 //______________________________________________________________________
+
+DEBUG_UNIT("gui")
 
 /* Not all of these are set up during create() - we rely on the vars
    being initialized to 0 in that case. */
@@ -92,6 +94,16 @@ void GUI::create() {
   gtk_label_set_markup(GTK_LABEL(GUI::window.aboutJigdoButtonLabel), _(
     "<span size=\"x-small\">This is Free Software, distributable under the "
     "terms of the GNU GPL v2.</span>"));
+
+  // Set width of image_Info label to something bigger than the default
+  GtkRequisition infoReq;
+  gtk_widget_size_request(GUI::window.window, &infoReq);
+  //gtk_widget_get_size_request(GUI::window.jigdo_InfoVbox, &infoReq.width,
+  //&infoReq.height);
+  debug("updateWindow width=%1", infoReq.width);
+  int width = infoReq.width - 100;
+  if (width < 200) width = 450;
+  gtk_widget_set_size_request(GUI::window.jigdo_Info, width, -1);
 
   /* Handler to copy filename to right GtkEntry when OK is pressed
      in filesel */

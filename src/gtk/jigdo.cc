@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.7 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -174,8 +174,8 @@ int main (int argc, char *argv[]) {
       string pixDir = packageDataDir; pixDir += "pixmaps";
       add_pixmap_directory(pixDir.c_str());
     }
-    GUI::create();
     cmdOptions(argc, argv);
+    GUI::create();
     gtk_widget_show(GUI::window.window);
 
     // Initialize networking code

@@ -1,4 +1,4 @@
-/* $Id: log-test.cc,v 1.1 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: log-test.cc,v 1.2 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -22,7 +22,7 @@
 //______________________________________________________________________
 
 Logger info("Log-test");
-Logger debug("Flame-fest");
+Logger debugg("Flame-fest");
 
 namespace {
 
@@ -46,9 +46,9 @@ int main() {
   Logger::setEnabled("Log-test");
   string c = " (correct)";
   info("The answer: %1%2", 42, c);
-  debug("yo");
+  debugg("yo");
   Logger::setEnabled("Flame-fest");
-  debug("boo");
+  debugg("boo");
 
   Assert(out.str() ==
     "Log-test:       The answer: 42 (correct)\n"

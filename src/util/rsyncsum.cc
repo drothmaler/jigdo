@@ -1,4 +1,4 @@
-/* $Id: rsyncsum.cc,v 1.1 2003-07-04 22:29:01 atterer Exp $ -*- C++ -*-
+/* $Id: rsyncsum.cc,v 1.1 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

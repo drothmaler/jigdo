@@ -1,4 +1,4 @@
-/* $Id: proxyguess-test.cc,v 1.1 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess-test.cc,v 1.2 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -92,7 +92,7 @@ void glibwww_add_noproxy(const gchar *host) {
 }
 //______________________________________________________________________
 
-#define TESTING
+#define TESTING_PROXYGUESS
 #include <proxyguess.cc>
 //______________________________________________________________________
 

@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.hh,v 1.5 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.hh,v 1.6 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -22,7 +22,7 @@
 
 class GtkMakeImage : public JobLine, private Job::MakeImageDl::IO {
 public:
-  GtkMakeImage(const string& uriStr, const string& destination);
+  GtkMakeImage(const string& uriStr, const string& destDir);
   virtual ~GtkMakeImage();
 
   // Virtual methods from JobLine
@@ -56,12 +56,19 @@ private:
       const string& destDesc);
   virtual void makeImageDl_finished(Job::DataSource* childDownload,
                                     Job::DataSource::IO* yourIo);
+  virtual void makeImageDl_haveImageSection();
 
   // Update info in main window
   void updateWindow();
 
   string progress, status; // Lines to display in main window
   string treeViewStatus; // Status section in the list of jobs
+  string dest; // Destination dirname (filename once mid.haveImageSection())
+
+  /* Same as mid.imageInfo(), except that <br> is replaced with \n and <p> is
+     replaced with \n\n */
+  string imageInfo;
+  string imageShortInfo;
 
   Job::MakeImageDl mid;
 };

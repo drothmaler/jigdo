@@ -1,4 +1,4 @@
-/* $Id: log.cc,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: log.cc,v 1.7 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -43,15 +43,16 @@ bool Logger::setEnabled(const char* unitName, bool enable) {
     return true;
   }
 
-  // Only change one Logger
+  // Only change matching Loggers
+  bool result = false; // Not found
   while (l != 0) {
     if (strcmp(unitName, l->unitNameVal) == 0) {
       l->enabledVal = enable;
-      return true;
+      result = true;
     }
     l = l->next;
   }
-  return false; // Not found
+  return result;
 }
 
 void Logger::defaultPut(const string& unitName, unsigned char unitNameLen,

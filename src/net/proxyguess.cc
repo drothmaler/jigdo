@@ -1,4 +1,4 @@
-/* $Id: proxyguess.cc,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess.cc,v 1.7 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -193,7 +193,7 @@ namespace {
 
 namespace {
 
-# ifndef TESTING
+# ifndef TESTING_PROXYGUESS
   // Return the last modification date of the file in question, 0 on error
   inline time_t fileModTime(const char* path) {
     struct stat fileInfo;

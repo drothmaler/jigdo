@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig-test.cc,v 1.1 2003-07-04 22:29:14 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig-test.cc,v 1.2 2003-09-22 22:12:05 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -9,15 +9,14 @@
 
   Representation for config data in a .jigdo file - based on ConfigFile
 
+  #test-deps jigdoconfig.o util/configfile.o
+
 */
 
 #include <iostream>
 
-#define JIGDOCONFIG_DEBUG 1
-#include <jigdoconfig.cc>
-#include <configfile.cc>
-#include <debug.cc>
-#include <string.cc>
+#include <jigdoconfig.hh>
+#include <debug.hh>
 //______________________________________________________________________
 
 struct PR : public JigdoConfig::ProgressReporter {
