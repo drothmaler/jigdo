@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.9 2004-06-17 14:17:44 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.10 2004-06-18 23:22:47 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -36,8 +36,7 @@ namespace {
    deleted by the caller; in this case return null). */
 bistream* openForInput(bistream*& dest, const string& name) throw(Cleanup) {
   if (name == "-") {
-    static bifstream stdinStream(stdin);
-    dest = &stdinStream;
+    dest = &bcin;
     return 0;
   }
   dest = new bifstream(name.c_str(), ios::binary);
@@ -89,8 +88,7 @@ int willOutputTo(const string& name, bool optForce,
 #if !HAVE_WORKING_FSTREAM /* ie istream and bistream are not the same */
 bostream* openForOutput(bostream*& dest, const string& name) throw(Cleanup) {
   if (name == "-") {
-    static bofstream stdoutStream(stdout);
-    dest = &stdoutStream;
+    dest = &bcout;
     return 0;
   }
   dest = new bofstream(name.c_str(), ios::binary|ios::trunc);
