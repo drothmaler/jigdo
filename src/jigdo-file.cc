@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.9 2004-06-26 11:28:46 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.10 2004-07-17 11:30:48 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -446,7 +446,7 @@ void deduceName2(string& dest, const char* ext, const string& src) {
   Paranoid(dest.empty());
   string::size_type lastDot = src.rfind(EXTSEP);
   if (lastDot != string::npos) {
-    if (src.rfind(DIRSEP, lastDot + 1) != string::npos)
+    if (src.find(DIRSEP, lastDot + 1) != string::npos)
       lastDot = string::npos;
   }
   dest.assign(src, 0U, lastDot);
