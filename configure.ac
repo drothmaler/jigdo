@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.4 2004-07-17 23:55:43 atterer Exp $
+dnl $Id: configure.ac,v 1.5 2004-07-18 00:56:23 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -569,18 +569,18 @@ AC_SUBST(USE_NLS)
 CATALOGS=""
 if test "$USE_NLS" = "yes"; then
     oldLIBS="$LIBS"
-    AC_CHECK_LIB(intl, dgettext, x="yes", x="no")
-    if test "$x" = "yes"; then
+    AC_MSG_CHECKING(for dgettext in <libintl.h> and libc)
+    AC_TRY_LINK([#include <libintl.h>], dgettext(0, 0),
+                have_intl="yes", have_intl="no");
+    AC_MSG_RESULT($have_intl)
+    if test "$have_intl" = "no"; then
         LIBS="$LIBS -lintl";
-        AC_CHECK_LIB(iconv, iconv, LIBS="$LIBS -liconv")
+        AC_MSG_CHECKING(for dgettext in <libintl.h> and -lintl)
+        AC_TRY_LINK([#include <libintl.h>], dgettext(0, 0),
+                    have_intl="yes", have_intl="no");
+        AC_MSG_RESULT($have_intl)
     fi
-
-    AC_CACHE_CHECK([whether dgettext() works],
-                   jigdo_cv_func_dgettext,
-        AC_TRY_LINK([#include <libintl.h>], [dgettext("", "")],
-                    jigdo_cv_func_dgettext="yes",jigdo_cv_func_dgettext="no")
-    )
-    if test "$jigdo_cv_func_dgettext" = "no"; then
+    if test "$have_intl" = "no"; then
         AC_MSG_RESULT([   * Disabling gettext support - jigdo will not be])
         AC_MSG_RESULT([   * able to display translated status/error])
         AC_MSG_RESULT([   * messages instead of the default English ones.])
