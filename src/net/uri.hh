@@ -1,4 +1,4 @@
-/* $Id: uri.hh,v 1.3 2004-08-09 15:14:32 atterer Exp $ -*- C++ -*-
+/* $Id: uri.hh,v 1.4 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -30,5 +30,11 @@ unsigned findLabelColon(const string& s);
 /** Return true iff the absolute URL is a "real" HTTP/FTP/.. url, as opposed
     to a label name followed by a path. */
 bool isRealUrl(const string& s);
+//______________________________________________________________________
+
+/** Return true iff the absolute URL is a Label:some/path URL, i.e. there's a
+    colon before the first '/', and that colon is not followed by two
+    slashes. */
+bool isLabelUrl(const string& s);
 
 #endif

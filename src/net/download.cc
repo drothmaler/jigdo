@@ -1,4 +1,4 @@
-/* $Id: download.cc,v 1.19 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: download.cc,v 1.20 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -112,7 +112,8 @@ void Download::cleanup() {
 //______________________________________________________________________
 
 Download::Download(const string& uri, Output* o)
-    : handle(0), uriVal(uri), resumeOffsetVal(0), currentSize(0),
+    : handle(0), uriVal(uri), uriValWithoutNull(uri), resumeOffsetVal(0),
+      currentSize(0),
       outputVal(o), state(CREATED), stopLaterId(0), insideNewData(false) {
   /* string::data() just points at the "raw" memory that contains the string
      data. In contrast, string::c_str() may create a temporary buffer, add

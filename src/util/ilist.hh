@@ -1,4 +1,4 @@
-/* $Id: ilist.hh,v 1.7 2004-08-29 01:01:05 atterer Exp $ -*- C++ -*-
+/* $Id: ilist.hh,v 1.8 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -82,6 +82,15 @@ public:
 
     x.iListBase_prev = e.iListBase_prev;
     x.iListBase_next = &e;
+    x.iListBase_prev->iListBase_next = &x;
+    x.iListBase_next->iListBase_prev = &x;
+  }
+  void push_front(T& x) {
+    // Object must not already be a list member
+    Assert(x.iListBase_prev == 0 && x.iListBase_next == 0);
+
+    x.iListBase_prev = &e;
+    x.iListBase_next = e.iListBase_next;
     x.iListBase_prev->iListBase_next = &x;
     x.iListBase_next->iListBase_prev = &x;
   }

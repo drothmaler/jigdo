@@ -1,4 +1,4 @@
-/* $Id: download.hh,v 1.14 2004-08-29 01:01:05 atterer Exp $ -*- C++ -*-
+/* $Id: download.hh,v 1.15 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -141,6 +141,7 @@ private:
   char* curlError; // Curl error string buffer
 
   string uriVal; // Careful: Includes a trailing null byte!
+  string uriValWithoutNull;
   uint64 resumeOffsetVal;
   uint64 currentSize;
   Output* outputVal; // Usually points to a Job::SingleUrl
@@ -199,7 +200,9 @@ public:
 };
 //______________________________________________________________________
 
-const string& Download::uri() const { return uriVal; }
+const string& Download::uri() const {
+  return uriValWithoutNull;
+}
 
 Download::Output* Download::output() const { return outputVal; }
 void Download::setOutput(Download::Output* o) { outputVal = o; }

@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.cc,v 1.15 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.cc,v 1.16 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -391,6 +391,7 @@ void GtkSingleUrl::job_succeeded() {
   if (!childMode) singleUrl->setDestination(0, 0, 0);
   string s;
   Progress::appendSize(&s, job->progress()->currentSize());
+  progress.erase();
   status = subst(_("Download is complete - fetched %1 (%2 bytes)"),
                  s, job->progress()->currentSize());
   if (state != STOPPED) state = SUCCEEDED;
@@ -468,7 +469,7 @@ void GtkSingleUrl::dataSource_dataSize(uint64) {
 
 void GtkSingleUrl::dataSource_data(const byte* /*data*/, unsigned /*size*/,
                                   uint64 /*currentSize*/) {
-  debug("dataSource_data %1", job->progress()->currentSize());
+  //debug("dataSource_data %1", job->progress()->currentSize());
   if (!needTicks())
     callRegularly(&GtkSingleUrl::showProgress);
 

@@ -1,4 +1,4 @@
-/* $Id: single-url.cc,v 1.14 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.cc,v 1.15 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -122,8 +122,8 @@ void SingleUrl::download_dataSize(uint64 n) {
 bool SingleUrl::writeToDestStream(uint64 off, const byte* data,
                                   unsigned size) {
   if (destStream() == 0 /*|| stopLaterId != 0*/) return SUCCESS;
-  debug("writeToDestStream %1 %2 bytes at offset %3",
-        destStream(), size, off);
+  //debug("writeToDestStream %1 %2 bytes at offset %3",
+  //      destStream(), size, off);
 
   // Never go beyond destEndOff
   unsigned realSize = size;

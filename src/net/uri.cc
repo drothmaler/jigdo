@@ -1,4 +1,4 @@
-/* $Id: uri.cc,v 1.5 2004-08-14 18:38:33 atterer Exp $ -*- C++ -*-
+/* $Id: uri.cc,v 1.6 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -96,4 +96,10 @@ unsigned findLabelColon(const string& s) {
 bool isRealUrl(const string& s) {
   unsigned l = findLabelColon(s);
   return l > 0 && s.length() >= l + 3 && s[l + 1] == '/' && s[l + 2] == '/';
+}
+//______________________________________________________________________
+
+bool isLabelUrl(const string& s) {
+  unsigned l = findLabelColon(s);
+  return l > 0 && s.length() >= l + 3 && s[l + 1] != '/' && s[l + 2] != '/';
 }
