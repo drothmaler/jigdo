@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.5 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.6 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -384,8 +384,8 @@ namespace {
 
     if (toWrite > 0 && (!f || f.eof())) {
       const char* errDetail = "";
-      if (f.eof()) errDetail = _("file is too short");
-      else if (errno != 0) errDetail = strerror(errno);
+      if (errno != 0) errDetail = strerror(errno);
+      else if (f.eof()) errDetail = _("file is too short");
       err = subst(_("Error reading from `%1' (%2)"), fileName, errDetail);
       // Even if there was an error - always try to write right amount
       memClear(buf, readAmount);

@@ -1,4 +1,4 @@
-/* $Id: makeimage.hh,v 1.4 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: makeimage.hh,v 1.5 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -17,7 +17,6 @@
 #include <config.h>
 
 #include <debug.hh>
-#include <jigdo-io.hh>
 #include <jigdoconfig.hh>
 #include <nocopy.hh>
 //______________________________________________________________________
@@ -89,7 +88,7 @@
     MakeImageDl: Everything related to downloads
     <ul>
 
-      <li>Pushes .jigdo file contents from a SingleURL to the MakeImage
+      <li>Downloads and interprets .jigdo file contents
 
       <li>Downloads .template via SingleURL, notifies MakeImage once done
 

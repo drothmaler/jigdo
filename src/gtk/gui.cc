@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.1 2003-07-04 22:29:45 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.2 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -183,7 +183,7 @@ namespace {
     "modify it under the terms of the GNU General Public License, version "
     "2, as published by the Free Software Foundation.\n"
     "\n"
-    "In addition, as a special exception, Richard Atterer gives permission "
+    "In addition, as a special exception, the author gives permission "
     "to link the jigdo code with the OpenSSL project's \"OpenSSL\" library "
     "(or with modified versions of it that use the same license as the "
     "\"OpenSSL\" library), and to distribute the linked executables.\n"),

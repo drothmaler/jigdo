@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.8 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.9 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -16,12 +16,11 @@
 
 #include <config.h>
 
-#include <fstream>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include <bstream.hh>
+#include <bstream-counted.hh>
 #include <jobline.hh>
 #include <messagebox.hh>
 #include <single-url.hh>
@@ -139,7 +138,7 @@ private:
   string dest; // Destination filename
   string progress, status; // Lines to display in main window
   string treeViewStatus; // Status section in the list of jobs
-  bfstream* destStream;
+  SmartPtr<BfstreamCounted> destStream;
 
   MessageBox::Ref messageBox;
   // If !childMode, the next two point to the same object!
