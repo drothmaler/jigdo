@@ -1,4 +1,4 @@
-/* $Id: jigdo-io-test.cc,v 1.3 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io-test.cc,v 1.4 2004-08-03 16:31:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -19,6 +19,7 @@
 
 #include <makeimagedl.hh>
 #include <md5sum.hh>
+#include <url-mapping.hh>
 
 #include <jigdo-io.hh>
 /* Cannot link against jigdo-io.o, because this is not always compiled with
@@ -246,6 +247,13 @@ void MakeImageDl::setImageSection(string* imageName, string*, string*,
                                   string*, MD5**) {
   Paranoid(!haveImageSection());
   imageNameVal.swap(*imageName);
+}
+
+void MakeImageDl::addPart(const MD5&, vector<string>&) {
+  //debug("addPart %1 -> %2", md.toString(), value.front());
+}
+Status MakeImageDl::addServer(const string&, vector<string>&) {
+  return OK;
 }
 
 void MakeImageDl::jigdoFinished() {

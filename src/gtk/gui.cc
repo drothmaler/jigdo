@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.13 2004-07-19 01:01:57 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.14 2004-08-03 16:31:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -147,9 +147,9 @@ void GUI::create() {
       //"ftp://localhost/image"
       //"http://localhost:8000/~richard/ironmaiden/part32"
 #     if WINDOWS
-      "http://192.168.0.5:8000/~richard/ironmaiden/image"
+      "http://192.168.0.5:8000/~richard/ironmaiden/image.jigdo"
 #     else
-      "http://127.0.0.1:8000/~richard/ironmaiden/image"
+      "http://127.0.0.1:8000/~richard/ironmaiden/image.jigdo"
 #     endif
       );
 # endif

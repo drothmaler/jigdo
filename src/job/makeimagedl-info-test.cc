@@ -1,4 +1,4 @@
-/* $Id: makeimagedl-info-test.cc,v 1.3 2004-02-04 15:34:40 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl-info-test.cc,v 1.4 2004-08-03 16:31:53 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -20,6 +20,7 @@
 #include <debug.hh>
 #include <log.hh>
 #include <makeimagedl.hh>
+#include <url-mapping.hh>
 //______________________________________________________________________
 
 using namespace Job;
