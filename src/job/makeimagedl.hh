@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.hh,v 1.16 2004-08-03 16:31:53 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.hh,v 1.17 2004-08-03 22:35:57 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -148,6 +148,11 @@ public:
       @return failed() iff the line results in a recursive server
       definition. */
   Status addServer(const string& label, vector<string>& value);
+
+# if DEBUG
+  /** Output the graph built up by addPart()/addServer(). */
+  void dumpJigdoInfo();
+# endif
 
   /** Return child download object which contains a DataSource which produces
       the data of the requested URL. That returned object is usually a newly

@@ -1,4 +1,4 @@
-/* $Id: url-mapping.hh,v 1.1 2004-08-03 16:31:53 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.hh,v 1.2 2004-08-03 22:35:57 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -104,7 +104,7 @@ UrlMapping::UrlMapping() : urlVal(), prepVal(0), nextVal(0), tries(0),
                            triesFailed(0)/*, weight(0)*/ { }
 
 void UrlMapping::insertNext(UrlMapping* um) {
-  Paranoid(um->nextVal.isNull());
+  Paranoid(um != 0 && um->nextVal.isNull());
   um->nextVal = nextVal;
   nextVal = um;
 }
