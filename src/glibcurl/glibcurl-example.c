@@ -1,4 +1,4 @@
-/* $Id: glibcurl-example.c,v 1.3 2004-08-03 16:30:51 atterer Exp $ -*- C -*-
+/* $Id: glibcurl-example.c,v 1.4 2004-12-04 13:38:09 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 }
 
 size_t curlWriter(void* ptr, size_t size, size_t nmemb, void *stream) {
-  if (ptr == 0) return 0; // NOP, just to avoid "unused param" warning
+  if (ptr == 0) return 0; /* NOP, just to avoid "unused param" warning */
   putchar(*(char*)stream); fflush(stdout);
   nBytes += size * nmemb;
   return size * nmemb;

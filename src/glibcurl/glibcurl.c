@@ -1,4 +1,4 @@
-/* $Id: glibcurl.c,v 1.12 2004-09-11 23:26:29 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.c,v 1.13 2004-12-04 13:38:09 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -31,6 +31,7 @@
 #include <string.h>
 #include <assert.h>
 
+/* #if 1 */
 #ifdef G_OS_WIN32
 /*______________________________________________________________________*/
 
@@ -193,8 +194,8 @@ static gpointer selectThread(gpointer data) {
     D((stderr, "selectThread: select() fdCount=%d\n", fdCount));
 
     g_atomic_int_inc(&curlSrc->gtkBlockAndWait); /* "GTK thread, block!" */
-    /* GTK thread will almost immediately block in prepare() */
     D((stderr, "selectThread: waking up GTK thread\n"));
+    /* GTK thread will almost immediately block in prepare() */
     g_main_context_wakeup(NULL);
 
     /* Now unblock GTK thread, continue after it signals us */
@@ -271,11 +272,11 @@ gboolean dispatch(GSource* source, GSourceFunc callback,
   if (multiCount == 0)
     curlSrc->selectRunning = FALSE;
 
-  /* Let selectThread call select() again */
-  g_mutex_unlock(curlSrc->mutex);
-  g_cond_signal(curlSrc->cond);
+  if (callback != 0) (*callback)(user_data); /***/
 
-  if (callback != 0) (*callback)(user_data);
+  /* Let selectThread call select() again */
+  g_cond_signal(curlSrc->cond);
+  g_mutex_unlock(curlSrc->mutex);
 
   return TRUE; /* "Do not destroy me" */
 }
