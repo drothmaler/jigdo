@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.10 2004-08-15 13:09:50 atterer Exp $
+dnl $Id: configure.ac,v 1.11 2004-12-05 16:15:28 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -329,6 +329,7 @@ if test "$jigdo_gui" = "yes"; then
         jigdo_gui_failed
     fi
     if test "$is_windows" = yes; then gth="gthread-2.0"; else gth=""; fi
+#gth="gthread-2.0"
     GTKCFLAGS="`pkg-config $jigdo_pkg_config_prefix gtk+-2.0 $gth --cflags 2>/dev/null`"
     GTKLIBS="`pkg-config $jigdo_pkg_config_prefix gtk+-2.0 $gth --libs 2>/dev/null`"
     GLIBLIBS="`pkg-config $jigdo_pkg_config_prefix glib-2.0 $gth --libs 2>/dev/null`"

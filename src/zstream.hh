@@ -1,4 +1,4 @@
-/* $Id: zstream.hh,v 1.3 2004-12-04 22:27:22 atterer Exp $ -*- C++ -*-
+/* $Id: zstream.hh,v 1.4 2004-12-05 16:15:58 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -22,6 +22,7 @@
 
 #include <config.h>
 
+#warning "remove include <zlib.h>"
 #include <zlib.h>
 #include <iostream>
 

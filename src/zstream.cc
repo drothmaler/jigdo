@@ -1,4 +1,4 @@
-/* $Id: zstream.cc,v 1.7 2004-12-04 22:27:22 atterer Exp $ -*- C++ -*-
+/* $Id: zstream.cc,v 1.8 2004-12-05 16:15:58 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -30,7 +30,6 @@ DEBUG_UNIT("zstream")
 //________________________________________
 namespace {
 
-#warning remove throwZerror
   // Turn zlib error codes/messages into C++ exceptions
   void throwZerror(int status, const char* zmsg) {
     string m;
