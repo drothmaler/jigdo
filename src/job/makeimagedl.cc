@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.cc,v 1.20 2004-08-09 08:35:04 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.21 2004-08-09 14:56:32 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -419,6 +419,8 @@ void MakeImageDl::jigdoFinished() {
       delete x;
     }
   }
+
+  if (finalState()) return; // I.e. there was an error
 
   Paranoid(stateVal == DOWNLOADING_JIGDO);
   stateVal = DOWNLOADING_TEMPLATE;
