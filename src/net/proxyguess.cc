@@ -1,4 +1,4 @@
-/* $Id: proxyguess.cc,v 1.8 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess.cc,v 1.9 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -25,7 +25,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include <glibwww.hh>
+#include <glib.h>
+#include <glibcurl.h>
 #include <log.hh>
 #include <proxyguess.hh>
 //______________________________________________________________________
@@ -226,7 +227,7 @@ namespace {
     if (*proxy == '#') return false; // Assuming comment, not setting proxy
     if (*proxy == '\0') return false;
     debug("%1 proxy: %2", protocol, proxy);
-    glibwww_add_proxy(protocol, proxy);
+    glibcurl_add_proxy(protocol, proxy);
     return true;
   }
 
@@ -243,7 +244,7 @@ namespace {
         ++list;
       }
       debug("No proxy for %1", host);
-      glibwww_add_noproxy(host.c_str());
+      glibcurl_add_noproxy(host.c_str());
       host.erase();
     }
   }

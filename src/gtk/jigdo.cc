@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.9 2003-11-11 14:15:56 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.10 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -180,7 +180,7 @@ int main(int argc, char *argv[]) {
 
     // Initialize networking code
     Download::init();
-    if (optProxy != OFF) glibwww_parse_proxy_env();
+#warning    if (optProxy != OFF) glibwww_parse_proxy_env();
     if (optProxy == GUESS) proxyGuess();
 
     // Start downloads of any URIs specified on command line
@@ -195,8 +195,12 @@ int main(int argc, char *argv[]) {
   }
   catch (Cleanup c) {
     msg("[Cleanup %1]", c.returnValue);
+    GUI::jobList.finalize();
+    Download::cleanup();
     return c.returnValue;
   }
+  GUI::jobList.finalize();
+  Download::cleanup();
 
 # if DEBUG && !WINDOWS
   const char* preload = getenv("LD_PRELOAD");

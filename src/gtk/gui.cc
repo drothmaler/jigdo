@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.10 2004-06-26 11:28:46 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.11 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -19,6 +19,7 @@
 
 #include <fstream>
 #include <ctype.h>
+#include <errno.h>
 
 #include <gtk-single-url.hh>
 #include <gtk-makeimage.hh>

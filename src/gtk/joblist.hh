@@ -1,4 +1,4 @@
-/* $Id: joblist.hh,v 1.7 2004-05-29 22:55:59 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.hh,v 1.8 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -57,6 +57,9 @@ public:
   inline JobList();
   /** Any Jobs still in the list are deleted */
   ~JobList();
+  /** Like the dtor; later call to the dtor will not cause anything to
+      happen */
+  void finalize();
 
   /** The GTK data structure that contains the linked list of items for this
       JobList. */

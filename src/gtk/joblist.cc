@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.11 2004-05-29 22:55:59 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.12 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -41,12 +41,15 @@ vector<GdkPixbuf*> JobList::progressGfx;
 GValue JobList::progressValue;
 //______________________________________________________________________
 
-JobList::~JobList() {
+void JobList::finalize() {
   /* Don't delete any widgets, GTK should take care of this itself when the
      window is deleted. */
 
   // Delete active callback, if any
-  if (selectRowIdleId != 0) g_source_remove(selectRowIdleId);
+  if (selectRowIdleId != 0) {
+    g_source_remove(selectRowIdleId);
+    selectRowIdleId = 0;
+  }
 
   /* Delete Jobs. When deleted, the job will erase itself from the list, so
      just keep getting the first list element.
@@ -60,7 +63,14 @@ JobList::~JobList() {
       delete get(&row);
     }
   }
-  if (store()) g_object_unref(store());
+  if (store()) {
+    g_object_unref(store());
+    storeVal = 0;
+  }
+}
+
+JobList::~JobList() {
+  finalize();
 }
 //______________________________________________________________________
 

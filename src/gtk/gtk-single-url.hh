@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.11 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.12 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -114,7 +114,7 @@ private:
   void updateWindow();
   void resumeAsk(struct stat* fileInfo); // Ask user "resume/overwrite?"
   static void resumeResponse(GtkDialog*, int r, gpointer data);
-  void openOutputAndRun(bool pragmaNoCache = false); // Allocate download job
+  void openOutputAndRun(/*bool pragmaNoCache = false*/); // Allocate download job
   void openOutputAndResume(); // Alloc job and read resume data from file
   void updateTreeView(); // Update our line in GtkTreeView
   void failedPermanently(string* message);
