@@ -1,7 +1,7 @@
-/* $Id: zstream-gz.cc,v 1.1 2004-12-04 22:27:22 atterer Exp $ -*- C++ -*-
+/* $Id: zstream-gz.cc,v 1.2 2005-04-03 23:07:26 atterer Exp $ -*- C++ -*-
   __   _
-  |_) /|  Copyright (C) 2004  |  richard@
-  | \/¯|  Richard Atterer     |  atterer.net
+  |_) /|  Copyright (C) 2004-2005  |  richard@
+  | \/¯|  Richard Atterer          |  atterer.net
   ¯ '` ¯
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
@@ -76,14 +76,21 @@ void ZobstreamGz::open(bostream& s, unsigned chunkLimit, int level,
   z.next_in = z.next_out = 0;
   z.avail_out = (zipBuf == 0 ? 0 : ZIPDATA_SIZE);
   z.total_in = 0;
+  debug("deflateInit2");
   int status = deflateInit2(&z, level, Z_DEFLATED, windowBits, memLevel,
                             Z_DEFAULT_STRATEGY);
   if (status != Z_OK) throwZerrorGz(status, z.msg);
 
   // Declare stream as open
+  debug("opening");
   Zobstream::open(s, chunkLimit, todoBufSz);
+  debug("opened");
 }
 //______________________________________________________________________
+
+unsigned ZobstreamGz::partId() {
+  return 0x41544144u; // "DATA"
+}
 
 void ZobstreamGz::deflateEnd() {
   int status = ::deflateEnd(&z);
@@ -97,6 +104,7 @@ void ZobstreamGz::deflateReset() {
 //______________________________________________________________________
 
 void ZobstreamGz::zip2(byte* start, unsigned len, bool finish) {
+  debug("zip2 %1 bytes at %2", len, start);
   int flush = (finish ? Z_FINISH : Z_NO_FLUSH);
   Assert(is_open());
 
@@ -127,7 +135,13 @@ void ZobstreamGz::zip2(byte* start, unsigned len, bool finish) {
       //cerr << "Zob: new ZipData @ " << &zd->data << endl;
     }
 
+    debug("deflate ni=%1 ai=%2 no=%3 ao=%4",
+          z.next_in, z.avail_in, z.next_out, z.avail_out);
+    //memset(z.next_in, 0, z.avail_in);
+    //memset(z.next_out, 0, z.avail_out);
     int status = deflate(&z, flush); // Call zlib
+    debug("deflated ni=%1 ai=%2 no=%3 ao=%4 status=%5",
+          z.next_in, z.avail_in, z.next_out, z.avail_out, status);
     //cerr << "zip(" << (void*)start << ", " << len << ", " << flush
     //     << ") returned " << status << endl;
     if (status == Z_STREAM_END

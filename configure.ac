@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.11 2004-12-05 16:15:28 atterer Exp $
+dnl $Id: configure.ac,v 1.12 2005-04-03 23:07:26 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -224,6 +224,16 @@ if test "$have_zlib" = "no" -o "$have_zlib_h" = "no"; then
     installDevel "zlib1g" "zlib"
 fi
 if test "$have_zlib" != "no"; then LIBS="$have_zlib $LIBS"; fi
+
+
+AC_CHECK_LIB(bz2, BZ2_bzCompressInit, have_bzlib="-lbz2", have_zlib="no")
+AC_CHECK_HEADER(bzlib.h, have_bzlib_h="yes", have_bzlib_h="no")
+if test "$have_bzlib" = "no" -o "$have_bzlib_h" = "no"; then
+    AC_MSG_RESULT([   * Please install libbz2, it is needed by all of the])
+    AC_MSG_RESULT([   * programs.])
+    installDevel "libbz2" "libbz2"
+fi
+if test "$have_bzlib" != "no"; then LIBS="$have_bzlib $LIBS"; fi
 
 
 AC_MSG_CHECKING(for value of --with-libdb)

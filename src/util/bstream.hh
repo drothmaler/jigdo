@@ -1,4 +1,4 @@
-/* $Id: bstream.hh,v 1.17 2004-12-28 00:23:14 atterer Exp $ -*- C++ -*-
+/* $Id: bstream.hh,v 1.18 2005-04-03 23:07:26 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -169,8 +169,7 @@ void bifstream::open(const char* name, ios::openmode DEBUG_ONLY_PARAM(m)) {
 }
 
 bofstream::bofstream(const char* name, ios::openmode m) : bostream() {
-  /* Without the trunc, bofstream("foo", ios::binary) will fail if "foo" does
-     not yet exist. The trunc causes it to be created. */
+  // When opened this way, any existing file is truncated
   open(name, m | ios::trunc);
 }
 
