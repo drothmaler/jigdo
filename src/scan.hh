@@ -1,4 +1,4 @@
-/* $Id: scan.hh,v 1.1 2003-07-04 22:29:10 atterer Exp $ -*- C++ -*-
+/* $Id: scan.hh,v 1.2 2004-06-09 09:43:55 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -20,6 +20,7 @@
 #include <set>
 #include <vector>
 #include <time.h>
+#include <sys/stat.h>
 
 #include <cachefile.hh>
 #include <debug.hh>
