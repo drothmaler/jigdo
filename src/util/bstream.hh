@@ -1,4 +1,4 @@
-/* $Id: bstream.hh,v 1.16 2004-08-03 16:30:25 atterer Exp $ -*- C++ -*-
+/* $Id: bstream.hh,v 1.17 2004-12-28 00:23:14 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -145,6 +145,7 @@ uint64 bistream::tellg() const {
 }
 
 bostream& bostream::write(const char* p, streamsize n) {
+  Paranoid(f != 0);
   fwrite(p, 1, n, f);
   return *this;
 }
@@ -168,7 +169,9 @@ void bifstream::open(const char* name, ios::openmode DEBUG_ONLY_PARAM(m)) {
 }
 
 bofstream::bofstream(const char* name, ios::openmode m) : bostream() {
-  open(name, m);
+  /* Without the trunc, bofstream("foo", ios::binary) will fail if "foo" does
+     not yet exist. The trunc causes it to be created. */
+  open(name, m | ios::trunc);
 }
 
 #endif /* HAVE_WORKING_FSTREAM */
