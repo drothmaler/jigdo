@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.1 2004-06-20 11:01:02 atterer Exp $
+dnl $Id: configure.ac,v 1.2 2004-06-20 16:17:32 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -295,7 +295,7 @@ if test "$jigdo_gui" = "yes"; then
     if test "$PKGCONFIG" = "no"; then
         AC_MSG_RESULT([   * GTK+ not installed, or pkg-config not in])
         AC_MSG_RESULT([   * \$PATH. Please install GTK+ 2.])
-        installDevel "libgtk2.0" "libgtk2.0-dev"
+        installDevel "libgtk2.0" "libgtk2.0"
         jigdo_gui_failed
     fi
 fi
