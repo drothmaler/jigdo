@@ -1,4 +1,4 @@
-/* $Id: uri-test.cc,v 1.2 2004-08-09 14:57:21 atterer Exp $ -*- C++ -*-
+/* $Id: uri-test.cc,v 1.3 2004-08-15 13:11:18 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -8,6 +8,7 @@
   the file COPYING for details.
 
   #test-deps glibcurl/glibcurl.o net/uri.o compat.o
+  #test-ldflags $(CURLLIBS)
 
 */
 
