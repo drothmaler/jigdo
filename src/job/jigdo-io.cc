@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.2 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.3 2003-08-30 17:43:42 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -58,7 +58,8 @@ Job::IO* JigdoIO::job_removeIo(Job::IO* rmIo) {
 
 void JigdoIO::job_deleted() {
   if (frontend != 0) frontend->job_deleted();
-  // Do not "delete this" - childDl owns us and the SingleUrl
+  /* Do not "delete this" - childDl owns us and the SingleUrl, and will
+     delete us from its dtor. */
 }
 
 void JigdoIO::job_succeeded() {

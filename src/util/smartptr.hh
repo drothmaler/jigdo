@@ -1,4 +1,4 @@
-/* $Id: smartptr.hh,v 1.1 2003-08-28 23:22:08 atterer Exp $ -*- C++ -*-
+/* $Id: smartptr.hh,v 1.2 2003-08-30 17:43:42 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

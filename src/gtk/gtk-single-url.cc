@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.cc,v 1.9 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.cc,v 1.10 2003-08-30 17:43:42 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -260,7 +260,7 @@ void GtkSingleUrl::percentDone(uint64* cur, uint64* total) {
 void GtkSingleUrl::updateWindow() {
   if (!jobList()->isWindowOwner(this)) return;
 
-  debug("updateWindow: state=%1 status=%2", int(state), status);
+  debug("updateWindow: state=%1 status=\"%2\"", int(state), status);
 
   // URL and destination lines
   gtk_label_set_text(GTK_LABEL(GUI::window.download_URL), uri.c_str());
