@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.8 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.9 2003-12-21 22:43:57 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -654,7 +654,7 @@ void JigdoIO::entry(string* label, string* data, unsigned valueOff) {
       }
 #     if DEBUG
       Base64String b64;
-      b64.write(*templateMd5, 16).flush();
+      b64.write(implicit_cast<byte*>(*templateMd5), 16).flush();
       Paranoid(b64.result() == value.front());
 #     endif
     } else if (*label == "ShortInfo") {
