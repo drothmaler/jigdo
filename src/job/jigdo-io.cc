@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.11 2004-01-12 14:43:40 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.12 2004-01-12 14:59:55 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -7,7 +7,7 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  IO object for .jigdo downloads; download, gunzip, interpret
+  IO object for downloads of .jigdo URLs; download, gunzip, interpret
 
 */
 
@@ -668,6 +668,10 @@ void JigdoIO::entry(string* label, string* data, unsigned valueOff) {
       if (!imageInfo.empty()) return generateError(_("Value redefined"));
       imageInfo.assign(*data, valueOff, 5000);
     }
+
+  } else {
+
+    debug("Section name `%1' unknown - ignoring section", section);
 
   } // endif (section == "Something")
 

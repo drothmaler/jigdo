@@ -1,4 +1,4 @@
-/* $Id: jigdodownload.cc,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: jigdodownload.cc,v 1.8 2004-01-12 14:59:55 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -12,20 +12,6 @@
   Download .jigdo file. If the data that is fetched from the primary .jigdo
   URL contains [Include] directives, additional JigdoDownloads will be
   started for each one.
-
-  To deal with [Include], the following happens: Each JigdoDownload has an
-  iterator at which it inserts lines of downloaded data into the MakeImage's
-  JigdoConfig. When an [Include] is encountered and the maximum allowed level
-  of includes is not yet reached, a new JigdoDownload is set up to insert
-  lines just *before* the [Include] line, and only to remove that [Include]
-  line when the download has successfully completed.
-
-  When asked for e.g. the filename of the output file, MakeImage needs to
-  access the *first* [Image] section in the .jigdo data, regardless of
-  whether that appears in the top-level .jigdo file or a file included from
-  there. It must ignore any further [Image] sections. So while searching
-  through the data, it'll stop at any [Include] and say "[Image]" not yet
-  found.
 
 */
 

@@ -1,4 +1,4 @@
-/* $Id: cached-url.cc,v 1.2 2003-09-12 23:08:01 atterer Exp $ -*- C++ -*-
+/* $Id: cached-url.cc,v 1.3 2004-01-12 14:59:55 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -8,6 +8,8 @@
   COPYING for details.
 
   Spool data from cache file
+
+  LIGHTLY TESTED ONLY, BOUND TO CONTAIN BUGS
 
 */
 
