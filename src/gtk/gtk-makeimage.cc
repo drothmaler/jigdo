@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.14 2003-12-21 19:22:37 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.15 2004-08-09 08:35:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -32,6 +32,7 @@ GtkMakeImage::GtkMakeImage(const string& uriStr, const string& destDir)
 }
 
 GtkMakeImage::~GtkMakeImage() {
+  mid.killAllChildren();
   /* Delete all children. A simpler frontend would always delete them
      immediately when makeImageDl_finished() is called, but with GTK+, we
      leave them instantiated a few seconds (if child was successful) or until

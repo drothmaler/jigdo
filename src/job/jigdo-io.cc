@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.18 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.19 2004-08-09 08:35:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -691,12 +691,12 @@ void JigdoIO::entry(string* label, string* data, unsigned valueOff) {
         return generateError(_("Invalid MD5Sum in Parts section"));
       }
       //debug("PART %1 -> %2", md5.toString(), value.front());
-      master()->addPart(urlVal, md5, value);
+      master()->urlMap.addPart(urlVal, md5, value);
 
   } else if (section == "Servers") {
 
     if (value.empty()) return generateError(_("Missing argument"));
-    if (master()->addServer(urlVal, *label, value).failed())
+    if (master()->urlMap.addServer(urlVal, *label, value).failed())
       return generateError(_("Recursive label definition"));
 
   } // endif (section == "Something")
