@@ -1,4 +1,4 @@
-/* $Id: bstream.hh,v 1.12 2004-06-17 14:17:44 atterer Exp $ -*- C++ -*-
+/* $Id: bstream.hh,v 1.13 2004-06-17 14:46:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -145,8 +145,8 @@ bistream& bistream::seekg(long off, ios::seekdir dir) {
     whence = SEEK_END;
   else
     { Assert(false); whence = SEEK_SET; }
-  int r = fseek(f, off, whence);
-  Assert((r == -1) == (ferror(f) != 0));
+  /*int r =*/ fseeko(f, off, whence);
+  // Fails: Assert((r == -1) == (ferror(f) != 0));
   return *this;
 }
 
@@ -159,13 +159,13 @@ bostream& bostream::seekp(long off, ios::seekdir dir) {
     whence = SEEK_END;
   else
     { Assert(false); whence = SEEK_SET; }
-  int r = fseek(f, off, whence);
-  Assert((r == -1) == (ferror(f) != 0));
+  /*int r =*/ fseeko(f, off, whence);
+  // Fails: Assert((r == -1) == (ferror(f) != 0));
   return *this;
 }
 
 uint64 bistream::tellg() const {
-  return ftell(f);
+  return ftello(f);
 }
 
 void bistream::getline(string& l) {
