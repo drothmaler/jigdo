@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.7 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.8 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -60,8 +60,10 @@ bool JigdoFileCmd::optHex = false;
 string JigdoFileCmd::optDebug;
 AnyReporter* JigdoFileCmd::optReporter = 0;
 string JigdoFileCmd::optMatchExec;
-#if !WINDOWS
-string JigdoFileCmd::binaryName; // of the program
+#if WINDOWS
+  const char* const JigdoFileCmd::binaryName = "jigdo-file";
+#else
+  string JigdoFileCmd::binaryName;
 #endif
 //______________________________________________________________________
 

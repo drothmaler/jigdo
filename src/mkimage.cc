@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.7 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.8 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -909,7 +909,7 @@ int JigdoDesc::makeImage(JigdoCache* cache, const string& imageFile,
   Assert(files.back()->type() == IMAGE_INFO);
   uint64 imageSize = files.back()->size();
   totalBytes = imageSize;
-# if WINDOWS
+# if 0 /* # if WINDOWS */
   /* The C++ STL of the MinGW 1.1 gcc port for Windows doesn't support
      files >2GB. Fail early and with a clear error message... */
   if (imageSize >= (1U<<31))

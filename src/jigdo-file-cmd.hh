@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.hh,v 1.5 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.hh,v 1.6 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -59,7 +59,7 @@ class JigdoFileCmd {
 
   // Command line options, to be used by the jigdo-file commands
 # if WINDOWS
-  static const char* const binaryName = "jigdo-file";
+  static const char* const binaryName;
 # else
   friend const string& binName();
   static string binaryName; // of the program

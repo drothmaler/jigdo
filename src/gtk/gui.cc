@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.8 2003-11-18 11:28:31 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.9 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -96,7 +96,7 @@ void GUI::create() {
   string banner = subst(_(
     "<span weight=\"bold\" foreground=\"black\">"
     "<span size=\"x-large\">Jigsaw Download %F1</span>\n"
-    "Copyright 2001-2003 Richard Atterer\n"
+    "Copyright 2001-2004 Richard Atterer\n"
     "http://atterer.net/jigdo</span>"), JIGDO_VERSION);
   gtk_label_set_markup(aboutJigdoLabel, banner.c_str());
   gtk_label_set_justify(aboutJigdoLabel, GTK_JUSTIFY_CENTER);
