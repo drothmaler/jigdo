@@ -1,4 +1,4 @@
-/* $Id: mimestream.hh,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: mimestream.hh,v 1.3 2004-05-29 22:53:15 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -215,10 +215,8 @@ Base64Out<Output>& Base64Out<Output>::flush() {
 template <class Output>
 Base64Out<Output>& Base64Out<Output>::trailer(streamsize n) {
   int rest = n % 3;
-  if (rest == 1)
-    (*stream) << '=';
-  if (rest >= 1)
-    (*stream) << '=';
+  if (rest == 1) out.put('=');
+  if (rest >= 1) out.put('=');
   return *this;
 }
 
