@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.9 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.10 2004-12-04 22:27:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -43,7 +43,7 @@
 #include <mktemplate.hh>
 #include <scan.hh>
 #include <string.hh>
-#include <zstream.hh>
+#include <zstream-gz.hh>
 //______________________________________________________________________
 
 void MkTemplate::ProgressReporter::error(const string& message) {
@@ -721,9 +721,9 @@ inline bool MkTemplate::scanImage(byte* buf, size_t bufferLength,
   rsum.addBackNtimes(0x7f, blockLength);
 
   // Compression pipe for templ data
-  auto_ptr<Zobstream> zipDel(
-    new Zobstream(*templ, ZIPCHUNK_SIZE, zipQual, 15, 8, 256U,
-                  &templMd5Sum));
+  auto_ptr<Zobstream> zipDel(implicit_cast<Zobstream*>(
+    new ZobstreamGz(*templ, ZIPCHUNK_SIZE, zipQual, 15, 8, 256U,
+                    &templMd5Sum)));
   zip = zipDel.get();
   Desc desc; // Buffer for DESC data, will be appended to templ at end
   size_t data = 0; // Offset into buf of byte currently being processed
