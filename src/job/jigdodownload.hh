@@ -1,4 +1,4 @@
-/* $Id: jigdodownload.hh,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
+/* $Id: jigdodownload.hh,v 1.3 2003-08-05 15:04:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -42,6 +42,8 @@ public:
   JigdoDownload(MakeImageDl* m, JigdoDownload* p, const string& jigdoUrl,
                 ConfigFile::iterator destPos);
   virtual ~JigdoDownload();
+
+  void run();
 
   /** Access the correct io member, i.e. for the derived class. */
   virtual IOPtr<SingleUrl::IO>& io();

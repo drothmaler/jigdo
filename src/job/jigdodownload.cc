@@ -1,4 +1,4 @@
-/* $Id: jigdodownload.cc,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
+/* $Id: jigdodownload.cc,v 1.3 2003-08-05 15:04:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -43,16 +43,17 @@ MakeImageDl::JigdoDownload::JigdoDownload(MakeImageDl* m, JigdoDownload* p,
                                           ConfigFile::iterator destPos)
     : SingleUrl(this, jigdoUrl), master(m), parent(p), ioVal(0),
       gunzipBuf(), gunzip(this), insertPos(destPos) {
-  //SingleUrl::io().set(this);
   ioVal.set(master->io->makeImageDl_new(this));
-  SingleUrl::run(0, 0, 0, 0, false);
-# warning "fixme introduce JigdoDownload::run() + separate base class?"
 }
 
 MakeImageDl::JigdoDownload::~JigdoDownload() {
   master->io->makeImageDl_finished(this);
   if (master->jigdo == this) master->jigdo = 0;
   SingleUrl::io().set(0);
+}
+
+void MakeImageDl::JigdoDownload::run() {
+  SingleUrl::run(0, 0, 0, 0, false);
 }
 //______________________________________________________________________
 

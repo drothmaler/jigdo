@@ -1,4 +1,4 @@
-/* $Id: progress.cc,v 1.2 2003-07-31 18:56:11 atterer Exp $ -*- C++ -*-
+/* $Id: progress.cc,v 1.3 2003-08-05 15:04:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
