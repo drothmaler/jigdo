@@ -1,4 +1,4 @@
-/* $Id: debug.cc,v 1.7 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: debug.cc,v 1.8 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -39,10 +39,10 @@ int Debug::assertFail(const char* assertion, const char* file,
 #include <unistd.h>
 #include <stdlib.h>
 
-/* In order for memprof to be used, the process needs to sleep after
-   exiting from main(). ~DebugSingleton() must be called after all
-   other singleton dtors. This is ensured (non-portably) through link
-   order. */
+/** In order for memprof to be used, the process needs to sleep after
+    exiting from main(). ~DebugSingleton() must be called after all
+    other singleton dtors. This is ensured (non-portably) through link
+    order. */
 struct DebugSingleton {
   ~DebugSingleton() {
     if (getenv("_MEMPROF_SOCKET") != 0) sleep(60*60);

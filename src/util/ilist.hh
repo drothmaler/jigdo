@@ -1,4 +1,4 @@
-/* $Id: ilist.hh,v 1.8 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
+/* $Id: ilist.hh,v 1.9 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -117,6 +117,7 @@ private:
   IListBase e;
 };
 
+/** iterator for an IList object */
 template<class T>
 class IList<T>::iterator {
   friend class const_iterator;
@@ -141,6 +142,7 @@ private:
   IListBase* p;
 };
 
+/** const_iterator for an IList object */
 template<class T>
 class IList<T>::const_iterator {
   friend class iterator;

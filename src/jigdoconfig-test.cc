@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig-test.cc,v 1.3 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig-test.cc,v 1.4 2004-09-09 23:50:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -19,16 +19,20 @@
 #include <debug.hh>
 //______________________________________________________________________
 
-struct PR : public JigdoConfig::ProgressReporter {
-  void error(const string& message, const size_t lineNr) {
-    if (lineNr > 0) cerr << lineNr << ": ";
-    cerr << message << endl;
-  }
-  void info(const string& message, const size_t lineNr) {
-    if (lineNr > 0) cerr << lineNr << ": ";
-    cerr << message << endl;
-  }
-} myPR;
+namespace {
+
+  struct PR : public JigdoConfig::ProgressReporter {
+    void error(const string& message, const size_t lineNr) {
+      if (lineNr > 0) cerr << lineNr << ": ";
+      cerr << message << endl;
+    }
+    void info(const string& message, const size_t lineNr) {
+      if (lineNr > 0) cerr << lineNr << ": ";
+      cerr << message << endl;
+    }
+  } myPR;
+
+}
 
 int main(int argc, char* argv[]) {
   if (argc == 1) {

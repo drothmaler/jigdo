@@ -1,4 +1,4 @@
-/* $Id: string.hh,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: string.hh,v 1.6 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -38,6 +38,7 @@ string& append(string& s, unsigned long long x, int width);
 #endif
 //______________________________________________________________________
 
+/** Class for passing arguments to Logger */
 class Subst {
 public:
   Subst(int x)           { type = INT;      val.intVal = x; }

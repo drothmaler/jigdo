@@ -1,4 +1,4 @@
-/* $Id: autonullptr-test.cc,v 1.1 2004-08-15 13:11:13 atterer Exp $ -*- C++ -*-
+/* $Id: autonullptr-test.cc,v 1.2 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -17,9 +17,13 @@
 #include <debug.hh>
 //______________________________________________________________________
 
-struct X : public AutoNullPtrBase<X> {
-  int memb;
-};
+namespace {
+
+  struct X : public AutoNullPtrBase<X> {
+    int memb;
+  };
+
+}
 
 int main() {
   X* x = new X();

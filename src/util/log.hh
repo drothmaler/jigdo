@@ -1,4 +1,4 @@
-/* $Id: log.hh,v 1.6 2003-09-16 23:32:10 atterer Exp $ -*- C++ -*-
+/* $Id: log.hh,v 1.7 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   Logfile / debugging output
 
@@ -102,6 +104,8 @@
 #endif
 //______________________________________________________________________
 
+/** Usually created by the DEBUG_UNIT macro, with an instance name of "debug"
+    - an object which can be called to output debugging info. */
 class Logger : NoCopy {
 public:
 

@@ -1,4 +1,4 @@
-/* $Id: scan.cc,v 1.8 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: scan.cc,v 1.9 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -115,7 +115,7 @@ size_t FilePart::unserializeCacheEntry(const byte* data, size_t dataSize,
 //______________________________________________________________________
 
 #if HAVE_LIBDB
-// Opposite of unserializeCacheEntry; create byte stream from object
+/** Opposite of unserializeCacheEntry; create byte stream from object */
 struct FilePart::SerializeCacheEntry {
   SerializeCacheEntry(const FilePart& f, JigdoCache* c, size_t blockLen,
                       size_t md5Len)

@@ -1,4 +1,4 @@
-/* $Id: progress.hh,v 1.8 2003-08-17 15:37:07 atterer Exp $ -*- C++ -*-
+/* $Id: progress.hh,v 1.9 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   Statistics: How many % of download done, average speed, ETA
 
@@ -23,6 +25,8 @@
 #include <progress.fh>
 //______________________________________________________________________
 
+/** Keep track of statistics: How many % of download done, average speed,
+    ETA */
 class Progress {
 public:
   inline Progress();

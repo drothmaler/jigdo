@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.hh,v 1.6 2004-04-16 14:20:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.hh,v 1.7 2004-09-09 23:50:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -27,7 +27,8 @@
 #include <mktemplate.hh>
 //______________________________________________________________________
 
-/// class for "pointer to any *Reporter class", with disambiguation members
+/** class for "pointer to any *Reporter class", with disambiguation
+    members */
 struct AnyReporter : public MkTemplate::ProgressReporter,
                      public JigdoCache::ProgressReporter,
                      public JigdoDesc::ProgressReporter,
@@ -45,7 +46,7 @@ struct AnyReporter : public MkTemplate::ProgressReporter,
 };
 //______________________________________________________________________
 
-/// Class providing functionality only to jigdo-file.cc
+/** Class providing functionality only to jigdo-file.cc */
 class JigdoFileCmd {
   friend int main(int argc, char* argv[]);
   //________________________________________

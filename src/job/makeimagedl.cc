@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.cc,v 1.23 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.24 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -471,6 +471,7 @@ void MakeImageDl::jigdoFinished() {
 
 gboolean MakeImageDl::jigdoFinished_callback(gpointer mi) {
   MakeImageDl* self = static_cast<MakeImageDl*>(mi);
+  self->callbackId = 0;
   self->jigdoFinished2();
   return FALSE; // "Don't call me again"
 }
@@ -558,6 +559,10 @@ void MakeImageDl::jigdoFinished2() {
    need to verify its md5sum if appropriate. */
 // void MakeImageDl::templateFinished() {
 //   debug("MakeImageDl::templateFinished()");
+//   if (finalState()) return; // I.e. there was an error
+//   Paranoid(stateVal == DOWNLOADING_TEMPLATE);
+
+//   stateVal = DOWNLOADING____;
 // }
 //______________________________________________________________________
 
@@ -589,7 +594,7 @@ void MakeImageDl::Child::dataSource_dataSize(uint64) { }
 
 void MakeImageDl::Child::dataSource_data(const byte* data, unsigned size,
                                          uint64) {
-  if (checkContent) return;
   // Desired checksum is in md; calculate actual checksum in mdCheck
-  mdCheck.update(data, size);
+  if (checkContent)
+    mdCheck.update(data, size);
 }

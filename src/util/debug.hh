@@ -1,4 +1,4 @@
-/* $Id: debug.hh,v 1.7 2004-08-03 16:30:25 atterer Exp $ -*- C++ -*-
+/* $Id: debug.hh,v 1.8 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -102,8 +102,8 @@ struct Error {
   string message;
 };
 
-/* Thrown to indicate: Don't report anything, but unwind stack and
-   return specified value from main() */
+/** Thrown to indicate: Don't report anything, but unwind stack and
+    return specified value from main() */
 struct Cleanup {
   explicit Cleanup(int r) : returnValue(r) { }
   int returnValue;

@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.11 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.12 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -7,17 +7,11 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
+*/
+
+/* @file
+
   IO object for .jigdo downloads; download, gunzip, interpret
-
-  Data (=downloaded bytes, status info) flows as follows:
-
-  INFO DEPRECATED:
-
-  class:       Download ->    SingleUrl      -> JigdoIO -> GtkSingleUrl
-  data member:             childDl->source()      this        frontend
-
-  The JigdoIO owns the SingleUrl (and the Download *object* inside it), but
-  it doesn't own the GtkSingleUrl.
 
 */
 
@@ -42,6 +36,7 @@ namespace Job {
   struct JigdoIOTest;
 }
 
+/** IO object for .jigdo downloads; download, gunzip, interpret */
 class Job::JigdoIO : NoCopy, public Job::DataSource::IO, Gunzip::IO {
 public:
 

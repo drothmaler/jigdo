@@ -1,4 +1,4 @@
-/* $Id: mkjigdo.cc,v 1.1 2003-07-04 22:29:25 atterer Exp $ -*- C++ -*-
+/* $Id: mkjigdo.cc,v 1.2 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -42,6 +42,7 @@ namespace {
   }
 }
 
+/** Index over JigdoParts by md5sum string */
 struct MkTemplate::PartIndex {
   bool operator()(const PartLine* a, const PartLine* b) const {
     return compat_compare(a->text, a->split, string::npos, b->text,

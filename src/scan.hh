@@ -1,4 +1,4 @@
-/* $Id: scan.hh,v 1.2 2004-06-09 09:43:55 atterer Exp $ -*- C++ -*-
+/* $Id: scan.hh,v 1.3 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -69,9 +69,11 @@ class FilePart {
   /// Objects are only created by JigdoCache
   friend class JigdoCache;
 public:
-  // Sort FileParts by RsyncSum of first bytes
+  /** Sort FileParts by RsyncSum of first bytes */
   inline const string& getPath() const;
   LocationPathSet::iterator getLocation() { return path; }
+  /** @return The further dir names and the leafname, after what getPath()
+      returns. */
   inline const string& leafName() const;
   inline uint64 size() const;
   inline time_t mtime() const;

@@ -1,4 +1,4 @@
-/* $Id: autonullptr.hh,v 1.2 2004-08-15 15:02:26 atterer Exp $ -*- C++ -*-
+/* $Id: autonullptr.hh,v 1.3 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify it
   under the terms of the GNU General Public License, version 2. See the file
   COPYING for details.
+
+*//** @file
 
   A pointer which gets set to null if the pointed-to object is deleted
 
@@ -28,6 +30,7 @@
 
 template<class T> class AutoNullPtrBase;
 
+/** A pointer which gets set to null if the pointed-to object is deleted */
 template<class T>
 class AutoNullPtr : public IListBase {
 public:
@@ -54,6 +57,8 @@ private:
 };
 //______________________________________________________________________
 
+/** Derive from this class to make your class instances referenceable by
+    AutoNullPtr */
 template<class T>
 class AutoNullPtrBase {
 public:

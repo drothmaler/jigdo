@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.13 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.14 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -28,8 +28,10 @@
 #include <treeiter.hh>
 //______________________________________________________________________
 
-#if DEBUG
+#ifndef DOXYGEN_SKIP
+#  if DEBUG
 Logger JobList::debug("joblist");
+#  endif
 #endif
 
 JobList GUI::jobList;

@@ -1,4 +1,4 @@
-/* $Id: mkimage.hh,v 1.1 2003-07-04 22:29:22 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.hh,v 1.2 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -28,6 +28,7 @@
 #include <serialize.hh>
 //______________________________________________________________________
 
+/** Errors thrown by the JigdoDesc code */
 struct JigdoDescError : Error {
   explicit JigdoDescError(const string& m) : Error(m) { }
   explicit JigdoDescError(const char* m) : Error(m) { }

@@ -1,4 +1,4 @@
-/* $Id: bstream-counted.hh,v 1.3 2003-09-03 19:28:13 atterer Exp $ -*- C++ -*-
+/* $Id: bstream-counted.hh,v 1.4 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -21,6 +21,7 @@
 #include <smartptr.hh>
 #include <bstream.hh>
 
+/** A bfstream which can be referenced with a SmartPtr. */
 class BfstreamCounted : virtual public SmartPtrBase, public bfstream {
 public:
   BfstreamCounted(const char* name, ios::openmode mode)

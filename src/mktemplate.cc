@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.8 2004-06-16 15:21:49 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.9 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -157,10 +157,10 @@ namespace {
 } // namespace
 //______________________________________________________________________
 
-/* Build up a template DESC section by appending items to a
-   JigdoDescVec. Calls to descUnmatchedData() are allowed to
-   accumulate, so that >1 consecutive unmatched data areas are merged
-   into one in the DESC section. */
+/** Build up a template DESC section by appending items to a
+    JigdoDescVec. Calls to descUnmatchedData() are allowed to accumulate, so
+    that >1 consecutive unmatched data areas are merged into one in the DESC
+    section. */
 class MkTemplate::Desc {
 public:
   Desc() : files(), offset(0) { }

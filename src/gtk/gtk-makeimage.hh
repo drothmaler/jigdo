@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.hh,v 1.9 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.hh,v 1.10 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   Download and processing of .jigdo files - GTK+ frontend
 
@@ -25,6 +27,7 @@
 #include <makeimagedl.hh>
 //______________________________________________________________________
 
+/** Frontend for Job::MakeImageDl */
 class GtkMakeImage : public JobLine, private Job::MakeImageDl::IO {
 public:
   GtkMakeImage(const string& uriStr, const string& destDir);

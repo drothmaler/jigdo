@@ -1,4 +1,4 @@
-/* $Id: mktemplate.hh,v 1.5 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.hh,v 1.6 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -236,8 +236,8 @@ public:
 };
 //______________________________________________________________________
 
-/* Line content with whitespace and '=' removed and left/right side
-   swapped, i.e. " xyz= foo" becomes "fooxyz". */
+/** Line content with whitespace and '=' removed and left/right side
+    swapped, i.e. " xyz= foo" becomes "fooxyz". */
 struct MkTemplate::PartLine {
   string text;
   size_t split; // Offset of first char after "foo"

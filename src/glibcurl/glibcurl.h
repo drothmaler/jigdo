@@ -1,4 +1,4 @@
-/* $Id: glibcurl.h,v 1.4 2004-07-29 15:34:20 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.h,v 1.5 2004-09-09 23:50:21 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -23,6 +23,10 @@
   copyright holder.
 
 */
+
+/** @file
+    Use the libcurl multi interface from GTK+/glib programs without having to
+    resort to multithreading */
 
 #ifndef GLIBCURL_H
 #define GLIBCURL_H
