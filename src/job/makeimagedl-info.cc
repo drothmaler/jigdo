@@ -1,4 +1,4 @@
-/* $Id: makeimagedl-info.cc,v 1.3 2003-12-21 22:43:57 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl-info.cc,v 1.4 2004-02-04 15:34:40 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -21,30 +21,6 @@
 using namespace Job;
 
 DEBUG_UNIT("makeimagedl-info")
-
-void MakeImageDl::setImageSection(string* imageName, string* imageInfo,
-    string* imageShortInfo, string* templateUrl, MD5** templateMd5) {
-  debug("setImageSection templateUrl=%1", templateUrl);
-  Paranoid(!haveImageSection());
-  imageNameVal.swap(*imageName);
-  imageInfoVal.swap(*imageInfo);
-  imageShortInfoVal.swap(*imageShortInfo);
-  templateUrlVal.swap(*templateUrl);
-  templateMd5Val = *templateMd5; *templateMd5 = 0;
-
-  if (io) io->makeImageDl_haveImageSection();
-
-  /* If the template URL is a regular URL (not a "Label:path/x" string), we
-     can immediately start the .template download. */
-  unsigned labelLen = JigdoConfig::findLabelColon(templateUrlVal);
-  if (labelLen == 0 // relative URL, methinks
-      || compat_compare(templateUrlVal, 0, 6, "http:/", 6) == 0
-      || compat_compare(templateUrlVal, 0, 5, "ftp:/", 5) == 0) {
-    string templ;
-    Download::uriJoin(&templ, jigdoUri(), templateUrlVal);
-    debug("Template: %1", templ);
-  }
-}
 //______________________________________________________________________
 
 namespace {

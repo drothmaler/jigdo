@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.cc,v 1.15 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.16 2004-02-04 15:34:40 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -143,18 +143,6 @@ void MakeImageDl::run() {
     (childDl.release())->source()->run();
   }
 }
-//______________________________________________________________________
-
-# if 0
-void MakeImageDl::error(const string& message) {
-  throw Error(message);
-//   string e(message);
-//   job_failed(&e);
-}
-void MakeImageDl::info(const string&) {
-  Assert(false); // ATM, is never called!
-}
-#endif
 //______________________________________________________________________
 
 void MakeImageDl::writeReadMe() {
@@ -387,7 +375,36 @@ void MakeImageDl::childFailed(
   // Must not delete any part of JigdoIO tree while any other is still live
   if (dynamic_cast<JigdoIO*>(childDl->childIo()) == 0) delete childDl;
 }
+//______________________________________________________________________
 
+/* Info from first [Image] in include tree available - display it, start
+   template download now if possible */
+void MakeImageDl::setImageSection(string* imageName, string* imageInfo,
+    string* imageShortInfo, string* templateUrl, MD5** templateMd5) {
+  debug("setImageSection templateUrl=%1", templateUrl);
+  Paranoid(!haveImageSection());
+  imageNameVal.swap(*imageName);
+  imageInfoVal.swap(*imageInfo);
+  imageShortInfoVal.swap(*imageShortInfo);
+  templateUrlVal.swap(*templateUrl);
+  templateMd5Val = *templateMd5; *templateMd5 = 0;
+
+  if (io) io->makeImageDl_haveImageSection();
+
+  /* If the template URL is a regular URL (not a "Label:path/x" string), we
+     can immediately start the .template download. */
+  unsigned labelLen = JigdoConfig::findLabelColon(templateUrlVal);
+  if (labelLen == 0 // relative URL, methinks
+      || compat_compare(templateUrlVal, 0, 6, "http:/", 6) == 0
+      || compat_compare(templateUrlVal, 0, 5, "ftp:/", 5) == 0) {
+    string templ;
+    Download::uriJoin(&templ, jigdoUri(), templateUrlVal);
+    debug("Template: %1", templ);
+  }
+}
+
+/* All .jigdo data available now - if we didn't download template above, do
+   so now. */
 void MakeImageDl::jigdoFinished() {
   debug("jigdoFinished");
   typedef ChildList::iterator Iter;

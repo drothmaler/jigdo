@@ -1,4 +1,4 @@
-/* $Id: makeimagedl-info-test.cc,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl-info-test.cc,v 1.3 2004-02-04 15:34:40 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -33,6 +33,18 @@ MakeImageDl::MakeImageDl(IO* ioPtr, const string& jigdoUri,
       templateMd5Val(0) { }
 Job::MakeImageDl::~MakeImageDl() { }
 
+void MakeImageDl::setImageSection(string* imageName, string* imageInfo,
+    string* imageShortInfo, string* templateUrl, MD5** templateMd5) {
+  msg("setImageSection templateUrl=%1", templateUrl);
+  Paranoid(!haveImageSection());
+  imageNameVal.swap(*imageName);
+  imageInfoVal.swap(*imageInfo);
+  imageShortInfoVal.swap(*imageShortInfo);
+  templateUrlVal.swap(*templateUrl);
+  templateMd5Val = *templateMd5; *templateMd5 = 0;
+
+  if (io) io->makeImageDl_haveImageSection();
+}
 //======================================================================
 
 void Download::uriJoin(string* dest, const string&, const string& rel) {

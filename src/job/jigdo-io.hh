@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.7 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.8 2004-02-04 15:34:40 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -10,6 +10,7 @@
   IO object for .jigdo downloads; download, gunzip, interpret
 
   Data (=downloaded bytes, status info) flows as follows:
+
   class:       Download ->    SingleUrl      -> JigdoIO -> GtkSingleUrl
   data member:             childDl->source()      this        frontend
 
