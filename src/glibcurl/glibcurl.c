@@ -1,4 +1,4 @@
-/* $Id: glibcurl.c,v 1.2 2004-07-17 11:46:06 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.c,v 1.3 2004-07-17 16:03:55 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -151,7 +151,7 @@ void glibcurl_cleanup() {
   curlSrc->multiHandle = 0;
   curl_global_cleanup();
 
-  g_source_destroy(&curlSrc->source);
+/*   g_source_destroy(&curlSrc->source); */
   g_source_unref(&curlSrc->source);
   curlSrc = 0;
 }
