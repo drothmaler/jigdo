@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.6 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -141,7 +141,7 @@ void GtkMakeImage::job_message(string* message) {
                      -1);
 }
 
-Job::SingleUrl::IO* GtkMakeImage::makeImageDl_new(
+Job::DataSource::IO* GtkMakeImage::makeImageDl_new(
     Job::SingleUrl* childDownload) {
 # if DEBUG
   msg("GtkMakeImage::makeImageDl_new", 0);

@@ -1,4 +1,4 @@
-/* $Id: debug.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: debug.cc,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2002 Richard Atterer
   | \/¯|  <atterer@informatik.tu-muenchen.de>
@@ -26,8 +26,6 @@ namespace { Logger debug("assert", true); }
 int Debug::assertFail(const char* assertion, const char* file,
                       unsigned int line) {
   debug("%1:%2: `%3' failed", file, line, assertion);
-//   cerr << file << ':' << line << ": Assertion failed, `"
-//        << assertion << '\'' << endl;
   return 0;
 }
 //______________________________________________________________________

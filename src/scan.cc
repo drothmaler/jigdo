@@ -1,4 +1,4 @@
-/* $Id: scan.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: scan.cc,v 1.6 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -438,7 +438,6 @@ void JigdoCache::setParams(size_t blockLen, size_t md5BlockLen) {
 void JigdoCache::addFile(const string& name) {
   // Do not forget to setParams() before calling this!
   Assert(md5BlockLength != 0);
-  //cerr << "addFile(" << name << endl;
   // Assumes nonempty filenames
   Paranoid(name.length() > 0);
 
@@ -476,12 +475,7 @@ void JigdoCache::addFile(const string& name) {
   }
   compat_swapFileUriChars(fileUri); // Directory separator is always '/'
   ConfigFile::quote(fileUri);
-  //cerr << "addFile: " << fileUri << ' ' << path << '|' << nameRest << endl;
   //____________________
-
-  //cerr<<"SPLIT into `"<<path<<"' and `"<<nameRest<<"'"<<endl;
-  //for (LocationPathSet::iterator i = locationPaths.begin(); i != locationPaths.end(); ++i)
-  //  cerr <<"  PATHS: "<<i->getPath()<<" = "<<i->getLabel()<<endl;
 
   // If necessary, create a label for the path before "//"
   static string emptylabel;

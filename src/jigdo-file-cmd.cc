@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.1 2003-07-04 22:29:34 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.2 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -106,10 +106,7 @@ int JigdoFileCmd::addLabels(JigdoCache& cache) {
     entry.first.assign(*i, 0U, firstEquals);
     entry.second.assign(*i, firstEquals + 1, string::npos);
     // Add mapping to uriMap
-#   if DEBUG
-    cerr << "URI mapping: `" << entry.first << "' => `" << entry.second
-         << "'" << endl;
-#   endif
+    msg("URI mapping: `%1' => `%2'", entry.first, entry.second);
     uriMap.insert(entry);
   }
   optUris.clear();

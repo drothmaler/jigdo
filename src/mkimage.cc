@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

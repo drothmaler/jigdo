@@ -1,4 +1,4 @@
-/* $Id: recursedir.cc,v 1.5 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.cc,v 1.6 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -229,7 +229,7 @@ bool RecurseDir::getName(string& result, struct stat* fileInfo)
       throw_RecurseError_forObject(result);
     if (alreadyVisited(fileInfo)) {
 #     if DEBUG
-      cerr << "Recurse: arg `" << result << "' ignored" << endl;
+      //cerr << "Recurse: arg `" << result << "' ignored" << endl;
 #     endif
       continue;
     }

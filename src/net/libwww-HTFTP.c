@@ -3,7 +3,7 @@
 **
 **	(c) COPYRIGHT MIT 1995.
 **	Please first read the full copyright statement in the file COPYRIGH.
-**	@(#) $Id: libwww-HTFTP.c,v 1.2 2003-08-13 14:07:21 atterer Exp $
+**	@(#) $Id: libwww-HTFTP.c,v 1.3 2003-08-13 21:25:13 atterer Exp $
 **
 **	A cache of control connections is kept.
 **

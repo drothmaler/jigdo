@@ -1,4 +1,4 @@
-/* $Id: mktemplate.hh,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.hh,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net

@@ -1,4 +1,4 @@
-/* $Id: partialmatch.hh,v 1.2 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: partialmatch.hh,v 1.3 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -13,6 +13,7 @@
 
 #ifndef PARTIALMATCH_HH
 #include <debug.hh>
+#include <log.hh>
 #define PARTIALMATCH_HH
 
 #ifndef INLINE

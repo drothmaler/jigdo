@@ -1,4 +1,4 @@
-/* $Id: makeimage.hh,v 1.1 2003-07-04 22:29:52 atterer Exp $ -*- C++ -*-
+/* $Id: makeimage.hh,v 1.2 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -23,7 +23,7 @@
 
 /** Download & interpret .jigdo, download parts, assemble image. MakeImage is
     the "core" class, other components use it for part of the work, e.g.
-    MakeImageDl uses SingleURLs for file downloads, then passes the data to
+    MakeImageDl uses SingleUrls for file downloads, then passes the data to
     MakeImage.
 
     Below, arrow "A->B" means "A uses B"
@@ -95,6 +95,10 @@
       <li>"Owner" of the layout of the temporary directory, only component
       that directly makes modifications to this dir. (MakeImage only writes
       to the image file.)
+
+      <li>Does simple cache management; if requested file already downloaded,
+      immediately returns its data, or does an If-Modified-Since request; if
+      partially downloaded, resumes.
 
       <li>Starts further SingleURLs for download of individual parts.
 

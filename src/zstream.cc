@@ -1,4 +1,4 @@
-/* $Id: zstream.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: zstream.cc,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -91,7 +91,6 @@ void Zobstream::open(bostream& s, size_t chunkLimit, int level,
 
 void Zobstream::close() {
   if (!is_open()) return;
-  //cerr<<"zobstream:close()" << endl;
   zip(todoBuf, todoCount, Z_FINISH); // Flush out remain. buffer contents
 
   int status = deflateEnd(&z);

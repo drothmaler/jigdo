@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.3 2003-08-13 14:08:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -372,7 +372,7 @@ inline void printUsage(bool detailed, size_t blockLength,
     "  --debug[=all|=UNIT1,UNIT2...|=help]\n"
     "                   [make-template] Print debugging information for\n"
     "                   all units, or for specified units, or print list\n"
-    "                   of units. Can use `!', e.g. `all,!UNIT1'\n"
+    "                   of units. Can use `~', e.g. `all,~make-template'\n"
     "  --no-debug       [make-template] No debugging info [default]\n"
     "  --match-exec=CMD [make-template] Execute command when files match\n"
     "                   CMD is passed to a shell, with environment set up:\n"
