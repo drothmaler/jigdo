@@ -1,4 +1,4 @@
-/* $Id: download.cc,v 1.6 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: download.cc,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -570,7 +570,8 @@ void Download::stop() {
 void Download::generateError(State newState) {
   /* If state is ERROR or INTERRUPTED, we've already called download_failed()
      - don't do it again. Ditto for SUCCEEDED and download_succeeded() */
-  if (state == ERROR || state == INTERRUPTED || state == SUCCEEDED) return;
+  if (state == newState && (state == ERROR || state == INTERRUPTED
+                            || state == SUCCEEDED)) return;
 
   Assert(request != 0);
   HTList* errList = HTRequest_error(request);

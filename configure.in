@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.in,v 1.4 2003-08-15 11:23:40 atterer Exp $
+dnl $Id: configure.in,v 1.5 2003-08-15 11:38:29 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________

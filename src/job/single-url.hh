@@ -1,4 +1,4 @@
-/* $Id: single-url.hh,v 1.6 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.hh,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -44,8 +44,12 @@ namespace Job {
       <li>Contains a state machine which handles resuming the download a
       certain number of times if the connection is dropped.
 
-    </ul>*/
-class Job::SingleUrl : NoCopy, private Download::Output {
+    </ul>
+
+    This one will forever remain single since there are no single parties
+    around here and it's rather shy. TODO: If you pity it too much, implement
+    a MarriedUrl. */
+class Job::SingleUrl : public Job::DataSource, private Download::Output {
 public:
   /** Number of bytes to download again when resuming a download. These bytes
       will be compared with the old data. */

@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.5 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -582,7 +582,11 @@ JigdoFileCmd::Command JigdoFileCmd::cmdOptions(int argc, char* argv[]) {
     throw Cleanup(0);
   }
 
+# if WINDOWS
+  Logger::scanOptions(optDebug, binName());
+# else
   Logger::scanOptions(optDebug, binName().c_str());
+# endif
   //______________________________
 
   // Silently correct invalid blockLength/md5BlockLength args

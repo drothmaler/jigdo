@@ -1,4 +1,4 @@
-/* $Id: datasource.hh,v 1.1 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: datasource.hh,v 1.2 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -22,10 +22,16 @@ namespace Job {
   class DataSource;
 }
 
-/** Interface implemented by SingeUrl and CachedUrl. */
+/** Interface implemented by SingleUrl and CachedUrl.
+    MakeImageDl::dataSourceFor() is the function which examines the local
+    jigdo download's temporary directory and creates a SingleUrl/CachedUrl as
+    appropriate. */
 class Job::DataSource : NoCopy {
 public:
   class IO;
+
+  DataSource() { }
+  virtual ~DataSource() { }
 };
 //______________________________________________________________________
 

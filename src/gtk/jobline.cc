@@ -1,4 +1,4 @@
-/* $Id: jobline.cc,v 1.4 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: jobline.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net

@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.hh,v 1.2 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.hh,v 1.3 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -51,7 +51,8 @@ private:
   virtual void job_succeeded();
   virtual void job_failed(string* message);
   virtual void job_message(string* message);
-  virtual Job::DataSource::IO* makeImageDl_new(Job::SingleUrl*childDownload);
+  virtual Job::DataSource::IO* makeImageDl_new(
+      Job::SingleUrl*childDownload, const string& destDesc);
   virtual void makeImageDl_finished(Job::SingleUrl* childDownload);
 
   // Update info in main window

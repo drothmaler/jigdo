@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.2 2003-08-13 21:25:13 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.3 2003-08-15 11:38:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
