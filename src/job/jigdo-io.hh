@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.8 2004-02-04 15:34:40 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.9 2004-06-24 10:13:34 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -113,7 +113,7 @@ private:
   virtual void job_failed(string* message);
   virtual void job_message(string* message);
   virtual void dataSource_dataSize(uint64 n);
-  virtual void dataSource_data(const byte* data, size_t size,
+  virtual void dataSource_data(const byte* data, unsigned size,
                                uint64 currentSize);
 
   // Virtual methods from Gunzip::IO

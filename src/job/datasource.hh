@@ -1,4 +1,4 @@
-/* $Id: datasource.hh,v 1.4 2003-08-28 23:21:00 atterer Exp $ -*- C++ -*-
+/* $Id: datasource.hh,v 1.5 2004-06-24 10:13:34 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -69,7 +69,7 @@ public:
         arrived. You can write the data to a file, copy it away etc.
         currentSize is the offset into the downloaded data (including the
         "size" new bytes) - useful for "x% done" messages. */
-    virtual void dataSource_data(const byte* data, size_t size,
+    virtual void dataSource_data(const byte* data, unsigned size,
                                  uint64 currentSize) = 0;
   };
   //____________________

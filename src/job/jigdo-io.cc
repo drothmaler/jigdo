@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.15 2004-06-20 20:35:15 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.16 2004-06-24 10:13:34 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -163,7 +163,7 @@ void JigdoIO::dataSource_dataSize(uint64 n) {
   if (frontend != 0) frontend->dataSource_dataSize(n);
 }
 
-void JigdoIO::dataSource_data(const byte* data, size_t size,
+void JigdoIO::dataSource_data(const byte* data, unsigned size,
                               uint64 currentSize) {
   Assert(!finished());
   if (/*master()->finalState() ||*/ failed()) {
