@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.8 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.9 2003-11-11 14:15:56 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -141,7 +141,7 @@ void noLogHandler(const gchar*, GLogLevelFlags, const gchar*, gpointer) {
 } // local namespace
 //______________________________________________________________________
 
-int main (int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
 # if WINDOWS
   getPackageDataDir();
   if (!DEBUG) {
