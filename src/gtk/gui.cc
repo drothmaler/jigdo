@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.7 2003-11-11 14:17:03 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.8 2003-11-18 11:28:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -86,9 +86,10 @@ void GUI::create() {
 //   ... modify style - how?
 //   gtk_widget_modify_style(window.aboutBgnd, aboutStyle);
 
-//   gtk_widget_set_name(window.aboutBgnd, "aboutBgnd");
-//   gtk_rc_parse_string("style \"whitebg\" { bg[NORMAL] = \"white\" }");
-//   gtk_rc_parse_string("widget \"aboutBgnd\" style \"whitebg\"");
+  gtk_widget_set_name(window.aboutBgnd, "aboutBgnd");
+  gtk_rc_parse_string("style \"whitebg\" { bg[NORMAL] = \"white\" }");
+  // base[NORMAL] = \"white\"
+  gtk_rc_parse_string("widget \"aboutBgnd\" style \"whitebg\"");
 
   // Set string "Jigsaw Download x.y.z" on welcome screen
   GtkLabel* aboutJigdoLabel = GTK_LABEL(GUI::window.aboutJigdoLabel);
