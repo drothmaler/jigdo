@@ -1,4 +1,4 @@
-/* $Id: proxyguess-test.cc,v 1.4 2004-07-17 11:31:54 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess-test.cc,v 1.5 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -23,11 +23,7 @@
 #include <debug.hh>
 #include <log.hh>
 
-#define glibcurl_add_noproxy glibcurl_add_noproxy_ORIG
-#define glibcurl_add_proxy glibcurl_add_proxy_ORIG
 #include <glibcurl.h>
-#undef glibcurl_add_noproxy
-#undef glibcurl_add_proxy
 //______________________________________________________________________
 
 #if WINDOWS

@@ -1,4 +1,4 @@
-/* $Id: string.hh,v 1.6 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
+/* $Id: string.hh,v 1.7 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -58,9 +58,11 @@ public:
 
 private:
 
+# ifndef DOXYGEN_SKIP
 # ifdef STRING_UTF_HH
   static inline void doSubst(string& result, const Subst arg[], int n,
                              int flags);
+# endif
 # endif
   enum {
     INT, UNSIGNED, LONG, ULONG, ULONGLONG, DOUBLE, CHAR, CHAR_P, STRING_P,

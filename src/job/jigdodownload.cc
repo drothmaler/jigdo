@@ -1,4 +1,4 @@
-/* $Id: jigdodownload.cc,v 1.8 2004-01-12 14:59:55 atterer Exp $ -*- C++ -*-
+/* $Id: jigdodownload.cc,v 1.9 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -75,8 +75,8 @@ void MakeImageDl::JigdoDownload::dataSource_dataSize(uint64 n) {
   if (ioVal) ioVal->dataSource_dataSize(n);
 }
 void MakeImageDl::JigdoDownload::dataSource_data(const byte* data,
-                                                size_t size,
-                                                uint64 currentSize) {
+                                                 unsigned size,
+                                                 uint64 currentSize) {
   if (master->state() == ERROR) return;
   Assert(master->state() == DOWNLOADING_JIGDO);
   debug("Got %1 bytes", size);

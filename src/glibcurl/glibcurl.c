@@ -1,4 +1,4 @@
-/* $Id: glibcurl.c,v 1.11 2004-09-09 23:50:21 atterer Exp $ -*- C -*-
+/* $Id: glibcurl.c,v 1.12 2004-09-11 23:26:29 atterer Exp $ -*- C -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -540,11 +540,3 @@ void finalize(GSource* source) {
 }
 
 #endif
-/*______________________________________________________________________*/
-
-void glibcurl_add_proxy(const gchar* protocol, const gchar* proxy) {
-  if (protocol == 0 && proxy == 0) return; // NOP; to avoid warning
-}
-void glibcurl_add_noproxy(const gchar* host) {
-  if (host == 0) return; // NOP; to avoid warning
-}

@@ -1,4 +1,4 @@
-/* $Id: torture.cc,v 1.6 2004-06-16 15:21:49 atterer Exp $ -*- C++ -*-
+/* $Id: torture.cc,v 1.7 2004-09-11 23:26:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -213,7 +213,7 @@ namespace {
     explicit File(const char* fileName, size_t s = 0, size_t n = 0);
     File() : data(0) { }
     inline File(const File& f);
-    inline File& File::operator=(const File& f);
+    inline File& operator=(const File& f);
     inline ~File();
     size_t size;
     size_t nr;

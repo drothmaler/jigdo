@@ -1,4 +1,4 @@
-/* $Id: string-utf.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: string-utf.cc,v 1.6 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -179,6 +179,7 @@ void strSubst(string& result, const char* s, int flags) {
 } // namespace
 //____________________
 
+#ifndef DOXYGEN_SKIP
 /* Look at arg[n] and append it to result according to flags */
 inline void Subst::doSubst(string& result, const Subst arg[], int n,
                            int flags) {
@@ -223,6 +224,7 @@ inline void Subst::doSubst(string& result, const Subst arg[], int n,
       buf[BUF_LEN - 1] = '\0'; result += buf; break;
   }
 }
+#endif
 //____________________
 
 string Subst::subst(const char* format, int args, const Subst arg[]) {

@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.17 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.18 2004-09-11 23:26:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -191,7 +191,6 @@ void GtkMakeImage::makeImageDl_new(
   /* NB run() cannot result in "delete child;" for child mode, so we always
      return a valid pointer here. */
   Assert(status == SUCCESS);
-  //x return child;
   childDownload->io.addListener(*child);
 }
 

@@ -1,4 +1,4 @@
-/* $Id: jigdodownload.hh,v 1.8 2004-06-24 10:13:34 atterer Exp $ -*- C++ -*-
+/* $Id: jigdodownload.hh,v 1.9 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -51,6 +51,7 @@ public:
 
 private:
   /** Methods from SingleUrl::IO */
+  /**@{*/
   virtual void job_deleted();
   virtual void job_succeeded();
   virtual void job_failed(string* message);
@@ -58,6 +59,7 @@ private:
   virtual void dataSource_dataSize(uint64 n);
   virtual void dataSource_data(const byte* data, unsigned size,
                                uint64 currentSize);
+  /**@}*/
 
   // Virtual methods from Gunzip::IO
   virtual void gunzip_deleted();

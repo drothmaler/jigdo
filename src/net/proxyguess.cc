@@ -1,4 +1,4 @@
-/* $Id: proxyguess.cc,v 1.11 2004-08-29 01:01:05 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess.cc,v 1.12 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -52,6 +52,12 @@
 //______________________________________________________________________
 
 DEBUG_UNIT("proxyguess")
+
+#ifndef TESTING_PROXYGUESS
+#warning TODO glibcurl_add_proxy
+void glibcurl_add_proxy(const char*, const char*) { }
+void glibcurl_add_noproxy(const char*) { }
+#endif
 
 #if WINDOWS
 

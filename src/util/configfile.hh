@@ -1,4 +1,4 @@
-/* $Id: configfile.hh,v 1.2 2003-09-27 21:31:04 atterer Exp $ -*- C++ -*-
+/* $Id: configfile.hh,v 1.3 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -91,7 +91,7 @@ public:
       file. No need to call it after insertion/deletion of lines,
       whitespace/comment changes of [section] lines, or any changes to
       entries.
-      @printErrors If true, perform extra syntax checks and call
+      @param printErrors If true, perform extra syntax checks and call
       ProgressReporter object for syntax errors. */
   void rescan(bool printErrors = false);
 

@@ -1,4 +1,4 @@
-/* $Id: log.hh,v 1.7 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
+/* $Id: log.hh,v 1.8 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -109,10 +109,12 @@
 class Logger : NoCopy {
 public:
 
-  /** Logged strings are output via a OutputFunction* pointer. */
+# ifndef DOXYGEN_SKIP
+  /* Logged strings are output via a OutputFunction* pointer. */
   typedef void (Logger::OutputFunction)(const string& unitName,
       unsigned char unitNameLen, const char* format, int args,
       const Subst arg[]);
+# endif
   /** Default output function prints to stderr */
   static void defaultPut(const string& unitName, unsigned char unitNameLen,
                          const char* format, int args, const Subst arg[]);

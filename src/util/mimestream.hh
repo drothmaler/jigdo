@@ -1,4 +1,4 @@
-/* $Id: mimestream.hh,v 1.4 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
+/* $Id: mimestream.hh,v 1.5 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -244,7 +244,7 @@ Base64Out<Output>& Base64Out<Output>::write(const unsigned char* x,
     Output is a class offering the following:
       - void put(byte b); // Output one byte of binary data
       - typedef implementation_defined ResultType;
-      - ResultType result(); // Is called by Base64In::result()</pre> */
+      - ResultType result(); // Is called by Base64In::result() */
 template <class Output>
 class Base64In {
 public:
