@@ -1,4 +1,4 @@
-/* $Id: jigdo-io-test.cc,v 1.12 2004-09-11 23:26:29 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io-test.cc,v 1.13 2005-04-09 22:31:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -40,7 +40,7 @@ namespace {
   typedef map<string, const char*> MapWww;
   MapWww www;
 
-  /* Special DataSource which outputs data from memory */
+  /** Special DataSource which outputs data from memory */
   class MemData : public Job::DataSource {
   public:
     /* If contents == 0, will call job_failed() */

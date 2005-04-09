@@ -1,4 +1,4 @@
-/* $Id: cached-url.cc,v 1.5 2004-09-11 23:26:29 atterer Exp $ -*- C++ -*-
+/* $Id: cached-url.cc,v 1.6 2005-04-09 22:31:28 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -62,6 +62,7 @@ const Progress* CachedUrl::progress() const { return &progressVal; }
 const string& CachedUrl::location() const { return filenameVal; }
 
 void CachedUrl::run() {
+  debug("CachedUrl %1 run()", this);
   IOSOURCE_SEND(DataSource::IO, io,
                 dataSource_dataSize, (progressVal.dataSize()));
   cont();

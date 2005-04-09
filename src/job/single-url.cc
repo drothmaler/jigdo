@@ -1,4 +1,4 @@
-/* $Id: single-url.cc,v 1.16 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.cc,v 1.17 2005-04-09 22:31:29 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -71,6 +71,7 @@ void SingleUrl::setDestination(BfstreamCounted* destStream,
 }
 
 void SingleUrl::run() {
+  debug("SingleUrl %1 run()", this);
   if (!haveResumeOffset) setResumeOffset(0);
   haveResumeOffset = false;
   if (!haveDestination) setDestination(0, 0, 0);
