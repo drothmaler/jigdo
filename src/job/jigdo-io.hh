@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.hh,v 1.15 2005-04-09 14:44:50 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.hh,v 1.16 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -7,9 +7,7 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-*/
-
-/* @file
+*//** @file
 
   IO object for .jigdo downloads; download, gunzip, interpret
 

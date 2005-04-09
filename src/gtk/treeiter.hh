@@ -1,4 +1,4 @@
-/* $Id: treeiter.hh,v 1.1 2003-07-04 22:29:41 atterer Exp $ -*- C++ -*-
+/* $Id: treeiter.hh,v 1.2 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   Algorithm for depth-first traversal of the objects in a GtkTreeModel, the
   parent is visited before its children.

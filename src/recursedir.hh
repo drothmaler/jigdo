@@ -1,4 +1,4 @@
-/* $Id: recursedir.hh,v 1.2 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.hh,v 1.3 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   Create recursive directory listing, avoiding symlink loops
 
@@ -51,14 +53,15 @@ public:
                  fileList(), listStream(0) { }
   inline ~RecurseDir();
 
-  /// Provide single file/directory name to output or recurse into
+  /** Provide single file/directory name to output or recurse into */
   void addFile(const char* name) { objects.push(string(name)); }
+  /** Provide single file/directory name to output or recurse into */
   void addFile(const string& name) { objects.push(name); }
-  /// To read filenames from stdin, pass an empty string
+  /** To read filenames from stdin, pass an empty string */
   void addFilesFrom(const char* name) { objectsFrom.push(string(name)); }
   void addFilesFrom(const string& name) { objectsFrom.push(name); }
 
-  /// Are there no filename sources present at all?
+  /** Are there no filename sources present at all? */
   bool empty() const { return objects.empty() && objectsFrom.empty(); }
 
   /** Returns FAILURE if no more names. After a RecurseError has been

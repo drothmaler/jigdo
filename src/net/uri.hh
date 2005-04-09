@@ -1,4 +1,4 @@
-/* $Id: uri.hh,v 1.4 2004-09-08 16:47:25 atterer Exp $ -*- C++ -*-
+/* $Id: uri.hh,v 1.5 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,10 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
+
+  Helper functions for dealing with URLs.
 
 */
 

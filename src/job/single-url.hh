@@ -1,4 +1,4 @@
-/* $Id: single-url.hh,v 1.14 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: single-url.hh,v 1.15 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2002-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -7,7 +7,9 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  Single HTTP or FTP retrievals
+*//** @file
+
+  Single HTTP or FTP retrievals.
   More low-level code which interfaces with libwww is in download.cc
   Higher-level GUI code is in gtk-single-url.cc
 

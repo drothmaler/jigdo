@@ -1,4 +1,4 @@
-/* $Id: autoptr.hh,v 1.1 2003-07-04 22:30:17 atterer Exp $ -*- C++ -*-
+/* $Id: autoptr.hh,v 1.2 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   A variant of auto_ptr for pointers to arrays
 

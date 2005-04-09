@@ -1,4 +1,4 @@
-/* $Id: string-utf.hh,v 1.1 2003-07-04 22:30:13 atterer Exp $ -*- C++ -*-
+/* $Id: string-utf.hh,v 1.2 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   subst("Format %1, %2", arg1, arg2) creates strings with the arguments
   filled in, and does so in a safer way than sprintf() and friends.
@@ -18,6 +20,7 @@
     - "%F1" arg is assumed to be in valid UTF-8 (is copied over unvalidated)
     - "%1"  arg is untrusted UTF-8, will be validated while substituting it
     - "%L1" arg is assumed to be in the OS locale, is converted into UTF-8
+
   Additionally:
     - "%E1" arg: The characters <>& are escaped with their entities
       &lt; &gt; &amp; when substituting the value. Useful if the string will
@@ -35,9 +38,9 @@
   Substituting single chars only makes sense if the char is an ASCII
   character.
 
-  In a nutshell:
-    F = fast UTF-8 string substitution
-    L = locale-format string
+  In a nutshell:<br>
+    F = fast UTF-8 string substitution<br>
+    L = locale-format string<br>
     E = escape <>&
 
 */

@@ -1,4 +1,4 @@
-/* $Id: job.hh,v 1.8 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: job.hh,v 1.9 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   A job is a certain task - just the application logic, *no* user interface.
   All interaction with the rest of the system (input/output, user

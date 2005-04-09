@@ -1,4 +1,4 @@
-/* $Id: configfile.hh,v 1.4 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: configfile.hh,v 1.5 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -7,13 +7,15 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  Access to Gnome/KDE/ini-style configuration files
+*//** @file
+
+  Access to Gnome/KDE/ini-style configuration files.
 
   Allow reading and writing of configuration files. The files consist
   of a number of sections, introduced with "[SectionName]" on a line
   by itself. Within each section, there are entries of the form
   "Label=value". Example for a .jigdo file:
-  ________________________________________
+  ________________________________________<pre>
 
   [Jigdo]
   Version=1.0
@@ -26,14 +28,14 @@
   ShortInfo=This is a CD image
   Info=Some more info about the image.
    Whee, this entry extends over more than one line!
-  .
+  ,
    It even contains an empty line, above this one.
   # ^^^^^^ multi-line values UNIMPLEMENTED at the moment
 
   [Parts]
   QrxELOWvjQ2JgkFhlkT74w=A:ironmaiden/part88
   jKVYd3dxh68ROwI6NSQxGA=A:ironmaiden/part87
-  ________________________________________
+  </pre>________________________________________
 
   Whitespace is removed at the start of lines, to the left of the "="
   in an entry line and at the start and end of a section name, but

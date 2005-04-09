@@ -1,4 +1,4 @@
-/* $Id: bstream.hh,v 1.18 2005-04-03 23:07:26 atterer Exp $ -*- C++ -*-
+/* $Id: bstream.hh,v 1.19 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -7,7 +7,9 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  I/O streams for bytes (byte is unsigned char, not regular char)
+*//** @file
+
+  I/O streams for bytes (byte is unsigned char, not regular char).
 
   This was first solved with typedefs like "typedef
   basic_istream<byte> bistream;". That turns out to be difficult,

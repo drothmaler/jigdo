@@ -1,4 +1,4 @@
-/* $Id: jobline.hh,v 1.4 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: jobline.hh,v 1.5 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   One line in a JobList, in the lower part of the jigdo GUI window
 
@@ -85,9 +87,9 @@ protected:
       handler, the callback fnc will not be registered at all, saving some
       CPU time. */
   inline void callRegularly(TickHandler handler);
-  /// Return current tick handler
+  /** Return current tick handler */
   TickHandler getHandler() const { return tick; }
-  /// Does this object need to be called regularly?
+  /** Does this object need to be called regularly? */
   bool needTicks() const { return tick != 0; }
   /** Wait appropriate nr of ticks, then register the supplied handler.
       Effectively, this means the JobLine pauses for a while - e.g. so the

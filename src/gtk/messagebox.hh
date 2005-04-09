@@ -1,4 +1,4 @@
-/* $Id: messagebox.hh,v 1.2 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: messagebox.hh,v 1.3 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//**@file
 
   Display an error box with a message and standard or user-supplied buttons.
 

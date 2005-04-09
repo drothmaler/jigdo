@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.24 2005-04-09 14:44:50 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.25 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -500,7 +500,7 @@ void JigdoIO::include(string* url) {
 //______________________________________________________________________
 
 namespace {
-  // For Base64In - put decoded bytes into 16-byte array
+  /** Local class: For Base64In - put decoded bytes into 16-byte array */
   struct ArrayOut {
     typedef ArrayOut& ResultType;
     ArrayOut() { }

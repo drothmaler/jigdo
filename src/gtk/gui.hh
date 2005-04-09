@@ -1,4 +1,4 @@
-#/* $Id: gui.hh,v 1.1 2003-07-04 22:29:46 atterer Exp $ -*- C++ -*-
+#/* $Id: gui.hh,v 1.2 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -7,6 +7,9 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
+*//** @file
+
+  GTK event handlers.
   Global variables: Pointers to GUI elements.
 
 */

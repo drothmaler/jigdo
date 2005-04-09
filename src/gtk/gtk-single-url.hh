@@ -1,4 +1,4 @@
-/* $Id: gtk-single-url.hh,v 1.15 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-single-url.hh,v 1.16 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   'Simple' file download, i.e. download data and write it to a file.
 

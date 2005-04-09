@@ -1,4 +1,4 @@
-/* $Id: status.hh,v 1.3 2004-08-07 19:43:20 atterer Exp $ -*- C++ -*-
+/* $Id: status.hh,v 1.4 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify it
   under the terms of the GNU General Public License, version 2. See the file
   COPYING for details.
+
+*//** @file
 
   Return type for functions to show success or failure
 

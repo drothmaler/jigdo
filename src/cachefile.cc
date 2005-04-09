@@ -1,4 +1,4 @@
-/* $Id: cachefile.cc,v 1.5 2004-02-05 14:43:50 atterer Exp $ -*- C++ -*-
+/* $Id: cachefile.cc,v 1.6 2005-04-09 23:09:51 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -61,7 +61,8 @@ CacheFile::CacheFile(const char* dbName) {
 
 namespace {
 
-  // Wrapper which calls close() for any DBC cursor at end of scope
+  /** Local struct: Wrapper which calls close() for any DBC cursor at end of
+      scope */
   struct AutoCursor {
     AutoCursor() : c(0) { }
     ~AutoCursor() { close(); }

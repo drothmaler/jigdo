@@ -1,4 +1,4 @@
-/* $Id: mimestream.hh,v 1.5 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: mimestream.hh,v 1.6 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   Convert binary data to/from ASCII using Base64 encoding
 

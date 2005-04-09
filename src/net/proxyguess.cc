@@ -1,4 +1,4 @@
-/* $Id: proxyguess.cc,v 1.12 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: proxyguess.cc,v 1.13 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -183,6 +183,7 @@ void proxyGuess() {
 
 namespace {
 
+  /** Local struct: Info about a browser configuration file */
   struct BrowserConfig {
     /* Init filename and timestamp */
     BrowserConfig(const string& name, time_t timestamp);

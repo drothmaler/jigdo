@@ -1,4 +1,4 @@
-/* $Id: smartptr.hh,v 1.6 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: smartptr.hh,v 1.7 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -7,9 +7,7 @@
   it under the terms of the GNU General Public License, version 2 or
   later. See the file COPYING for details.
 
-*/
-
-/** @file
+*//** @file
 
   Smart pointer, i.e.\ pointer-like object that maintains a count for
   how many times an object is referenced, and only deletes the object

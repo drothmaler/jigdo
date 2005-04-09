@@ -1,4 +1,4 @@
-/* $Id: md5sum.hh,v 1.4 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: md5sum.hh,v 1.5 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2004  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -9,7 +9,9 @@
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
 
-  Quite secure 128-bit checksum
+*//** @file
+
+  128-bit checksum, secure enough for our purposes
 
 */
 

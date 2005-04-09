@@ -1,4 +1,4 @@
-/* $Id: ilist.hh,v 1.9 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
+/* $Id: ilist.hh,v 1.10 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -7,7 +7,9 @@
   under the terms of the GNU General Public License, version 2. See the file
   COPYING for details.
 
-  Intrusive list, i.e. every list member needs to derive publically from
+*//** @file
+
+  Intrusive list, ie every list member needs to derive publically from
   IListBase
 
   A speciality is that list members will remove themselves from their list

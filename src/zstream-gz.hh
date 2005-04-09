@@ -1,4 +1,4 @@
-/* $Id: zstream-gz.hh,v 1.4 2005-04-04 21:58:17 atterer Exp $ -*- C++ -*-
+/* $Id: zstream-gz.hh,v 1.5 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004-2005  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -6,6 +6,10 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
+
+  zlib (gzip-style) compression and decompression for zstream
 
 */
 
@@ -130,19 +134,5 @@ ZobstreamGz::ZobstreamGz(bostream& s, unsigned chunkLimit, int level,
   z.opaque = 0;
   open(s, chunkLimit, level, windowBits, memLevel, todoBufSz);
 }
-//______________________________________________________________________
-
-// ZibstreamGz::ZibstreamGz(bistream& s, unsigned bufSz) : Zibstream(bufSz) {
-//   z.zalloc = (alloc_func)0;
-//   z.zfree = (free_func)0;
-//   z.opaque = 0;
-//   open(s);
-// }
-
-// ZibstreamGz::ZibstreamGz(unsigned bufSz) : Zibstream(bufSz) {
-//   z.zalloc = (alloc_func)0;
-//   z.zfree = (free_func)0;
-//   z.opaque = 0;
-// }
 
 #endif

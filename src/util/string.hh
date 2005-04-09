@@ -1,4 +1,4 @@
-/* $Id: string.hh,v 1.7 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: string.hh,v 1.8 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -6,6 +6,8 @@
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2. See
   the file COPYING for details.
+
+*//** @file
 
   subst("Format %1, %2", arg1, arg2) creates strings with the arguments
   filled in, and does so in a safer way than sprintf() and friends.
