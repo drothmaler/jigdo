@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.11 2005-04-04 21:58:17 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.12 2005-04-09 10:36:02 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -239,7 +239,7 @@ void MyProgressReporter::print(string s, bool addNewline) {
 /* If stdout is redirected to a file, the file should just contain the
    progress reports, none of the padding space chars. */
 void MyProgressReporter::coutInfo(const string& message) {
-  cout << message;
+  cout << message << flush;
   if (message.size() < prevLine.size()) {
     size_t nrSpaces = prevLine.size() - message.size();
     while (nrSpaces >= 10) { cerr << "          "; nrSpaces -= 10; }
