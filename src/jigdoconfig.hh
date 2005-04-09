@@ -1,4 +1,4 @@
-/* $Id: jigdoconfig.hh,v 1.4 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: jigdoconfig.hh,v 1.5 2005-04-09 14:44:50 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -69,10 +69,10 @@ public:
   ConfigFile& configFile() { return *config; }
   //________________________________________
 
-  /** Prepare internal map from label name to URIs. Is called
-      automatically during JigdoConfig(), but must be called manually
-      afterwards whenever any entry in the ConfigFile's "[Servers]"
-      section changes. */
+  /** Prepare internal map from label name to URIs. Is called automatically
+      during JigdoConfig(), but must be called manually afterwards whenever
+      any entry in the ConfigFile's "[Servers]" section changes.  May throw
+      an Error if the jigdo file format version is not supported. */
   void rescan();
 
   /** Change reporter for error messages */
@@ -130,6 +130,7 @@ private:
                                 const string& label, bool& printError);
   inline void rescan_makeSubst(list<ServerLine>& entries, Map::iterator mapl,
                                const ServerLine& l, bool& printError);
+  void scanVersionInfo(); // Check for supported file format version number
 
   ConfigFile* config;
   Map serverMap;
