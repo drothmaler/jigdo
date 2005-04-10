@@ -1,4 +1,4 @@
-/* $Id: url-mapping.hh,v 1.8 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.hh,v 1.9 2005-04-10 17:04:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -49,7 +49,7 @@
     represented with a pointer to another UrlMapping, whose output URL(s)
     need to be prepended to "some/path". UrlMappings can be chained into a
     linked list - that list is a list of alternative mappings for the same
-    Label. */
+    label. */
 class UrlMapping : public SmartPtrBase, public NoCopy {
   friend class ServerUrlMapping;
   friend class PartUrlMapping;

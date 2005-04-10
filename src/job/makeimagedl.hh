@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.hh,v 1.24 2004-11-24 10:38:44 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.hh,v 1.25 2005-04-10 17:04:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -242,10 +242,16 @@ private: // To be called by Child only:
      u-UrlChecksum */
   void singleUrlWrongContent(Child* c);
 
+  // Called from Child::job_succeeded() when the template d/l has finished
+  void templateFinished();
+
 private: // Really private
 
   // Write a ReadMe.txt to the download dir; fails silently
   void writeReadMe();
+
+  // Starts the initial .jigdo download
+  void createJigdoDownload();
 
   /* Return filename for content md5sum cache entry:
      "/home/x/jigdo-blasejfwe/c-nGJ2hQpUNCIZ0fafwQxZmQ"

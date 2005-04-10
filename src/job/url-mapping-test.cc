@@ -1,4 +1,4 @@
-/* $Id: url-mapping-test.cc,v 1.4 2004-08-15 13:09:50 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping-test.cc,v 1.5 2005-04-10 17:04:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -65,8 +65,6 @@ namespace {
   void ap(UrlMap& m, const MD5& md, const char* s) {
     vector<string> value;
     ConfigFile::split(value, s, 0);
-//     vector<string> v;
-//     v.push_back(s);
     const char* result = m.addPart(base, md, value);
     if (result != 0) msg("addPart: %1", result);
     Assert(result == 0);
@@ -77,8 +75,6 @@ namespace {
           bool expectFailure = false) {
     vector<string> value;
     ConfigFile::split(value, s, 0);
-//     vector<string> v;
-//     v.push_back(s);
     const char* result = m.addServer(base, label, value);
     if (result != 0) msg("addServer: %1", result);
     Assert(expectFailure == (result != 0));
