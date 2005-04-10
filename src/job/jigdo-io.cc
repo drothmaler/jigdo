@@ -1,4 +1,4 @@
-/* $Id: jigdo-io.cc,v 1.25 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-io.cc,v 1.26 2005-04-10 16:36:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -51,7 +51,9 @@ JigdoIO::JigdoIO(MakeImageDl::Child* c, const string& url/*,
     firstChild(0), next(0), rootAndImageSectionCandidate(this), line(0),
     section(), imageSectionLine(0), imageName(), imageInfo(),
     imageShortInfo(), templateUrls(), templateMd5(0), /*childFailedId(0),*/
-    gunzip(this) { }
+    gunzip(this) {
+  debug("JigdoIO %1", this);
+}
 
 // Non-root, i.e. [Include]d object
 JigdoIO::JigdoIO(MakeImageDl::Child* c, const string& url,
@@ -62,7 +64,7 @@ JigdoIO::JigdoIO(MakeImageDl::Child* c, const string& url,
     rootAndImageSectionCandidate(parent->root()), line(0), section(),
     imageSectionLine(0), imageName(), imageInfo(), imageShortInfo(),
     templateUrls(), templateMd5(0), /*childFailedId(0),*/ gunzip(this) {
-  //debug("JigdoIO: Parent of %1 is %2", url, parent->urlVal);
+  debug("JigdoIO %1: Parent of %2 is %3", this, url, parent->urlVal);
 }
 //______________________________________________________________________
 

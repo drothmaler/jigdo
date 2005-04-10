@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.cc,v 1.25 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.26 2005-04-10 16:36:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -135,6 +135,7 @@ void MakeImageDl::run() {
   // Run initial .jigdo download, will start other downloads as needed
   auto_ptr<Child> childDl(childFor(jigdoUrl));
   if (childDl.get() != 0) {
+    debug("jigdo download child %1", childDl.get());
     string info = _("Retrieving .jigdo");
     jigdoIo = new JigdoIO(childDl.get(), jigdoUrl/*, frontend.get()*/);
     IOSOURCE_SEND(IO, io, job_message, (info));

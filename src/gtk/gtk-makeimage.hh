@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.hh,v 1.10 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.hh,v 1.11 2005-04-10 16:36:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -13,7 +13,7 @@
 
   Beware of the interesting ownership relations here: As the front-end,
   GtkMakeImage creates and owns a MakeImageDl. That MakeImageDl creates child
-  downloads of its own which are owned by *it*. However, GtkSingleUrls are
+  downloads of its own which are owned by the MakeImageDl. GtkSingleUrls are
   attached to those child downloads.
 
 */

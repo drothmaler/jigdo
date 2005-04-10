@@ -1,4 +1,4 @@
-/* $Id: gtk-makeimage.cc,v 1.18 2004-09-11 23:26:29 atterer Exp $ -*- C++ -*-
+/* $Id: gtk-makeimage.cc,v 1.19 2005-04-10 16:36:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -182,9 +182,6 @@ void GtkMakeImage::makeImageDl_new(
     Job::DataSource* childDownload, const string& uri,
     const string& destDesc) {
   debug("makeImageDl_new: %1", uri);
-// # if DEBUG
-//   msg("GtkMakeImage::makeImageDl_new", 0);
-// # endif
   GtkSingleUrl* child = new GtkSingleUrl(uri, destDesc, childDownload);
   GUI::jobList.prepend(child, this); // New child of "this" is "child"
   bool status = child->run();
