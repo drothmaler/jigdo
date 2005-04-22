@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.13 2005-04-20 16:57:29 atterer Exp $
+dnl $Id: configure.ac,v 1.14 2005-04-22 13:25:26 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -409,6 +409,16 @@ dnl AC_SUBST(LIBWWWCFLAGS)
 dnl AC_SUBST(LIBWWWLIBS)
 AC_SUBST(CURLCFLAGS)
 AC_SUBST(CURLLIBS)
+dnl ____________________
+
+if test "$jigdo_gui" = "yes" && test ! -e "$srcdir/src/gtk/interface.hh"; then
+  AC_CHECK_PROG(have_glade, glade-2, yes, no)
+  if test "$have_glade" = "no"; then
+    AC_MSG_RESULT([   * glade-2 was not found on your system. Please install])
+    AC_MSG_RESULT([   * it, it is needed to compile the jigdo GUI (actually,])
+    AC_MSG_RESULT([   * to create the file src/gtk/interface.hh)])
+  fi
+fi
 dnl ____________________
 
 AC_MSG_CHECKING(for value of --with-uint64)
