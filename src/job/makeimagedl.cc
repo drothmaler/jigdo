@@ -1,4 +1,5 @@
-/* $Id: makeimagedl.cc,v 1.27 2005-04-10 17:04:04 atterer Exp $ -*- C++ -*-
+
+/* $Id: makeimagedl.cc,v 1.28 2005-04-24 20:39:27 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -580,6 +581,9 @@ void MakeImageDl::templateFinished() {
   debug("templateFinished");
   if (finalState()) return; // I.e. there was an error
   Paranoid(stateVal == DOWNLOADING_TEMPLATE);
+
+#warning "todo: mi.templateFinished();"
+  //mi.templateFinished();
 
 //   stateVal = DOWNLOADING____;
 }
