@@ -1,4 +1,4 @@
-/* $Id: recursedir.hh,v 1.4 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.hh,v 1.5 2005-07-02 22:05:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -71,7 +71,8 @@ public:
       returns, in order to determine whether it is a directory. If the
       information returned by stat() is useful for you, supply your
       own struct stat for getName() to use. */
-  bool getName(string& result, struct stat* fileInfo = 0)
+  bool getName(string& result, struct stat* fileInfo = 0,
+               bool checkFiles = true)
       throw(RecurseError, bad_alloc);
 
   /** Flush list of "already visited device/inode pairs", which would

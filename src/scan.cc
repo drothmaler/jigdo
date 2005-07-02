@@ -1,4 +1,4 @@
-/* $Id: scan.cc,v 1.10 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
+/* $Id: scan.cc,v 1.11 2005-07-02 22:05:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -155,7 +155,7 @@ struct FilePart::SerializeCacheEntry {
 #if HAVE_LIBDB
 JigdoCache::JigdoCache(const string& cacheFileName, size_t expiryInSeconds,
                        size_t bufLen, ProgressReporter& pr)
-  : blockLength(0), md5BlockLength(0), files(), nrOfFiles(0),
+  : blockLength(0), md5BlockLength(0), checkFiles(true), files(), nrOfFiles(0),
     locationPaths(), readAmount(bufLen), buffer(), reporter(pr),
     cacheExpiry(expiryInSeconds) {
   cacheFile = 0;
@@ -239,7 +239,8 @@ const MD5* FilePart::getSumsRead(JigdoCache* c, size_t blockNr) {
       /* Unserialize will do nothing if md5BlockLength differs. If
          md5BlockLength matches, but returned blockLength doesn't, we
          need to re-read the first block. */
-      if (c->cacheFile->find(data, dataSize, leafName(), size(), mtime())) {
+      if (c->cacheFile->find(data, dataSize, leafName(), size(), mtime())
+          .ok()) {
         debug("%1 found, want block#%2", leafName(), blockNr);
         size_t cachedBlockLength = unserializeCacheEntry(data, dataSize,
                                                          c->md5BlockLength);

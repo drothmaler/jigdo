@@ -1,4 +1,4 @@
-/* $Id: zstream.hh,v 1.9 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
+/* $Id: zstream.hh,v 1.10 2005-07-02 22:05:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2005  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -208,7 +208,9 @@ public:
   Zibstream& read(byte* x, unsigned n);
   typedef uint64 streamsize;
   /** Number of characters read by last read() */
-  inline streamsize gcount() const { return gcountVal; gcountVal = 0; }
+  inline streamsize gcount() const {
+    streamsize n = gcountVal; gcountVal = 0; return n;
+  }
 
   bool good() const { return is_open() && buf != 0; }
   bool eof() const { return dataUnc == 0; }

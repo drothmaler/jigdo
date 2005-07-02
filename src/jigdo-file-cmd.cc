@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.12 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.13 2005-07-02 22:05:03 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -240,6 +240,7 @@ int JigdoFileCmd::makeTemplate() {
 
   JigdoCache cache(cacheFile, optCacheExpiry, readAmount, *optReporter);
   cache.setParams(blockLength, md5BlockLength);
+  cache.setCheckFiles(optCheckFiles);
   if (addLabels(cache)) return 3;
   while (true) {
     try { cache.readFilenames(fileNames); } // Recurse through directories
@@ -586,6 +587,7 @@ int JigdoFileCmd::scanFiles() {
 int JigdoFileCmd::md5sumFiles() {
   JigdoCache cache(cacheFile, optCacheExpiry, readAmount, *optReporter);
   cache.setParams(blockLength, md5BlockLength);
+  cache.setCheckFiles(optCheckFiles);
   while (true) {
     try { cache.readFilenames(fileNames); } // Recurse through directories
     catch (RecurseError e) { optReporter->error(e.message); continue; }
