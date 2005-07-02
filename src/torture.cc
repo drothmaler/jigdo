@@ -1,4 +1,4 @@
-/* $Id: torture.cc,v 1.8 2004-12-28 00:23:29 atterer Exp $ -*- C++ -*-
+/* $Id: torture.cc,v 1.9 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -45,7 +45,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <string.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 

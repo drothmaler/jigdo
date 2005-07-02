@@ -1,4 +1,4 @@
-/* $Id: compat.cc,v 1.2 2003-12-21 22:43:57 atterer Exp $ -*- C++ -*-
+/* $Id: compat.cc,v 1.3 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -34,7 +34,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #ifndef O_LARGEFILE
 #  define O_LARGEFILE 0 // Linux: Allow 64-bit file sizes on 32-bit arches
 #endif

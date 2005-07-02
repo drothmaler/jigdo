@@ -1,4 +1,4 @@
-/* $Id: mkimage.cc,v 1.13 2004-12-28 00:23:29 atterer Exp $ -*- C++ -*-
+/* $Id: mkimage.cc,v 1.14 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -18,7 +18,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 
 #include <iomanip>
 #include <iostream>

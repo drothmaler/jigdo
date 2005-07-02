@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.12 2004-08-29 01:01:04 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.13 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -10,6 +10,11 @@
 */
 
 #include <config.h>
+
+#if DEBUG
+#  include <string.h>
+#  include <unistd-jigdo.h>
+#endif
 
 #include <iostream>
 #include <string>
@@ -24,11 +29,6 @@
 #include <proxyguess.hh>
 #include <string-utf.hh>
 #include <support.hh>
-
-#if DEBUG
-#  include <string.h>
-#  include <unistd.h>
-#endif
 
 #if WINDOWS
 #  include <windows.h>

@@ -1,4 +1,4 @@
-/* $Id: scan.cc,v 1.9 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: scan.cc,v 1.10 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -21,7 +21,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 
 #include <bstream.hh>
 #include <compat.hh>

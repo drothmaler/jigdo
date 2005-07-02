@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.11 2005-04-04 21:58:17 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.12 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -17,7 +17,7 @@
 #include <memory>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #include <errno.h>
 
 #include <compat.hh>
@@ -566,9 +566,12 @@ int JigdoFileCmd::scanFiles() {
     break;
   }
   JigdoCache::iterator ci = cache.begin(), ce = cache.end();
-  while (ci != ce) {
-    ci->getSums(&cache, 0); // Cause first md5 block to be read
-    ++ci;
+  if (optScanWholeFile) {
+    // Cause entire file to be read
+    while (ci != ce) { ci->getMD5Sum(&cache); ++ci; }
+  } else {
+    // Only cause first md5 block to be read; not scanning the whole file
+    while (ci != ce) { ci->getSums(&cache, 0); ++ci; }
   }
   return 0;
   // Cache data is written out when the JigdoCache is destroyed

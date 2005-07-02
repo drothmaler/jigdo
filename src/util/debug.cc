@@ -1,4 +1,4 @@
-/* $Id: debug.cc,v 1.8 2004-09-09 23:50:22 atterer Exp $ -*- C++ -*-
+/* $Id: debug.cc,v 1.9 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 1999-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -11,7 +11,7 @@
 
 #include <iostream>
 #if defined DEBUG && defined HAVE_UNISTD_H
-#  include <unistd.h> /* for sleep() */
+#  include <unistd-jigdo.h> /* for sleep() */
 #endif
 #include <stdlib.h>
 
@@ -36,7 +36,7 @@ int Debug::assertFail(const char* assertion, const char* file,
 
 #if DEBUG && UNIX
 
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #include <stdlib.h>
 
 /** In order for memprof to be used, the process needs to sleep after

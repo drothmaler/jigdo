@@ -1,4 +1,4 @@
-/* $Id: recursedir.cc,v 1.7 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.cc,v 1.8 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -35,7 +35,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 
 #include <string.hh>
 //______________________________________________________________________

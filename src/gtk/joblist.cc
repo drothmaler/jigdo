@@ -1,4 +1,4 @@
-/* $Id: joblist.cc,v 1.14 2004-09-09 23:50:21 atterer Exp $ -*- C++ -*-
+/* $Id: joblist.cc,v 1.15 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -19,7 +19,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 
 #include <jobline.hh>
 #include <joblist.hh>

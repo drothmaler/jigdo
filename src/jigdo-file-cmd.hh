@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.hh,v 1.9 2005-04-04 21:58:17 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.hh,v 1.10 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -85,6 +85,7 @@ class JigdoFileCmd {
   static bool optBzip2;
   static bool optForce; // true => Silently delete existent output
   static bool optMkImageCheck; // true => check MD5sums
+  static bool optScanWholeFile; // false => read only first block
   static bool optAddImage; // true => Add [Image] section to output .jigdo
   static bool optAddServers; // true => Add [Servers] to output .jigdo
   static bool optHex; // true => Use hex not base64 output for md5/ls cmds

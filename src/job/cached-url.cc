@@ -1,4 +1,4 @@
-/* $Id: cached-url.cc,v 1.6 2005-04-09 22:31:28 atterer Exp $ -*- C++ -*-
+/* $Id: cached-url.cc,v 1.7 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -17,7 +17,7 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #include <string.h>
 #include <errno.h>
 #include <fstream>

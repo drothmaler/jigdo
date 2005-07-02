@@ -1,5 +1,5 @@
 
-/* $Id: makeimagedl.cc,v 1.28 2005-04-24 20:39:27 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.29 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -20,7 +20,7 @@
 #include <time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #include <fstream>
 #include <memory>
 

@@ -1,4 +1,4 @@
-/* $Id: compat.hh,v 1.5 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: compat.hh,v 1.6 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -20,7 +20,7 @@
 
 #include <string>
 #include <stdio.h>
-#include <unistd.h>
+#include <unistd-jigdo.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
