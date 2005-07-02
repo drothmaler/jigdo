@@ -1,4 +1,4 @@
-/* $Id: gui.cc,v 1.14 2004-08-03 16:31:52 atterer Exp $ -*- C++ -*-
+/* $Id: gui.cc,v 1.15 2005-07-02 14:53:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/�|  Richard Atterer          |  atterer.net
@@ -98,8 +98,8 @@ void GUI::create() {
   string banner = subst(_(
     "<span weight=\"bold\" foreground=\"black\">"
     "<span size=\"x-large\">Jigsaw Download %F1</span>\n"
-    "Copyright 2001-2004 Richard Atterer\n"
-    "http://atterer.net/jigdo</span>"), JIGDO_VERSION);
+    "Copyright 2001-%2 Richard Atterer\n"
+    "http://atterer.net/jigdo</span>"), JIGDO_VERSION, CURRENT_YEAR);
   gtk_label_set_markup(aboutJigdoLabel, banner.c_str());
   gtk_label_set_justify(aboutJigdoLabel, GTK_JUSTIFY_CENTER);
   //gtk_label_set_justify(GTK_LABEL(GUI::window.aboutJigdoButtonLabel),
@@ -199,9 +199,9 @@ namespace {
     gtk_text_buffer_insert_with_tags(textBuf, &iter,
       _("\nJigsaw Download License\n"), -1, large, center, NULL);
     string copy = subst(_("\n"
-    "\tCopyright © 2001-2004 Richard Atterer <richard%1atterer.net>\n"
+    "\tCopyright © 2001-%1 Richard Atterer <richard%2atterer.net>\n"
     "\tJigsaw Download homepage: http://atterer.net/jigdo\n"
-    "\n"), '@');
+    "\n"), CURRENT_YEAR, '@');
     gtk_text_buffer_insert_with_tags(textBuf, &iter, copy.c_str(), -1,
                                      center, NULL);
     gtk_text_buffer_insert(textBuf, &iter, _(

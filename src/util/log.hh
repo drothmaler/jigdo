@@ -1,4 +1,4 @@
-/* $Id: log.hh,v 1.9 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: log.hh,v 1.10 2005-07-02 14:53:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -111,7 +111,7 @@ public:
 
 # ifndef DOXYGEN_SKIP
   /* Logged strings are output via a OutputFunction* pointer. */
-  typedef void (Logger::OutputFunction)(const string& unitName,
+  typedef void (OutputFunction)(const string& unitName,
       unsigned char unitNameLen, const char* format, int args,
       const Subst arg[]);
 # endif
