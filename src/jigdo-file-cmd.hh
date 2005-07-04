@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.hh,v 1.11 2005-07-02 22:05:03 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.hh,v 1.12 2005-07-04 10:25:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -103,8 +103,10 @@ class JigdoFileCmd {
   static Command cmdOptions(int argc, char* argv[]);
   //________________________________________
 
-  /** @{ Functions corresponding to the jigdo-file commands, defined in
+  /** @name
+      Functions corresponding to the jigdo-file commands, defined in
       jigdo-file-cmd.cc */
+  //@{
   static int makeTemplate();
   static int makeImage();
   static int printMissing(Command command = PRINT_MISSING);
@@ -112,15 +114,17 @@ class JigdoFileCmd {
   static int verifyImage();
   static int listTemplate();
   static int md5sumFiles();
-  /*@}*/
+  //@}
 
-  /* @{ Helper functions for the above functions, only to be used in
-     jigdo-file-cmd.cc */
+  /** @name
+      Helper functions for the above functions, only to be used in
+      jigdo-file-cmd.cc */
+  //@{
   static int addLabels(JigdoCache& cache);
   static void addUris(ConfigFile& config);
   static bool printMissing_lookup(JigdoConfig& jc, const string& query,
                                   bool printAll);
-  /*@}*/
+  //@}
 };
 //______________________________________________________________________
 

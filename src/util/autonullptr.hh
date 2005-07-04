@@ -1,4 +1,4 @@
-/* $Id: autonullptr.hh,v 1.4 2004-09-11 23:26:30 atterer Exp $ -*- C++ -*-
+/* $Id: autonullptr.hh,v 1.5 2005-07-04 10:25:10 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -72,8 +72,9 @@ private:
 };
 //______________________________________________________________________
 
-/** The regular pointer tests */
-/*@{*/
+/** @name
+    The regular pointer tests */
+//@{
 template<class T>
 inline bool operator==(const AutoNullPtr<T>& a, const T* b) {
   return a.get() == b;
@@ -151,7 +152,7 @@ template<class T>
 inline bool operator>=(const AutoNullPtr<T>& a, const AutoNullPtr<T>& b) {
   return a.get() >= b.get();
 }
-/*@}*/
+//@}
 //______________________________________________________________________
 
 #endif
