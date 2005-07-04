@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.12 2005-07-04 08:51:49 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.13 2005-07-04 14:58:50 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -236,8 +236,7 @@ void MkTemplate::checkRsyncSumMatch2(const size_t blockLen,
      equal to file A, and file B is in the image.
      [I think A gets matched, then the following line prevents that a partial
      match for B is also recorded.] */
-  if (off - blockLen < unmatchedStart) return;
-  //if (off < unmatchedStart + blockLen) return;
+  if (off < unmatchedStart + blockLen) return;
 
   PartialMatch* x; // Ptr to new entry in "matches"
   if (matches->full()) {
