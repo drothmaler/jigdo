@@ -1,4 +1,4 @@
-/* $Id: jigdo-file.cc,v 1.18 2005-07-05 12:26:20 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file.cc,v 1.19 2005-07-05 12:47:17 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -374,6 +374,7 @@ inline void printUsage(bool detailed, size_t blockLength,
     "  --no-check-files [make-template,md5sum] when used with --cache,\n"
     "                   [make-image] Do not verify checksums of files\n"
     "  --scan-whole-file [scan] Scan whole file instead of only first block\n"
+    "  --no-scan-whole-file [scan] Scan only first block [default]\n"
     "  --greedy-matching [make-template] Prefer immediate matches of small\n"
     "                   files now over possible (but uncertain) matches of \n"
     "                   larger files later [default]\n"
