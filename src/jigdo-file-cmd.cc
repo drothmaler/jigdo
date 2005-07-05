@@ -1,4 +1,4 @@
-/* $Id: jigdo-file-cmd.cc,v 1.13 2005-07-02 22:05:03 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo-file-cmd.cc,v 1.14 2005-07-05 12:26:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -253,6 +253,7 @@ int JigdoFileCmd::makeTemplate() {
                       optZipQuality, readAmount, optAddImage, optAddServers,
                       optBzip2));
   op->setMatchExec(optMatchExec);
+  op->setGreedyMatching(optGreedyMatching);
   size_t lastDirSep = imageFile.rfind(DIRSEP);
   if (lastDirSep == string::npos) lastDirSep = 0; else ++lastDirSep;
   string imageFileLeaf(imageFile, lastDirSep);

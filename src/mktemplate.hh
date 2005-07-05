@@ -1,4 +1,4 @@
-/* $Id: mktemplate.hh,v 1.8 2005-04-04 21:58:17 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.hh,v 1.9 2005-07-05 12:26:20 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -80,6 +80,12 @@ public:
 
   /** Set command(s) to be executed when a file matches. */
   inline void setMatchExec(const string& me);
+
+  /** Set and get whether to skip smaller matches if a larger match could be
+      possible (with the risk to skip both). True <=> prefer small matches;
+      false <=> skip small, prefer large */
+  inline void setGreedyMatching(bool x) { greedyMatching = x; }
+  inline bool getGreedyMatching() const { return greedyMatching; }
 
   /** First scan through all the individual files, creating checksums,
       then read image file and find matches. Write .template and .jigdo
@@ -179,6 +185,8 @@ private:
      within the image. */
   uint64 off; // Current absolute offset in image
   uint64 unmatchedStart;
+
+  bool greedyMatching;
 
   JigdoCache* cache;
   bistream* image;
