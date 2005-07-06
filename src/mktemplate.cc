@@ -1,4 +1,4 @@
-/* $Id: mktemplate.cc,v 1.15 2005-07-05 12:26:20 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.cc,v 1.16 2005-07-06 15:29:59 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -501,6 +501,8 @@ bool MkTemplate::checkMD5Match(byte* const buf,
 
   if (!greedyMatching && x != oldestMatch) {
     // A larger match is possible, so skip this match
+    debug("IGNORING match due to --no-greedy-matching: [%1,%2) %3",
+          x->startOffset(), off, x->file()->leafName());
     matches->eraseFront(); // return x to free pool
     return SUCCESS;
   }
