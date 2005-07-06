@@ -1,4 +1,4 @@
-/* $Id: url-mapping.cc,v 1.7 2004-09-12 21:08:28 atterer Exp $ -*- C++ -*-
+/* $Id: url-mapping.cc,v 1.8 2005-07-06 14:55:41 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2004  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -23,7 +23,9 @@
 #include <url-mapping.hh>
 //______________________________________________________________________
 
-DEBUG_UNIT("url-mapping")
+// "make test" needs the logging built in even if DEBUG=0
+#undef debug
+namespace { Logger debug("url-mapping"); }
 
 namespace {
 
