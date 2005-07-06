@@ -1,5 +1,4 @@
-
-/* $Id: makeimagedl.cc,v 1.29 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.cc,v 1.30 2005-07-06 22:06:34 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
