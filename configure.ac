@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.18 2005-07-08 15:48:00 atterer Exp $
+dnl $Id: configure.ac,v 1.19 2005-07-08 16:26:07 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -91,6 +91,15 @@ fi
 AC_SUBST(exe)
 AC_SUBST(IF_WINDOWS)
 AC_SUBST(IF_UNIX)
+
+if test "$is_windows" = "yes"; then
+    if test "$ac_cv_prog_cc_g" = "yes"; then
+        CFLAGS="$CFLAGS -mms-bitfields -march=pentium"
+    fi
+    if test "$ac_cv_prog_cxx_g" = "yes"; then
+        CXXFLAGS="$CXXFLAGS -mms-bitfields -march=pentium"
+    fi
+fi
 dnl ____________________
 
 AC_CACHE_CHECK(whether the C++ compiler is recent enough,
