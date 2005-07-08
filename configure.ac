@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.17 2005-07-07 15:49:05 atterer Exp $
+dnl $Id: configure.ac,v 1.18 2005-07-08 15:48:00 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -384,7 +384,9 @@ dnl     esac
 dnl fi
 
 dnl The following adds flags for libcurl
+dnl On Windows, no curl-config is supplied
 if test "$jigdo_gui" = "yes"; then
+  if test "$is_windows" = "no"; then
     AC_MSG_CHECKING(for libcurl 7.11.0 or later)
     set x `curl-config --version 2>&1`
     shift
@@ -403,6 +405,18 @@ if test "$jigdo_gui" = "yes"; then
         AC_MSG_RESULT([   * needed by the jigdo GUI application.])
         installDevel "libcurl2" "libcurl2"
     esac
+  else
+    AC_CHECK_LIB(curl, curl_global_init, have_libcurl="-lcurl", have_libcurl="no")
+    AC_CHECK_LIB(curldll, curl_global_init, have_libcurl="-lcurldll", )
+    AC_CHECK_HEADER(curl/curl.h, have_curl_h="yes", have_curl_h="no")
+    if test "$have_libcurl" = "no" -o "$have_curl_h" = "no"; then
+        AC_MSG_RESULT([   * Please install libcurl 7.11.0 or later, it is])
+        AC_MSG_RESULT([   * needed by the jigdo GUI application.])
+    else
+        CURLCFLAGS=""
+	CURLLIBS="$have_libcurl"
+    fi
+  fi
 fi
 
 if test "$jigdo_gui" = "yes"; then IF_GUI=""; else IF_GUI="#"; fi
