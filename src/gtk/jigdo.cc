@@ -1,4 +1,4 @@
-/* $Id: jigdo.cc,v 1.13 2005-07-02 17:21:35 atterer Exp $ -*- C++ -*-
+/* $Id: jigdo.cc,v 1.14 2005-07-09 22:21:04 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -177,6 +177,7 @@ int main(int argc, char *argv[]) {
       add_pixmap_directory("gfx");
 #     endif
       string pixDir = packageDataDir; pixDir += "pixmaps";
+      add_pixmap_directory("..\\gfx");
       add_pixmap_directory(pixDir.c_str());
     }
     cmdOptions(argc, argv);
