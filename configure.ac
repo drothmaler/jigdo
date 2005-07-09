@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.22 2005-07-09 21:50:18 atterer Exp $
+dnl $Id: configure.ac,v 1.23 2005-07-09 22:21:33 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -405,6 +405,7 @@ if test "$jigdo_gui" = "yes"; then
   else
     AC_CHECK_LIB(curl, curl_global_init, have_libcurl="-lcurl", have_libcurl="no")
     AC_CHECK_LIB(curldll, curl_global_init, have_libcurl="-lcurldll", )
+    AC_CHECK_LIB(libcurl, curl_global_init, have_libcurl="-llibcurl", )
     AC_CHECK_HEADER(curl/curl.h, have_curl_h="yes", have_curl_h="no")
     if test "$have_libcurl" = "no" -o "$have_curl_h" = "no"; then
         AC_MSG_RESULT([   * Please install libcurl 7.11.0 or later, it is])
