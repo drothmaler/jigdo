@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.20 2005-07-09 15:58:46 atterer Exp $
+dnl $Id: configure.ac,v 1.21 2005-07-09 19:14:46 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -146,6 +146,19 @@ if test "$jigdo_cv_prog_cxx_varmacro" = "yes"; then
 else
     AC_DEFINE(HAVE_VARMACRO, 0)
 fi
+dnl ________________________________________
+
+dnl Doesn't work
+dnl AC_CACHE_CHECK([whether C++ supports accessing files larger than 4 GB],
+dnl                jigdo_cv_prog_cxx_lfs,
+dnl     AC_TRY_COMPILE([#include <fstream>],
+dnl         [using namespace std; ifstream i; i.seekg(0x100000000, ios::beg);],
+dnl         jigdo_cv_prog_cxx_lfs="yes", jigdo_cv_prog_cxx_lfs="no")
+dnl )
+dnl if test "$jigdo_cv_prog_cxx_lfs" = "no"; then
+dnl     AC_MSG_RESULT([   * There is a problem accessing large files.])
+dnl     AC_MSG_RESULT([   * jigdo may be unable to work with DVD-sized images.])
+dnl fi
 dnl ________________________________________
 
 AC_CHECK_PROG(have_wget, wget, yes, no)
