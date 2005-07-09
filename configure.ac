@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.19 2005-07-08 16:26:07 atterer Exp $
+dnl $Id: configure.ac,v 1.20 2005-07-09 15:58:46 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -735,7 +735,7 @@ fi
 AC_SUBST_FILE(SRC_MAKEDEPS)
 
 dnl Create subdirs in src directory
-for dir in $SUBDIRS; do
+for dir in "" $SUBDIRS; do
     test ! -d "src/$dir" && mkdir "src/$dir"
 done
 AC_OUTPUT(Makefile doc/Makefile src/Makefile po/Makefile)
