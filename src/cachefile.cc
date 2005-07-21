@@ -1,4 +1,4 @@
-/* $Id: cachefile.cc,v 1.7 2005-07-02 22:05:03 atterer Exp $ -*- C++ -*-
+/* $Id: cachefile.cc,v 1.8 2005-07-21 11:31:43 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -131,7 +131,7 @@ Status CacheFile::find(const byte*& resultData, size_t& resultSize,
 //________________________________________
 
 Status CacheFile::findName(const byte*& resultData, size_t& resultSize,
-    const string& fileName, long long int& resultFileSize,
+    const string& fileName, off_t& resultFileSize,
     time_t& resultMtime) {
   DBT key; memset(&key, 0, sizeof(DBT));
   key.data = const_cast<char*>(fileName.c_str());
