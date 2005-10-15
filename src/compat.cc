@@ -1,4 +1,4 @@
-/* $Id: compat.cc,v 1.4 2005-07-09 19:14:46 atterer Exp $ -*- C++ -*-
+/* $Id: compat.cc,v 1.5 2005-10-15 16:39:46 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -38,15 +38,13 @@ int compat_truncate(const char* path, uint64 length) {
                              OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
   if (handle == INVALID_HANDLE_VALUE) return -1;
 
-  LARGE_INTEGER targetFileLen;
-  targetFileLen.QuadPart = length;
-  LARGE_INTEGER newFileLen;
-  if (SetFilePointerEx(handle, targetFileLen, &newFileLen, FILE_BEGIN) == 0
-      || SetEndOfFile(handle) == 0U) {
+  LONG lengthHi = length >> 32;
+  DWORD setPointerRet = SetFilePointer(handle, length, &lengthHi, FILE_BEGIN);
+  if ((setPointerRet == INVALID_SET_FILE_POINTER && GetLastError() != NO_ERROR)
+      || SetEndOfFile(handle) == 0) {
     CloseHandle(handle);
     return -1;
   }
-  Assert(static_cast<uint64>(newFileLen.QuadPart) == length);
   if (CloseHandle(handle) == 0) return -1;
   return 0;
 }
