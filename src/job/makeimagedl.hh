@@ -1,4 +1,4 @@
-/* $Id: makeimagedl.hh,v 1.25 2005-04-10 17:04:04 atterer Exp $ -*- C++ -*-
+/* $Id: makeimagedl.hh,v 1.26 2005-10-15 21:33:35 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -220,7 +220,7 @@ public:
       &lt;, &gt; &amp; */
   void imageInfo(string* output, bool escapedText,
                  const char* subst[13]) const;
-  /** Helper enum for the offsets above */
+  /** Helper enum for the offsets above. E.g. TT is <tt>, TT_ is </tt> */
   enum { B, B_, I, I_, TT, TT_, U, U_, BIG, BIG_, SMALL, SMALL_, BR };
 
   /** Return ImageInfo as it appears in the .jigdo file. The value has *not*
