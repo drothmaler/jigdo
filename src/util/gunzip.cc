@@ -1,4 +1,4 @@
-/* $Id: gunzip.cc,v 1.5 2003-08-15 11:38:30 atterer Exp $ -*- C++ -*-
+/* $Id: gunzip.cc,v 1.6 2006-05-14 18:23:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2003  |  richard@
   | \/¯|  Richard Atterer     |  atterer.net
@@ -121,8 +121,8 @@ void Gunzip::inject(const byte* compressed, unsigned size) {
       // Found .gz ID bytes \x1f\x8b, compression method byte follows
       debug("HEADER_CM: Need byte 8, got %1", unsigned(*z.next_in));
       if (*z.next_in != 8) {
-        outputByte('\x1f');
-        outputByte('\x8b');
+        outputByte(0x1f);
+        outputByte(0x8b);
         state = TRANSPARENT;
         break;
       }

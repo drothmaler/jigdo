@@ -1,4 +1,4 @@
-/* $Id: mktemplate.hh,v 1.9 2005-07-05 12:26:20 atterer Exp $ -*- C++ -*-
+/* $Id: mktemplate.hh,v 1.10 2006-05-14 18:23:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2000-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -136,7 +136,7 @@ private:
   void prepareJigdo();
   void finalizeJigdo(const string& imageLeafName,
     const string& templLeafName, const MD5Sum& templMd5Sum);
-  INLINE bool MkTemplate::scanFiles(size_t blockLength, uint32 blockMask,
+  INLINE bool scanFiles(size_t blockLength, uint32 blockMask,
     size_t md5BlockLength);
   INLINE bool scanImage(byte* buf, size_t bufferLength, size_t blockLength,
     uint32 blockMask, size_t md5BlockLength, MD5Sum&);

@@ -1,4 +1,4 @@
-/* $Id: download.hh,v 1.16 2005-04-09 23:09:52 atterer Exp $ -*- C++ -*-
+/* $Id: download.hh,v 1.17 2006-05-14 18:23:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -126,7 +126,7 @@ private:
   static size_t curlWriter(void* data, size_t size, size_t nmemb,
                            void* selfPtr);
   // Called by glibcurl after curl_multi_perform()
-  static void Download::glibcurlCallback(void*);
+  static void glibcurlCallback(void*);
 
   // Unregister request from glibwww event loop
 //   void pauseNow();

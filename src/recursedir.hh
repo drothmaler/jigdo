@@ -1,4 +1,4 @@
-/* $Id: recursedir.hh,v 1.6 2005-07-04 10:25:10 atterer Exp $ -*- C++ -*-
+/* $Id: recursedir.hh,v 1.7 2006-05-14 18:23:31 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -101,7 +101,7 @@ private:
   string curDir;
   stack<Level> recurseStack;
 
-  inline bool RecurseDir::getNextObjectName(string& result)
+  inline bool getNextObjectName(string& result)
     throw(RecurseError);
   queue<string> objects; // Queue of filenames to output/dirs to recurse into
   queue<string> objectsFrom; // Files containing filenames
