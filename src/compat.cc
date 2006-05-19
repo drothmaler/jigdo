@@ -1,4 +1,4 @@
-/* $Id: compat.cc,v 1.5 2005-10-15 16:39:46 atterer Exp $ -*- C++ -*-
+/* $Id: compat.cc,v 1.6 2006-05-19 16:05:40 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2003  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -118,6 +118,10 @@ bool compat_setenv(const char* name, const char* value) {
 //====================================================================
 
 #if !WINDOWS && HAVE_IOCTL_WINSZ && HAVE_FILENO
+// Solaris 10 includes:
+#include <termio.h>
+#include <unistd.h>
+// Linux includes:
 #include <sys/ioctl.h>
 #include <errno.h>
 int ttyWidth() {

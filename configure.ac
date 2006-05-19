@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.ac,v 1.24 2005-10-15 19:27:16 atterer Exp $
+dnl $Id: configure.ac,v 1.25 2006-05-19 16:05:40 atterer Exp $
 AC_INIT(src/jigdo-file.cc)
 AC_CONFIG_HEADER(src/config.h)
 dnl ______________________________________________________________________
@@ -560,7 +560,9 @@ dnl Check whether reading width of TTY via ioctl() works
 AC_CACHE_CHECK([for TIOCGWINSZ ioctl],
                jigdo_cv_ioctl_winsz,
     AC_TRY_COMPILE(
-        [ #include <stdio.h>
+        [ #include <termio.h>
+          #include <unistd.h>
+          #include <stdio.h>
           #include <sys/ioctl.h>],
         [ struct winsize w; int i;
           ioctl(fileno(stdout), TIOCGWINSZ, &w);
