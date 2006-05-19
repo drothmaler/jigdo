@@ -1,4 +1,4 @@
-/* $Id: scan.hh,v 1.5 2005-07-02 22:05:04 atterer Exp $ -*- C++ -*-
+/* $Id: scan.hh,v 1.6 2006-05-19 14:46:25 atterer Exp $ -*- C++ -*-
   __   _
   |_) /|  Copyright (C) 2001-2002  |  richard@
   | \/¯|  Richard Atterer          |  atterer.net
@@ -420,12 +420,13 @@ void JigdoCache::readFilenames(RecurseDir& rd) {
   while (true) {
     bool status = rd.getName(name, &fileInfo, checkFiles); // Might throw error
     if (status == FAILURE) return; // No more names
+    off_t stSize = fileInfo.st_size;
 #   if HAVE_LIBDB
     if (!checkFiles) {
       const byte* data;
       size_t dataSize;
       try {
-        if (cacheFile->findName(data, dataSize, name, fileInfo.st_size,
+        if (cacheFile->findName(data, dataSize, name, stSize,
                                 fileInfo.st_mtime).failed())
           continue;
       } catch (DbError e) {
@@ -434,7 +435,7 @@ void JigdoCache::readFilenames(RecurseDir& rd) {
       }
     }
 #   endif
-    if (fileInfo.st_size == 0) continue; // Skip zero-length files
+    if (stSize == 0) continue; // Skip zero-length files
     addFile(name);
   }
 }
